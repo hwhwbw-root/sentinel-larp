@@ -1,0 +1,38 @@
+name: Database Ops
+
+# Manually-triggered migration/seed runner. GitHub's runners have normal
+# internet access to Neon, unlike some restricted dev sandboxes, so this is
+# the reliable way to apply schema changes and (optionally) seed the first
+# Superadmin account.
+on:
+  workflow_dispatch:
+    inputs:
+      run_seed:
+        description: "Also seed the Superadmin account (requires the SEED_SUPERADMIN_EMAIL/PASSWORD secrets)"
+        type: boolean
+        default: false
+
+jobs:
+  db-ops:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - run: npm ci
+
+      - name: Run migrations
+        run: npm run db:migrate
+        env:
+          DATABASE_URL: ${{ secrets.DATABASE_URL }}
+
+      - name: Seed Superadmin
+        if: ${{ inputs.run_seed }}
+        run: npm run db:seed
+        env:
+          DATABASE_URL: ${{ secrets.DATABASE_URL }}
+          SEED_SUPERADMIN_EMAIL: ${{ secrets.SEED_SUPERADMIN_EMAIL }}
+          SEED_SUPERADMIN_PASSWORD: ${{ secrets.SEED_SUPERADMIN_PASSWORD }}
