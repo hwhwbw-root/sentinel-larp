@@ -37,6 +37,9 @@ yarn-error.log*
 # vercel
 .vercel
 
+# mocksense local secrets
+mocksense/device_keys.py
+
 # typescript
 *.tsbuildinfo
 next-env.d.ts

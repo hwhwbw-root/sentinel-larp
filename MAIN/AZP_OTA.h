@@ -17,13 +17,14 @@
 
 // =====================================================
 // OTA SERVER (CRITICAL: NO TRAILING SPACES!)
-// NOTE: firmware hosting moved from the old external azmiproductions.com
-// PHP host into the Sentinel app itself (Vercel Blob + a firmware_versions
-// table). Only these two URLs changed - the version-check/update logic
-// below is untouched.
+// NOTE: kept on the original externally-hosted azmiproductions.com PHP
+// host (already maintained by someone else, working fine) instead of
+// moving to the Sentinel app's own firmware routes. The
+// /api/firmware/version and /api/firmware/download routes still exist in
+// the app but are unused by this firmware.
 // =====================================================
-static const char* AZP_VERSION_URL = "https://sentinel.example.com/api/firmware/version";
-static const char* AZP_BIN_URL     = "https://sentinel.example.com/api/firmware/download";
+static const char* AZP_VERSION_URL = "https://azmiproductions.com/trosense/version.txt";
+static const char* AZP_BIN_URL     = "https://azmiproductions.com/trosense/firmware.bin";
 
 // =====================================================
 // INTERNAL TIMER

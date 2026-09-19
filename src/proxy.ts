@@ -2,7 +2,7 @@ import { NextResponse } from "next/server";
 import { auth } from "@/auth";
 import { roleAtLeast } from "@/lib/rbac";
 
-const SUPERADMIN_ROUTES = ["/users", "/firmware"];
+const SUPERADMIN_ROUTES = ["/users"];
 
 export default auth((req) => {
   const { pathname } = req.nextUrl;

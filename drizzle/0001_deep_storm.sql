@@ -1,0 +1,1 @@
+DROP TABLE "firmware_versions" CASCADE;

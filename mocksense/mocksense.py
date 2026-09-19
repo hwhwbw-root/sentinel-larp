@@ -13,8 +13,8 @@ from zoneinfo import ZoneInfo
 # DEVICE_API_KEYS below maps box_id -> that device's key. Only these
 # endpoints/keys and the request-building code that uses them changed;
 # calculate_alert() and the data generators are untouched.
-SUPABASE_URL = "https://sentinel.example.com/api/devices/ingest"
-DEVICES_URL = "https://sentinel.example.com/api/devices/thresholds"
+SUPABASE_URL = "http://localhost:3000/api/devices/ingest"
+DEVICES_URL = "http://localhost:3000/api/devices/thresholds"
 
 # Device configurations - ADJUST INTERVALS HERE (in seconds)
 DEVICES_CONFIG = {
@@ -30,13 +30,17 @@ DEVICES_CONFIG = {
     }
 }
 
-# Per-device Sentinel API keys - replace with the keys shown when each
-# mocksense-* device is created in Device Management. Treat these like
-# passwords: do not commit real keys to source control.
-DEVICE_API_KEYS = {
-    "mocksense-0": "REPLACE_WITH_MOCKSENSE_0_SENTINEL_API_KEY",
-    "mocksense-1": "REPLACE_WITH_MOCKSENSE_1_SENTINEL_API_KEY",
-}
+# Per-device Sentinel API keys live in device_keys.py (gitignored, not
+# committed). Copy device_keys.example.py to device_keys.py and fill in
+# the keys shown when each mocksense-* device is created in Device
+# Management.
+try:
+    from device_keys import DEVICE_API_KEYS
+except ImportError:
+    raise SystemExit(
+        "Missing mocksense/device_keys.py - copy device_keys.example.py to "
+        "device_keys.py and fill in your real per-device API keys."
+    )
 
 # Default Threshold values (fallback)
 DEFAULT_THRESHOLDS = {

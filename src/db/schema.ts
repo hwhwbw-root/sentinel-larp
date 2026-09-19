@@ -98,13 +98,3 @@ export const deviceLogs = pgTable(
   },
   (table) => [index("device_logs_box_id_created_at_idx").on(table.boxId, table.createdAt)],
 );
-
-export const firmwareVersions = pgTable("firmware_versions", {
-  id: uuid("id").primaryKey().defaultRandom(),
-  version: text("version").notNull().unique(),
-  blobUrl: text("blob_url").notNull(),
-  uploadedBy: uuid("uploaded_by").references(() => users.id),
-  createdAt: timestamp("created_at", { withTimezone: true })
-    .notNull()
-    .defaultNow(),
-});
