@@ -6,7 +6,6 @@ import {
   History,
   HardDrive,
   Users,
-  Cpu,
   LogOut,
   Menu,
   X,
@@ -28,10 +27,10 @@ export function AppShell({ user, children }: AppShellProps) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   return (
-    <div className="flex h-screen bg-slate-950 text-slate-100 overflow-hidden">
+    <div className="flex h-screen bg-background text-foreground overflow-hidden">
       {mobileMenuOpen && (
         <div
-          className="fixed inset-0 bg-black/60 backdrop-blur-sm z-40 md:hidden"
+          className="fixed inset-0 bg-zinc-900/30 backdrop-blur-sm z-40 md:hidden"
           onClick={() => setMobileMenuOpen(false)}
         />
       )}
@@ -39,7 +38,7 @@ export function AppShell({ user, children }: AppShellProps) {
       <aside
         className={`
         fixed md:static inset-y-0 left-0 z-50
-        bg-slate-900 border-r border-slate-800
+        bg-white border-r border-zinc-200/60
         transition-all duration-300 flex flex-col
         ${mobileMenuOpen ? "translate-x-0" : "-translate-x-full"}
         md:translate-x-0
@@ -47,10 +46,10 @@ export function AppShell({ user, children }: AppShellProps) {
         ${mobileMenuOpen ? "!w-64" : ""}
       `}
       >
-        <div className="h-16 flex items-center px-4 border-b border-slate-800 justify-between">
+        <div className="h-16 flex items-center px-4 border-b border-zinc-200/60 justify-between">
           <Link
             href="/dashboard"
-            className={`font-bold text-xl tracking-wider text-emerald-500 flex items-center gap-2 ${!sidebarOpen && "md:justify-center md:items-center"}`}
+            className={`font-bold text-xl tracking-wider flex items-center gap-2 ${!sidebarOpen && "md:justify-center md:items-center"}`}
           >
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
@@ -63,13 +62,13 @@ export function AppShell({ user, children }: AppShellProps) {
               <img
                 src="/branding/sentinel-typo.svg"
                 alt="Sentinel"
-                className="w-auto h-10 object-contain ml-2"
+                className="w-auto h-9 object-contain ml-2"
               />
             )}
           </Link>
           <button
             onClick={() => setMobileMenuOpen(false)}
-            className="md:hidden text-slate-400 hover:text-white flex items-center justify-center"
+            className="md:hidden text-zinc-400 hover:text-zinc-900 flex items-center justify-center"
           >
             <X size={20} />
           </button>
@@ -110,22 +109,12 @@ export function AppShell({ user, children }: AppShellProps) {
               onClick={() => setMobileMenuOpen(false)}
             />
           )}
-          {user.role === "Superadmin" && (
-            <NavItem
-              to="/firmware"
-              icon={<Cpu size={20} />}
-              label="Firmware Update"
-              active={pathname === "/firmware"}
-              collapsed={!sidebarOpen && !mobileMenuOpen}
-              onClick={() => setMobileMenuOpen(false)}
-            />
-          )}
         </nav>
 
-        <div className="hidden md:block p-4 border-t border-slate-800">
+        <div className="hidden md:block p-4 border-t border-zinc-200/60">
           <button
             onClick={() => setSidebarOpen(!sidebarOpen)}
-            className="w-full flex items-center justify-center p-2 rounded-lg hover:bg-slate-800 text-slate-400 transition-colors"
+            className="w-full flex items-center justify-center p-2 rounded-lg hover:bg-zinc-100 text-zinc-400 hover:text-zinc-700 transition-colors"
           >
             <Menu size={20} />
           </button>
@@ -133,28 +122,26 @@ export function AppShell({ user, children }: AppShellProps) {
       </aside>
 
       <div className="flex-1 flex flex-col min-w-0 transition-all duration-300">
-        <header className="h-16 bg-slate-900/50 backdrop-blur-md border-b border-slate-800 flex items-center justify-between px-4 md:px-6 sticky top-0 z-30">
+        <header className="h-16 bg-white/70 backdrop-blur-md border-b border-zinc-200/60 flex items-center justify-between px-4 md:px-6 sticky top-0 z-30">
           <button
             onClick={() => setMobileMenuOpen(true)}
-            className="md:hidden text-slate-400 hover:text-white"
+            className="md:hidden text-zinc-400 hover:text-zinc-900"
           >
             <Menu size={24} />
           </button>
 
           <div className="flex items-center gap-3 ml-auto">
             <div className="text-right hidden sm:block">
-              <p className="text-sm font-medium text-slate-200">
-                {user.name}
-              </p>
-              <p className="text-xs text-slate-500">{user.role}</p>
+              <p className="text-sm font-medium text-zinc-800">{user.name}</p>
+              <p className="text-xs text-zinc-500">{user.role}</p>
             </div>
-            <div className="w-8 h-8 md:w-9 md:h-9 bg-slate-700 rounded-full flex items-center justify-center overflow-hidden border border-slate-600">
-              <UserIcon size={20} className="text-slate-300" />
+            <div className="w-8 h-8 md:w-9 md:h-9 bg-zinc-100 rounded-full flex items-center justify-center overflow-hidden border border-zinc-200">
+              <UserIcon size={20} className="text-zinc-500" />
             </div>
             <form action={logoutAction}>
               <button
                 type="submit"
-                className="p-2 rounded-lg hover:bg-slate-800 text-slate-400 hover:text-white transition-colors"
+                className="p-2 rounded-lg hover:bg-zinc-100 text-zinc-400 hover:text-zinc-900 transition-colors"
                 title="Log out"
               >
                 <LogOut size={18} />
@@ -163,7 +150,7 @@ export function AppShell({ user, children }: AppShellProps) {
           </div>
         </header>
 
-        <main className="flex-1 overflow-y-auto bg-slate-950 p-4 md:p-6 scroll-smooth">
+        <main className="flex-1 overflow-y-auto bg-background p-4 md:p-6 scroll-smooth">
           {children}
         </main>
       </div>
@@ -190,17 +177,20 @@ function NavItem({
     <Link
       href={to}
       onClick={onClick}
-      className={`w-full flex items-center gap-3 px-3 py-2.5 rounded-lg transition-all duration-200 group
+      className={`relative w-full flex items-center gap-3 px-3 py-2.5 rounded-lg transition-all duration-200 group
             ${
               active
-                ? "bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 shadow-[0_0_15px_rgba(16,185,129,0.1)]"
-                : "text-slate-400 hover:bg-slate-800 hover:text-slate-100"
+                ? "bg-accent/5 text-accent"
+                : "text-zinc-500 hover:bg-zinc-100 hover:text-zinc-900"
             }
             ${collapsed ? "justify-center" : ""}
         `}
     >
+      {active && (
+        <span className="absolute left-0 top-1.5 bottom-1.5 w-[3px] rounded-full bg-accent" />
+      )}
       <span
-        className={`${active ? "text-emerald-400" : "group-hover:text-emerald-400 transition-colors"} shrink-0`}
+        className={`${active ? "text-accent" : "group-hover:text-accent transition-colors"} shrink-0`}
       >
         {icon}
       </span>

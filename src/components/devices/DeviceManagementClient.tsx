@@ -2,6 +2,7 @@
 
 import { useState, useTransition, useActionState } from "react";
 import { useRouter } from "next/navigation";
+import { AnimatePresence, motion } from "framer-motion";
 import { Plus, Trash2, Edit, Check, X, KeyRound, Copy } from "lucide-react";
 import type { Device, DeviceType, UserRole } from "@/lib/types";
 import {
@@ -14,6 +15,8 @@ import {
   regenerateDeviceApiKeyAction,
   type AddDeviceState,
 } from "@/lib/actions/devices";
+import { BentoCard } from "@/components/ui/BentoCard";
+import { spring } from "@/lib/motion";
 
 type FieldName = "alias" | "alertThreshold" | "dangerousThreshold" | "calA" | "calB";
 type EditingField = { deviceId: string; field: FieldName } | null;
@@ -104,13 +107,13 @@ export function DeviceManagementClient({
     <div className="space-y-6">
       <div className="flex justify-between items-center">
         <div>
-          <h1 className="text-2xl font-bold text-white tracking-tight">Device Management</h1>
-          <p className="text-slate-400 text-sm">{devices.length} device(s) registered</p>
+          <h1 className="text-2xl font-bold text-zinc-900 tracking-tight">Device Management</h1>
+          <p className="text-zinc-500 text-sm">{devices.length} device(s) registered</p>
         </div>
         {isSuperadmin && (
           <button
             onClick={() => setShowAddModal(true)}
-            className="bg-emerald-600 hover:bg-emerald-500 text-white px-4 py-2 rounded-lg text-sm font-medium flex items-center gap-2 transition-colors"
+            className="bg-accent hover:bg-accent/90 active:scale-[0.98] text-accent-foreground px-4 py-2 rounded-lg text-sm font-medium flex items-center gap-2 transition-all"
           >
             <Plus size={16} />
             Add Device
@@ -118,10 +121,10 @@ export function DeviceManagementClient({
         )}
       </div>
 
-      <div className="bg-slate-900 border border-slate-800 rounded-xl overflow-hidden shadow-sm">
+      <BentoCard variant="tile" className="overflow-hidden !p-0">
         <div className="overflow-x-auto">
-          <table className="w-full text-left text-sm text-slate-400">
-            <thead className="bg-slate-950 text-slate-200 uppercase tracking-wider font-semibold text-xs">
+          <table className="w-full text-left text-sm text-zinc-600">
+            <thead className="bg-zinc-50 text-zinc-500 uppercase tracking-wider font-semibold text-xs">
               <tr>
                 <th className="px-4 py-3">Box ID</th>
                 <th className="px-4 py-3">Status</th>
@@ -134,18 +137,20 @@ export function DeviceManagementClient({
                 {isSuperadmin && <th className="px-4 py-3 text-right">Actions</th>}
               </tr>
             </thead>
-            <tbody className="divide-y divide-slate-800">
+            <tbody className="divide-y divide-zinc-100">
               {devices.map((device) => (
-                <tr key={device.id} className="hover:bg-slate-800/50 transition-colors">
-                  <td className="px-4 py-3 font-mono text-slate-300">{device.boxId}</td>
+                <tr key={device.id} className="hover:bg-zinc-50 transition-colors">
+                  <td className="px-4 py-3 font-mono text-zinc-700">{device.boxId}</td>
                   <td className="px-4 py-3">
                     <span
-                      className={`inline-flex items-center gap-1.5 text-xs font-medium ${
-                        device.status === "Active" ? "text-emerald-400" : "text-slate-500"
+                      className={`inline-flex items-center gap-1.5 px-2 py-0.5 rounded-full text-xs font-medium ${
+                        device.status === "Active"
+                          ? "bg-emerald-50 text-emerald-700"
+                          : "bg-zinc-100 text-zinc-500"
                       }`}
                     >
                       <span
-                        className={`h-1.5 w-1.5 rounded-full ${device.status === "Active" ? "bg-emerald-400" : "bg-slate-600"}`}
+                        className={`h-1.5 w-1.5 rounded-full ${device.status === "Active" ? "bg-emerald-500" : "bg-zinc-400"}`}
                       />
                       {device.status}
                     </span>
@@ -156,7 +161,7 @@ export function DeviceManagementClient({
                         value={device.deviceType}
                         onChange={(e) => handleTypeChange(device.id, e.target.value as DeviceType)}
                         disabled={isPending}
-                        className="bg-slate-950 border border-slate-700 rounded px-2 py-1 text-slate-200"
+                        className="bg-white border border-zinc-300 rounded px-2 py-1 text-zinc-700"
                       >
                         <option value="CO2">CO2</option>
                         <option value="H2">H2</option>
@@ -186,7 +191,7 @@ export function DeviceManagementClient({
                     onCancel={cancelEdit}
                     canEdit={canEdit}
                     numeric
-                    className="text-amber-400"
+                    className="text-amber-600 tabular-nums"
                   />
                   <EditableCell
                     value={device.dangerousThreshold}
@@ -200,7 +205,7 @@ export function DeviceManagementClient({
                     onCancel={cancelEdit}
                     canEdit={canEdit}
                     numeric
-                    className="text-red-400"
+                    className="text-red-600 tabular-nums"
                   />
                   <EditableCell
                     value={device.calA}
@@ -212,7 +217,7 @@ export function DeviceManagementClient({
                     onCancel={cancelEdit}
                     canEdit={canEdit}
                     numeric
-                    className="text-cyan-400"
+                    className="text-cyan-700 tabular-nums"
                   />
                   <EditableCell
                     value={device.calB}
@@ -224,7 +229,7 @@ export function DeviceManagementClient({
                     onCancel={cancelEdit}
                     canEdit={canEdit}
                     numeric
-                    className="text-cyan-400"
+                    className="text-cyan-700 tabular-nums"
                   />
                   {isSuperadmin && (
                     <td className="px-4 py-3">
@@ -233,7 +238,7 @@ export function DeviceManagementClient({
                           onClick={() => handleRegenerateKey(device.id, device.boxId)}
                           disabled={isPending}
                           title="Regenerate API key"
-                          className="text-slate-400 hover:text-emerald-400 transition-colors"
+                          className="text-zinc-400 hover:text-accent transition-colors"
                         >
                           <KeyRound size={16} />
                         </button>
@@ -241,7 +246,7 @@ export function DeviceManagementClient({
                           onClick={() => handleDelete(device.id, device.boxId)}
                           disabled={isPending}
                           title="Delete device"
-                          className="text-slate-400 hover:text-red-400 transition-colors"
+                          className="text-zinc-400 hover:text-red-600 transition-colors"
                         >
                           <Trash2 size={16} />
                         </button>
@@ -252,7 +257,7 @@ export function DeviceManagementClient({
               ))}
               {devices.length === 0 && (
                 <tr>
-                  <td colSpan={9} className="px-4 py-10 text-center text-slate-600">
+                  <td colSpan={9} className="px-4 py-10 text-center text-zinc-400">
                     No devices yet.
                   </td>
                 </tr>
@@ -260,13 +265,16 @@ export function DeviceManagementClient({
             </tbody>
           </table>
         </div>
-      </div>
+      </BentoCard>
 
-      {showAddModal && (
-        <AddDeviceModal onClose={() => setShowAddModal(false)} onCreated={() => router.refresh()} />
-      )}
-
-      {newApiKey && <ApiKeyModal boxId={newApiKey.boxId} apiKey={newApiKey.apiKey} onClose={() => setNewApiKey(null)} />}
+      <AnimatePresence>
+        {showAddModal && (
+          <AddDeviceModal onClose={() => setShowAddModal(false)} onCreated={() => router.refresh()} />
+        )}
+        {newApiKey && (
+          <ApiKeyModal boxId={newApiKey.boxId} apiKey={newApiKey.apiKey} onClose={() => setNewApiKey(null)} />
+        )}
+      </AnimatePresence>
     </div>
   );
 }
@@ -310,12 +318,12 @@ function EditableCell({
               if (e.key === "Enter") onSave();
               if (e.key === "Escape") onCancel();
             }}
-            className="w-24 bg-slate-950 border border-emerald-500/50 rounded px-2 py-1 text-white outline-none"
+            className="w-24 bg-white border border-accent/50 rounded px-2 py-1 text-zinc-900 outline-none"
           />
-          <button onClick={onSave} className="text-emerald-400 hover:text-emerald-300">
+          <button onClick={onSave} className="text-accent hover:text-accent/80">
             <Check size={14} />
           </button>
-          <button onClick={onCancel} className="text-slate-500 hover:text-slate-300">
+          <button onClick={onCancel} className="text-zinc-400 hover:text-zinc-600">
             <X size={14} />
           </button>
         </div>
@@ -326,19 +334,47 @@ function EditableCell({
   return (
     <td
       onClick={canEdit ? onStart : undefined}
-      className={`px-4 py-3 ${canEdit ? "cursor-pointer hover:bg-slate-800 group" : ""} ${className ?? ""}`}
+      className={`px-4 py-3 ${canEdit ? "cursor-pointer hover:bg-zinc-100 group" : ""} ${className ?? ""}`}
     >
       <span className="inline-flex items-center gap-1.5">
         {value !== null && value !== undefined && value !== "" ? (
           value
         ) : (
-          <span className="text-slate-600">{placeholder ?? "Not set"}</span>
+          <span className="text-zinc-400">{placeholder ?? "Not set"}</span>
         )}
         {canEdit && (
           <Edit size={10} className="opacity-0 group-hover:opacity-100 transition-opacity" />
         )}
       </span>
     </td>
+  );
+}
+
+function ModalShell({
+  children,
+  onClose,
+}: {
+  children: React.ReactNode;
+  onClose: () => void;
+}) {
+  return (
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-zinc-900/40 backdrop-blur-sm"
+      onClick={onClose}
+    >
+      <motion.div
+        initial={{ opacity: 0, scale: 0.96, y: 8 }}
+        animate={{ opacity: 1, scale: 1, y: 0 }}
+        exit={{ opacity: 0, scale: 0.96, y: 8 }}
+        transition={spring}
+        onClick={(e) => e.stopPropagation()}
+      >
+        {children}
+      </motion.div>
+    </motion.div>
   );
 }
 
@@ -362,27 +398,27 @@ function AddDeviceModal({ onClose, onCreated }: { onClose: () => void; onCreated
   }
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm">
-      <div className="bg-slate-900 border border-slate-700 rounded-xl w-full max-w-md shadow-2xl">
-        <div className="p-5 border-b border-slate-800 flex justify-between items-center">
-          <h3 className="text-lg font-bold text-white">Add Device</h3>
-          <button onClick={onClose} className="text-slate-400 hover:text-white">
+    <ModalShell onClose={onClose}>
+      <div className="bg-white border border-zinc-200 rounded-2xl w-full max-w-md shadow-2xl">
+        <div className="p-5 border-b border-zinc-200 flex justify-between items-center">
+          <h3 className="text-lg font-bold text-zinc-900">Add Device</h3>
+          <button onClick={onClose} className="text-zinc-400 hover:text-zinc-900">
             <X size={20} />
           </button>
         </div>
         <form action={formAction} className="p-5 space-y-4">
           {state && "error" in state && (
-            <div className="bg-red-500/10 border border-red-500/20 text-red-400 p-3 rounded-lg text-sm">
+            <div className="bg-red-50 border border-red-200 text-red-700 p-3 rounded-lg text-sm">
               {state.error}
             </div>
           )}
           <Field label="Box ID *" name="boxId" placeholder="SENTINEL-1A2B" required />
           <div>
-            <label className="block text-sm font-medium text-slate-400 mb-1">Device Type *</label>
+            <label className="block text-sm font-medium text-zinc-600 mb-1">Device Type *</label>
             <select
               name="deviceType"
               required
-              className="w-full bg-slate-950 border border-slate-700 rounded-lg px-3 py-2 text-white"
+              className="w-full bg-white border border-zinc-300 rounded-lg px-3 py-2 text-zinc-900"
             >
               <option value="CO2">CO2</option>
               <option value="H2">H2</option>
@@ -400,13 +436,13 @@ function AddDeviceModal({ onClose, onCreated }: { onClose: () => void; onCreated
           <button
             type="submit"
             disabled={pending}
-            className="w-full bg-emerald-600 hover:bg-emerald-500 disabled:opacity-50 text-white font-medium py-2.5 rounded-lg transition-colors"
+            className="w-full bg-accent hover:bg-accent/90 active:scale-[0.98] disabled:opacity-50 text-accent-foreground font-medium py-2.5 rounded-lg transition-all"
           >
             {pending ? "Creating..." : "Create Device"}
           </button>
         </form>
       </div>
-    </div>
+    </ModalShell>
   );
 }
 
@@ -426,15 +462,15 @@ function Field({
   placeholder?: string;
 }) {
   return (
-    <div>
-      <label className="block text-sm font-medium text-slate-400 mb-1">{label}</label>
+    <div className="flex flex-col gap-1">
+      <label className="text-sm font-medium text-zinc-600">{label}</label>
       <input
         name={name}
         type={type}
         step={step}
         required={required}
         placeholder={placeholder}
-        className="w-full bg-slate-950 border border-slate-700 rounded-lg px-3 py-2 text-white placeholder-slate-600 outline-none focus:border-emerald-500"
+        className="w-full bg-white border border-zinc-300 rounded-lg px-3 py-2 text-zinc-900 placeholder-zinc-400 outline-none focus:border-accent focus:ring-2 focus:ring-accent/15"
       />
     </div>
   );
@@ -452,36 +488,36 @@ function ApiKeyModal({
   const [copied, setCopied] = useState(false);
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm">
-      <div className="bg-slate-900 border border-emerald-700/50 rounded-xl w-full max-w-lg shadow-2xl p-6 space-y-4">
-        <h3 className="text-lg font-bold text-white">Device API key for {boxId}</h3>
-        <p className="text-sm text-amber-400">
+    <ModalShell onClose={onClose}>
+      <div className="bg-white border border-accent/30 rounded-2xl w-full max-w-lg shadow-2xl p-6 space-y-4">
+        <h3 className="text-lg font-bold text-zinc-900">Device API key for {boxId}</h3>
+        <p className="text-sm text-amber-600">
           Copy this now - it will not be shown again. Flash it into the device&apos;s firmware
           config (or mocksense.py) in place of the old Supabase key.
         </p>
-        <div className="flex items-center gap-2 bg-slate-950 border border-slate-700 rounded-lg px-3 py-2.5">
-          <code className="text-emerald-400 text-sm break-all flex-1">{apiKey}</code>
+        <div className="flex items-center gap-2 bg-zinc-50 border border-zinc-200 rounded-lg px-3 py-2.5">
+          <code className="text-accent text-sm break-all flex-1">{apiKey}</code>
           <button
             onClick={() => {
               navigator.clipboard.writeText(apiKey);
               setCopied(true);
               setTimeout(() => setCopied(false), 2000);
             }}
-            className="text-slate-400 hover:text-white shrink-0"
+            className="text-zinc-400 hover:text-zinc-900 shrink-0"
           >
             <Copy size={16} />
           </button>
         </div>
-        {copied && <p className="text-xs text-emerald-400">Copied to clipboard</p>}
+        {copied && <p className="text-xs text-accent">Copied to clipboard</p>}
         <div className="flex justify-end">
           <button
             onClick={onClose}
-            className="px-4 py-2 bg-slate-800 hover:bg-slate-700 text-slate-200 rounded-lg text-sm font-medium transition-colors"
+            className="px-4 py-2 bg-zinc-100 hover:bg-zinc-200 text-zinc-700 rounded-lg text-sm font-medium transition-colors"
           >
             Done
           </button>
         </div>
       </div>
-    </div>
+    </ModalShell>
   );
 }

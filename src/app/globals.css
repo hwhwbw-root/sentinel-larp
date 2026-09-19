@@ -1,20 +1,27 @@
 @import "tailwindcss";
 
 :root {
-  --background: #020617; /* slate-950 */
-  --foreground: #f1f5f9; /* slate-100 */
+  --background: #fafafa;
+  --foreground: #18181b; /* zinc-900 */
+  --accent: #2f6fed; /* electric blue, desaturated */
+  --accent-foreground: #ffffff;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --font-sans: var(--font-satoshi);
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
+}
+
+.tabular-nums {
+  font-variant-numeric: tabular-nums;
 }
 
 .custom-scrollbar::-webkit-scrollbar {
@@ -26,6 +33,37 @@ body {
 }
 
 .custom-scrollbar::-webkit-scrollbar-thumb {
-  background-color: #334155; /* slate-700 */
+  background-color: #d4d4d8; /* zinc-300 */
   border-radius: 9999px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .motion-perpetual {
+    animation: none !important;
+  }
+
+  .alert-glow-warning,
+  .alert-glow-critical {
+    animation: none !important;
+  }
+}
+
+/* Slow, steady glow for Warning/Danger states - deliberately not a bounce or
+   flash, so a real alert stays readable rather than fighting for attention. */
+@keyframes alert-glow-warning {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(245, 158, 11, 0.15); }
+  50% { box-shadow: 0 0 0 6px rgba(245, 158, 11, 0.08); }
+}
+
+@keyframes alert-glow-critical {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.18); }
+  50% { box-shadow: 0 0 0 6px rgba(239, 68, 68, 0.1); }
+}
+
+.alert-glow-warning {
+  animation: alert-glow-warning 2.6s ease-in-out infinite;
+}
+
+.alert-glow-critical {
+  animation: alert-glow-critical 2.6s ease-in-out infinite;
 }
