@@ -43,3 +43,28 @@ mocksense/device_keys.py
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# video creation: rendered media, caches, and large generated assets
+/brag-output/
+/videos/*/renders/
+/videos/*/.thumbnails/
+/videos/*/.hyperframes/frame-packets/
+/video/out/
+/video/node_modules/
+/video/public/audio/soundscape.wav
+/video/public/audio/senti_audio.mp3
+*.mp4
+*.mov
+*.webm
+*.remotion-in-progress
+*.zip
+
+# large duplicated or bundled assets
+/canva-bunting-assets/
+/public/branding/bunting/07_rollup_banner/*.svg
+/pitch-deck/*.pptx
+
+# installed agent skills (bundle large music/media assets)
+/.agents/
+/.claude/skills/
+/skills-lock.json
