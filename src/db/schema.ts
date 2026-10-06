@@ -49,6 +49,12 @@ export const devices = pgTable("devices", {
   // The plaintext key is only ever shown once, at device creation.
   apiKeyHash: text("api_key_hash").notNull(),
   lastSeen: timestamp("last_seen", { withTimezone: true }),
+  // Demo-only: a command queued by the dashboard for the box to pick up in the
+  // reply to its next upload (see the ingest route), plus an optional window
+  // during which the box is told to upload faster.
+  pendingCommand: text("pending_command"),
+  pendingCommandAt: timestamp("pending_command_at", { withTimezone: true }),
+  fastUntil: timestamp("fast_until", { withTimezone: true }),
   createdAt: timestamp("created_at", { withTimezone: true })
     .notNull()
     .defaultNow(),
@@ -98,3 +104,13 @@ export const deviceLogs = pgTable(
   },
   (table) => [index("device_logs_box_id_created_at_idx").on(table.boxId, table.createdAt)],
 );
+
+export const firmwareVersions = pgTable("firmware_versions", {
+  id: uuid("id").primaryKey().defaultRandom(),
+  version: text("version").notNull().unique(),
+  blobUrl: text("blob_url").notNull(),
+  uploadedBy: uuid("uploaded_by").references(() => users.id),
+  createdAt: timestamp("created_at", { withTimezone: true })
+    .notNull()
+    .defaultNow(),
+});

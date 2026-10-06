@@ -1,6 +1,7 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
+import { useRouter } from "next/navigation";
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import {
   XAxis,
@@ -21,6 +22,8 @@ import {
   FlaskConical,
   X,
   PlusCircle,
+  Volume2,
+  VolumeX,
 } from "lucide-react";
 import Link from "next/link";
 import type { Device, TimeRange } from "@/lib/types";
@@ -28,25 +31,70 @@ import { useEnvironmentPolling } from "@/hooks/useEnvironmentPolling";
 import { useAllAlerts } from "@/hooks/useAllAlerts";
 import { DEFAULT_THRESHOLDS } from "@/lib/alerts";
 import { BentoCard } from "@/components/ui/BentoCard";
+import { DemoPanel } from "@/components/dashboard/DemoPanel";
 import { staggerContainer, fadeUpItem, breathingPulse, spring } from "@/lib/motion";
+import { getLastSoundAt, playSound } from "@/lib/sounds";
 
 interface DashboardClientProps {
   devices: Device[];
+  demoEnabled?: boolean;
 }
 
 const TIME_RANGES: TimeRange[] = ["10m", "30m", "1h"];
+const MANUAL_SOUND_GRACE_MS = 6000;
 
-export function DashboardClient({ devices }: DashboardClientProps) {
+export function DashboardClient({ devices, demoEnabled = false }: DashboardClientProps) {
+  const router = useRouter();
   const [selectedBoxId, setSelectedBoxId] = useState(devices[0]?.boxId ?? "");
   const [timeRange, setTimeRange] = useState<TimeRange>("10m");
   const [isAlertsModalOpen, setIsAlertsModalOpen] = useState(false);
+  const [soundEnabled, setSoundEnabled] = useState(false);
+  const lastLevel = useRef<{ boxId: string; level: number } | null>(null);
   const reduceMotion = useReducedMotion();
 
-  const { data, latestData, deviceStatus, loading } = useEnvironmentPolling({
+  const { data, latestData, deviceStatus, loading, refresh } = useEnvironmentPolling({
     boxId: selectedBoxId,
     timeRange,
     enabled: !!selectedBoxId,
   });
+
+  useEffect(() => {
+    if (!latestData) return;
+    const previous = lastLevel.current;
+    lastLevel.current = { boxId: selectedBoxId, level: latestData.alert };
+
+    if (!soundEnabled || !previous || previous.boxId !== selectedBoxId) return;
+    if (Date.now() - getLastSoundAt() < MANUAL_SOUND_GRACE_MS) return;
+
+    if (latestData.alert > previous.level) {
+      playSound(latestData.alert === 2 ? "danger" : "warning");
+    } else if (latestData.alert === 0 && previous.level > 0) {
+      playSound("clear");
+    }
+  }, [latestData, selectedBoxId, soundEnabled]);
+
+  const hardwareBoxes = useMemo(
+    () =>
+      devices
+        .filter((d) => !d.boxId.startsWith("demo-"))
+        .map((d) => ({ boxId: d.boxId, label: d.alias || d.boxId })),
+    [devices],
+  );
+
+  const handleDemoInjected = (boxId: string) => {
+    if (!devices.some((d) => d.boxId === boxId)) router.refresh();
+    if (boxId !== selectedBoxId) {
+      setSelectedBoxId(boxId);
+    } else {
+      refresh();
+    }
+  };
+
+  const toggleSound = () => {
+    const next = !soundEnabled;
+    setSoundEnabled(next);
+    if (next) playSound("normal");
+  };
 
   const {
     alerts: allAlerts,
@@ -143,6 +191,7 @@ export function DashboardClient({ devices }: DashboardClientProps) {
           <PlusCircle size={16} />
           Add your first device
         </Link>
+        {demoEnabled && <DemoPanel onInjected={handleDemoInjected} hardwareBoxes={hardwareBoxes} />}
       </div>
     );
   }
@@ -208,6 +257,19 @@ export function DashboardClient({ devices }: DashboardClientProps) {
             {deviceStatus === "live" ? "Live" : "Disconnected"}
           </span>
         </div>
+        <button
+          onClick={toggleSound}
+          aria-pressed={soundEnabled}
+          title={soundEnabled ? "Alert sounds on" : "Alert sounds off"}
+          className={`flex items-center gap-1.5 px-2 py-1 rounded-md text-xs font-medium transition-colors ${
+            soundEnabled
+              ? "bg-accent/10 text-accent"
+              : "text-zinc-400 hover:text-zinc-700 hover:bg-zinc-100"
+          }`}
+        >
+          {soundEnabled ? <Volume2 size={14} /> : <VolumeX size={14} />}
+          Alert sounds
+        </button>
         {latestData && (
           <span className="text-xs text-zinc-400">
             Last updated:{" "}
@@ -513,6 +575,8 @@ export function DashboardClient({ devices }: DashboardClientProps) {
           </motion.div>
         )}
       </AnimatePresence>
+
+      {demoEnabled && <DemoPanel onInjected={handleDemoInjected} hardwareBoxes={hardwareBoxes} />}
     </div>
   );
 }

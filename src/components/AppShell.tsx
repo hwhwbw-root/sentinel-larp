@@ -6,6 +6,7 @@ import {
   History,
   HardDrive,
   Users,
+  Cpu,
   LogOut,
   Menu,
   X,
@@ -105,6 +106,16 @@ export function AppShell({ user, children }: AppShellProps) {
               icon={<Users size={20} />}
               label="User Access"
               active={pathname === "/users"}
+              collapsed={!sidebarOpen && !mobileMenuOpen}
+              onClick={() => setMobileMenuOpen(false)}
+            />
+          )}
+          {user.role === "Superadmin" && (
+            <NavItem
+              to="/firmware"
+              icon={<Cpu size={20} />}
+              label="Firmware Update"
+              active={pathname === "/firmware"}
               collapsed={!sidebarOpen && !mobileMenuOpen}
               onClick={() => setMobileMenuOpen(false)}
             />

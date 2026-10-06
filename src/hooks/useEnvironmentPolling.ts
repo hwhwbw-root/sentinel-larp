@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import type { EnvironmentDataPoint, TimeRange } from "@/lib/types";
 
 const POLL_INTERVAL_MS = 4000;
@@ -33,6 +33,7 @@ export function useEnvironmentPolling({
   const [deviceStatus, setDeviceStatus] = useState<"live" | "disconnected">("disconnected");
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
+  const pollRef = useRef<(() => Promise<void>) | null>(null);
 
   useEffect(() => {
     if (!enabled || !boxId) return;
@@ -65,15 +66,21 @@ export function useEnvironmentPolling({
       }
     }
 
+    pollRef.current = poll;
     poll();
     const interval = setInterval(poll, POLL_INTERVAL_MS);
     return () => {
       cancelled = true;
+      pollRef.current = null;
       clearInterval(interval);
     };
   }, [boxId, timeRange, enabled]);
 
   const latestData = data.length > 0 ? data[data.length - 1] : null;
 
-  return { data, latestData, deviceStatus, loading, error };
+  const refresh = useCallback(() => {
+    void pollRef.current?.();
+  }, []);
+
+  return { data, latestData, deviceStatus, loading, error, refresh };
 }

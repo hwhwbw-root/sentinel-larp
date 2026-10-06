@@ -12,19 +12,19 @@
 // =====================================================
 // USER SETTINGS
 // =====================================================
-#define AZP_FW_VERSION      3.9f
+#define AZP_FW_VERSION      5.4f
 #define AZP_OTA_INTERVAL    15000UL      // 15 seconds
 
 // =====================================================
 // OTA SERVER (CRITICAL: NO TRAILING SPACES!)
-// NOTE: kept on the original externally-hosted azmiproductions.com PHP
-// host (already maintained by someone else, working fine) instead of
-// moving to the Sentinel app's own firmware routes. The
-// /api/firmware/version and /api/firmware/download routes still exist in
-// the app but are unused by this firmware.
+// NOTE: firmware hosting lives in the Sentinel app itself (Firmware Update
+// page -> Vercel Blob + a firmware_versions table). Replace the host below
+// with the deployed Sentinel domain before compiling. Boxes still running an
+// older build poll azmiproductions.com, so this first build has to reach them
+// once through that host (or USB); after that, updates come from Sentinel.
 // =====================================================
-static const char* AZP_VERSION_URL = "https://azmiproductions.com/trosense/version.txt";
-static const char* AZP_BIN_URL     = "https://azmiproductions.com/trosense/firmware.bin";
+static const char* AZP_VERSION_URL = "https://sentinel.example.com/api/firmware/version";
+static const char* AZP_BIN_URL     = "https://sentinel.example.com/api/firmware/download";
 
 // =====================================================
 // INTERNAL TIMER

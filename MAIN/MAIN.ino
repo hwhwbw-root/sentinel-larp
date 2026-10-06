@@ -69,6 +69,72 @@ const unsigned long THRESH_DEBUG_MIN_INTERVAL_MS = 2000;
 // ================== system state ==================
 int sysState = STATE_SAFE;
 
+// Upload period; the server can shorten it temporarily (dashboard demo mode).
+unsigned long sendPeriodMs = SEND_PERIOD_MS;
+
+#if DEMO_COMMANDS
+// Demo override: lets the dashboard make this box act out a Warning/Danger.
+// While active, sysState is replaced, so the existing LED/buzzer/screen code
+// below behaves exactly as it does for a real alert. Readings and uploads
+// still use the real sensor value.
+int demoState = -1;                  // -1 = no override
+unsigned long demoStateUntilMs = 0;
+const unsigned long DEMO_HOLD_MS = 6000UL;
+
+bool demoEscalating = false;
+unsigned long demoEscalateStartMs = 0;
+const unsigned long DEMO_ESCALATE_STEP_MS = 1800UL;
+const int DEMO_ESCALATE_STATES[] = {0, 1, 1, 2, 2, 2, 1, 0};
+const int DEMO_ESCALATE_STEPS = 8;
+
+void demoChirp() {
+  buzzer.startBeep(1800, 40);
+  delay(60);
+  buzzer.update();  // startBeep ignores calls until update() clears the first beep
+  buzzer.startBeep(2200, 40);
+}
+
+void applyDemoCommand(unsigned long now) {
+  sendPeriodMs = (demoPollMs > 0) ? demoPollMs : SEND_PERIOD_MS;
+
+  if (demoCmd.length() > 0) {
+    String cmd = demoCmd;
+    demoCmd = "";
+    Serial.printf("[DEMO] command: %s\n", cmd.c_str());
+
+    demoEscalating = false;
+    if (cmd == "test") {
+      buzzer.startBeep(2000, 250);
+    } else if (cmd == "notice" || cmd == "normal") {
+      demoChirp();
+    } else if (cmd == "warning") {
+      demoState = STATE_WARNING;
+      demoStateUntilMs = now + DEMO_HOLD_MS;
+    } else if (cmd == "danger") {
+      demoState = STATE_DANGER;
+      demoStateUntilMs = now + DEMO_HOLD_MS;
+    } else if (cmd == "escalate") {
+      demoEscalating = true;
+      demoEscalateStartMs = now;
+    } else if (cmd == "stop") {
+      demoState = -1;
+    }
+  }
+
+  if (demoEscalating) {
+    unsigned long step = (now - demoEscalateStartMs) / DEMO_ESCALATE_STEP_MS;
+    if (step >= (unsigned long)DEMO_ESCALATE_STEPS) {
+      demoEscalating = false;
+      demoState = -1;
+    } else {
+      demoState = DEMO_ESCALATE_STATES[step];
+    }
+  } else if (demoState >= 0 && (long)(now - demoStateUntilMs) >= 0) {
+    demoState = -1;
+  }
+}
+#endif
+
 // ================= WiFi blue override =================
 bool wifiWasConnected = false;
 unsigned long wifiBlueUntilMs = 0;
@@ -321,6 +387,11 @@ void loop() {
   sysState = (lastGasValue >= THRESH_DANGER) ? STATE_DANGER :
              (lastGasValue >= THRESH_ALERT)  ? STATE_WARNING : STATE_SAFE;
 
+#if DEMO_COMMANDS
+  applyDemoCommand(now);
+  if (demoState >= 0) sysState = demoState;
+#endif
+
   tftDisplay.updateHeaderWiFi(false);
   tftDisplay.updateStatusPanel(sysState, false);
   tftDisplay.updateTempHumPanels(false);
@@ -400,7 +471,7 @@ prevState = sysState;
   }
 
   // Send every 10s
-  if (now - lastSendMs >= SEND_PERIOD_MS) {
+  if (now - lastSendMs >= sendPeriodMs) {
     lastSendMs = now;
     float tSend = isnan(lastT) ? 0.0f : lastT;
     float hSend = isnan(lastH) ? 0.0f : lastH;

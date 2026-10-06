@@ -32,6 +32,27 @@ float THRESH_ALERT  = 1.00f;
 float THRESH_DANGER = 2.00f;
 bool thresholdsReady = false;
 
+#if DEMO_COMMANDS
+String demoCmd = "";
+unsigned long demoPollMs = 0;
+
+// Reads {"cmd":"..."} and {"poll_ms":N} out of the ingest reply using the same
+// literal-search approach as the threshold parsing below.
+static void parseDemoReply(const String& resp) {
+  int c = resp.indexOf("\"cmd\":\"");
+  if (c >= 0) {
+    int s = c + 7;
+    int e = resp.indexOf('"', s);
+    if (e > s) demoCmd = resp.substring(s, e);
+  }
+
+  int p = resp.indexOf("\"poll_ms\":");
+  unsigned long v = (p >= 0) ? (unsigned long)resp.substring(p + 10).toInt() : 0;
+  // No poll_ms (or nonsense) means the server is not asking for fast mode.
+  demoPollMs = (v >= 1000 && v <= 60000) ? v : 0;
+}
+#endif
+
 bool fetchThresholdsFromSupabase(BoxIDManager& box) {
   if (WiFi.status() != WL_CONNECTED) return false;
 
@@ -146,6 +167,10 @@ void sendToSupabase(BoxIDManager& box,
 
   int code = http.POST((uint8_t*)body, strlen(body));
   Serial.printf("Supabase POST -> %d\n", code);
+
+#if DEMO_COMMANDS
+  if (code > 0) parseDemoReply(http.getString());
+#endif
 
   http.end();
   client.stop();
