@@ -17,14 +17,13 @@
 
 // =====================================================
 // OTA SERVER (CRITICAL: NO TRAILING SPACES!)
-// NOTE: firmware hosting lives in the Sentinel app itself (Firmware Update
-// page -> Vercel Blob + a firmware_versions table). Replace the host below
-// with the deployed Sentinel domain before compiling. Boxes still running an
-// older build poll azmiproductions.com, so this first build has to reach them
-// once through that host (or USB); after that, updates come from Sentinel.
+// NOTE: these are the original links, so boxes keep updating from the
+// existing azmiproductions.com host. The Sentinel app can also host OTA
+// (Firmware Update page): to switch, point these at the deployed app's
+// /api/firmware/version and /api/firmware/download.
 // =====================================================
-static const char* AZP_VERSION_URL = "https://sentinel.example.com/api/firmware/version";
-static const char* AZP_BIN_URL     = "https://sentinel.example.com/api/firmware/download";
+static const char* AZP_VERSION_URL = "https://azmiproductions.com/trosense/version.txt";
+static const char* AZP_BIN_URL     = "https://azmiproductions.com/trosense/firmware.bin";
 
 // =====================================================
 // INTERNAL TIMER
