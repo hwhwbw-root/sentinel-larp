@@ -1,0 +1,68 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 940 460" width="1880" height="920">
+    <defs>
+      <filter id="chartWidgetShadow" x="-10%" y="-10%" width="120%" height="130%">
+        <feDropShadow dx="0" dy="16" stdDeviation="20" flood-color="#0f172a" flood-opacity="0.1" />
+      </filter>
+      <linearGradient id="chartCompGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+        <stop offset="0%" stop-color="#2f6fed" stop-opacity="0.35" />
+        <stop offset="100%" stop-color="#2f6fed" stop-opacity="0.0" />
+      </linearGradient>
+    </defs>
+    <g transform="translate(20, 20)" filter="url(#chartWidgetShadow)">
+      <rect width="900" height="420" rx="16" fill="#ffffff" stroke="#e2e8f0" stroke-width="1.2" />
+
+      <!-- Header -->
+      <g transform="translate(30, 32)">
+        <text x="0" y="16" font-family="Arial, Helvetica, 'Segoe UI', sans-serif" font-weight="800" font-size="20" fill="#18181b">Real-Time Telemetry Stream</text>
+        <text x="0" y="38" font-family="Arial, Helvetica, 'Segoe UI', sans-serif" font-weight="500" font-size="13" fill="#71717a">Gas Concentration (MQ-2) &#8226; ESP32-Node 1A2B</text>
+      </g>
+
+      <!-- Time Pills -->
+      <g transform="translate(680, 28)">
+        <rect width="180" height="34" rx="8" fill="#f1f5f9" />
+        <rect x="3" y="3" width="56" height="28" rx="6" fill="#ffffff" stroke="#cbd5e1" stroke-width="0.8" />
+        <text x="31" y="21" font-family="Arial, Helvetica, 'Segoe UI', sans-serif" font-weight="700" font-size="12" fill="#2f6fed" text-anchor="middle">10m</text>
+        <text x="90" y="21" font-family="Arial, Helvetica, 'Segoe UI', sans-serif" font-weight="600" font-size="12" fill="#71717a" text-anchor="middle">30m</text>
+        <text x="150" y="21" font-family="Arial, Helvetica, 'Segoe UI', sans-serif" font-weight="600" font-size="12" fill="#71717a" text-anchor="middle">1h</text>
+      </g>
+
+      <!-- Chart Graphics -->
+      <g transform="translate(60, 110)">
+        <line x1="0" y1="0" x2="800" y2="0" stroke="#f1f5f9" stroke-width="1" />
+        <text x="-12" y="4" font-family="Arial, Helvetica, 'Segoe UI', sans-serif" font-weight="600" font-size="11" fill="#71717a" text-anchor="end">1000</text>
+
+        <line x1="0" y1="60" x2="800" y2="60" stroke="#fee2e2" stroke-width="1.5" stroke-dasharray="6 4" />
+        <text x="-12" y="64" font-family="Arial, Helvetica, 'Segoe UI', sans-serif" font-weight="700" font-size="11" fill="#ef4444" text-anchor="end">800 (Alert)</text>
+
+        <line x1="0" y1="120" x2="800" y2="120" stroke="#f1f5f9" stroke-width="1" />
+        <text x="-12" y="124" font-family="Arial, Helvetica, 'Segoe UI', sans-serif" font-weight="600" font-size="11" fill="#71717a" text-anchor="end">600</text>
+
+        <line x1="0" y1="180" x2="800" y2="180" stroke="#f1f5f9" stroke-width="1" />
+        <text x="-12" y="184" font-family="Arial, Helvetica, 'Segoe UI', sans-serif" font-weight="600" font-size="11" fill="#71717a" text-anchor="end">400</text>
+
+        <line x1="0" y1="240" x2="800" y2="240" stroke="#e2e8f0" stroke-width="1.5" />
+        <text x="-12" y="244" font-family="Arial, Helvetica, 'Segoe UI', sans-serif" font-weight="600" font-size="11" fill="#71717a" text-anchor="end">200</text>
+
+        <!-- Area Curve -->
+        <path d="M0 140 Q100 160 200 130 T400 150 T600 110 T720 120 L720 240 L0 240 Z" fill="url(#chartCompGrad)" />
+        <path d="M0 140 Q100 160 200 130 T400 150 T600 110 T720 120" fill="none" stroke="#2f6fed" stroke-width="3.5" stroke-linecap="round" />
+
+        <!-- Highlight Point & Tooltip -->
+        <circle cx="600" cy="110" r="5" fill="#2f6fed" stroke="#ffffff" stroke-width="2" />
+        <g transform="translate(520, 35)">
+          <rect width="160" height="56" rx="8" fill="#18181b" />
+          <text x="14" y="18" font-family="Arial, Helvetica, 'Segoe UI', sans-serif" font-weight="700" font-size="11" fill="#94a3b8">10:38:12</text>
+          <text x="14" y="40" font-family="Arial, Helvetica, 'Segoe UI', sans-serif" font-weight="800" font-size="16" fill="#ffffff">524 ppm <tspan font-size="11" font-weight="600" fill="#4ade80">Safe</tspan></text>
+        </g>
+
+        <!-- X Axis Ticks -->
+        <g transform="translate(0, 262)">
+          <text x="0" y="0" font-family="Arial, Helvetica, 'Segoe UI', sans-serif" font-weight="600" font-size="11" fill="#71717a">10:30</text>
+          <text x="180" y="0" font-family="Arial, Helvetica, 'Segoe UI', sans-serif" font-weight="600" font-size="11" fill="#71717a">10:32</text>
+          <text x="360" y="0" font-family="Arial, Helvetica, 'Segoe UI', sans-serif" font-weight="600" font-size="11" fill="#71717a">10:34</text>
+          <text x="540" y="0" font-family="Arial, Helvetica, 'Segoe UI', sans-serif" font-weight="600" font-size="11" fill="#71717a">10:36</text>
+          <text x="720" y="0" font-family="Arial, Helvetica, 'Segoe UI', sans-serif" font-weight="700" font-size="11" fill="#2f6fed" text-anchor="end">Live</text>
+        </g>
+      </g>
+    </g>
+  </svg>

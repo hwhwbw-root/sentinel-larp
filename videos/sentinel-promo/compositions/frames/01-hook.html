@@ -1,0 +1,265 @@
+<template>
+  <style>
+    #root {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      container-type: size;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+    }
+
+    .clip {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+    }
+
+    [class~="f01-hook-bg"] {
+      background: #FAFAFA;
+    }
+
+    [class~="f01-hook-tint"] {
+      background: radial-gradient(ellipse 66cqw 66cqw at 50% 46%, rgba(220, 38, 38, 0.5) 0%, rgba(10, 6, 6, 0) 68%);
+      opacity: 0;
+    }
+
+    [class~="f01-hook-scene"] {
+      display: flex;
+    }
+
+    [class~="f01-hook-stage"] {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding-bottom: 6cqh;
+    }
+
+    /* Scene 1 — the calm line */
+    [class~="f01-hook-line-wrap"] {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 0 11cqw;
+    }
+
+    [class~="f01-hook-line"] {
+      font-size: 2.6cqw;
+      font-weight: 500;
+      letter-spacing: -0.01em;
+      line-height: 1.3;
+      color: #18181B;
+      opacity: 0;
+    }
+
+    /* Scene 2/3 — the counter */
+    [class~="f01-hook-counter-wrap"] {
+      display: flex;
+      align-items: baseline;
+      justify-content: center;
+      width: 70cqw;
+      opacity: 0;
+      transform-origin: 50% 50%;
+      will-change: transform;
+    }
+
+    [class~="f01-hook-counter"] {
+      font-variant-numeric: tabular-nums;
+      display: inline-block;
+      font-size: 15cqw;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      line-height: 1;
+      color: #2F6FED;
+    }
+
+    [class~="f01-hook-suffix"] {
+      font-size: 3cqw;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: #2F6FED;
+      margin-left: 1cqw;
+    }
+
+    [class~="f01-hook-unit"] {
+      margin-top: 1.4cqw;
+      font-size: 3cqw;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: #767676;
+      opacity: 0;
+    }
+
+    [class~="f01-hook-pill"] {
+      margin-top: 3.2cqw;
+      background: rgba(220, 38, 38, 0.12);
+      color: #dc2626;
+      border: 1.5px solid #dc2626;
+      border-radius: 100px;
+      padding: 1.2cqw 3.2cqw;
+      font-size: 1.8cqw;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      opacity: 0;
+      transform-origin: 50% 50%;
+      will-change: transform;
+    }
+  </style>
+
+  <div data-hf-id="hf-qgc4" id="root" data-composition-id="01-hook" data-width="1920" data-height="1080" data-duration="9.5">
+    <div data-hf-id="hf-b39r" class="clip f01-hook-bg" data-start="0" data-duration="9.5" data-track-index="0"></div>
+    <div data-hf-id="hf-drq7" class="clip f01-hook-tint" id="f01-hook-tint" data-start="0" data-duration="9.5" data-track-index="1"></div>
+
+    <div data-hf-id="hf-hq7w" class="clip f01-hook-scene" data-start="0" data-duration="9.5" data-track-index="2">
+      <div data-hf-id="hf-9jup" class="f01-hook-line-wrap">
+        <div data-hf-id="hf-v9qz" class="f01-hook-line" id="f01-hook-line">Some things happen in silence.</div>
+      </div>
+
+      <div data-hf-id="hf-pzs8" class="f01-hook-stage">
+        <div data-hf-id="hf-if2g" class="f01-hook-counter-wrap" id="f01-hook-counter-wrap">
+          <span data-hf-id="hf-3d80" class="f01-hook-counter" id="f01-hook-counter">627</span><span data-hf-id="hf-xdls" class="f01-hook-suffix" id="f01-hook-suffix">ppm</span>
+        </div>
+        <div data-hf-id="hf-wldp" class="f01-hook-unit" id="f01-hook-unit">ppm CO2</div>
+        <div data-hf-id="hf-m5a4" class="f01-hook-pill" id="f01-hook-pill">DANGEROUS</div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+  <script>
+    (function () {
+      var lineEl = document.getElementById("f01-hook-line");
+      var counterWrap = document.getElementById("f01-hook-counter-wrap");
+      var counterEl = document.getElementById("f01-hook-counter");
+      var suffixEl = document.getElementById("f01-hook-suffix");
+      var unitEl = document.getElementById("f01-hook-unit");
+      var pillEl = document.getElementById("f01-hook-pill");
+      var tintEl = document.getElementById("f01-hook-tint");
+
+      var COBALT = "#2F6FED";
+      var RED = "#dc2626";
+      var START_VALUE = 627;
+      var END_VALUE = 1686;
+      var END_SIZE = 15; // cqw — matches static .f01-hook-counter font-size (30% of frame, per packet)
+      var START_SIZE = 6.75; // cqw — ~45% of END_SIZE
+      var START_SCALE = START_SIZE / END_SIZE;
+
+      var tl = gsap.timeline({ paused: true });
+
+      // ---- Scene 1 (0.0-3.5s): calm cream ground, one restrained line, held. ----
+      // titlecard-reveal signature: single slide-up crossfade move, then a full hold —
+      // this is the video's first deliberate breather beat. No tint, no red yet.
+      tl.fromTo(
+        lineEl,
+        { opacity: 0, y: 18 },
+        { opacity: 1, y: 0, duration: 0.7, ease: "power2.out" },
+        0.3
+      );
+      // holds still from ~1.0s to 3.5s — no further motion on the line during the hold
+
+      // ---- Scene 2 (3.5-6.0s): soft blur-crossfade clears the line; ground begins ----
+      // tinting toward red; the counter (counting-dynamic-scale) seats dead-center,
+      // small, reading "627 ppm" in cobalt.
+      var CLEAR_AT = 3.5;
+      var CLEAR_DUR = 0.6;
+      tl.to(
+        lineEl,
+        { opacity: 0, filter: "blur(14px)", duration: CLEAR_DUR, ease: "power2.in" },
+        CLEAR_AT
+      );
+
+      var SEAT_AT = 3.7;
+      tl.fromTo(
+        counterWrap,
+        { scale: START_SCALE * 0.001, opacity: 0 },
+        { scale: START_SCALE, opacity: 1, duration: 0.5, ease: "power3.out" },
+        SEAT_AT
+      );
+
+      // ground begins its slow tint shift in step with the counter seating, continuing
+      // through Scene 3's climb.
+      tl.fromTo(
+        tintEl,
+        { opacity: 0 },
+        { opacity: 0.85, duration: 4.8, ease: "power1.inOut" },
+        SEAT_AT
+      );
+
+      // ---- Scene 3 (6.0-9.0s): the counter climbs 627 -> 900 -> 1,686, font weight ----
+      // growing via transform scale (counting-dynamic-scale), color interpolating
+      // cobalt -> red as it crosses the danger line; locks, then the DANGEROUS pill
+      // spring-pops in and holds with a subtle jitter.
+      var COUNT_AT = 6.0;
+      var COUNT_DUR = 1.7;
+      var COUNT_EASE = "power3.out";
+
+      var state = { value: START_VALUE };
+      tl.to(
+        state,
+        {
+          value: END_VALUE,
+          duration: COUNT_DUR,
+          ease: COUNT_EASE,
+          onUpdate: function () {
+            counterEl.textContent = Math.round(state.value).toLocaleString();
+          },
+        },
+        COUNT_AT
+      );
+
+      tl.fromTo(
+        counterWrap,
+        { scale: START_SCALE },
+        { scale: 1, duration: COUNT_DUR, ease: COUNT_EASE },
+        COUNT_AT
+      );
+
+      tl.fromTo(
+        [counterEl, suffixEl],
+        { color: COBALT },
+        { color: RED, duration: COUNT_DUR, ease: COUNT_EASE },
+        COUNT_AT
+      );
+
+      tl.to(suffixEl, { opacity: 0, duration: 0.2, ease: "power2.out" }, COUNT_AT + COUNT_DUR - 0.1);
+
+      var UNIT_AT = COUNT_AT + COUNT_DUR + 0.05; // ~7.75s — counter locked at "1,686 / ppm CO2"
+      tl.fromTo(
+        unitEl,
+        { opacity: 0, y: 16 },
+        { opacity: 1, y: 0, duration: 0.4, ease: "power2.out" },
+        UNIT_AT
+      );
+
+      var PILL_AT = UNIT_AT + 0.25; // ~8.0s
+      tl.fromTo(
+        pillEl,
+        { scale: 0, opacity: 0 },
+        { scale: 1, opacity: 1, duration: 0.4, ease: "power3.out" },
+        PILL_AT
+      );
+
+      // Held read to the end of the 9s duration — at most subtle jitter, no exit tween
+      // (this is not the final frame; the root transition owns the exit). Settles by
+      // ~8.75s, leaving a clean hold before the clip's 9s boundary.
+      tl.to(
+        pillEl,
+        { y: -2, duration: 0.35, ease: "sine.inOut" },
+        PILL_AT + 0.4
+      );
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines["01-hook"] = tl;
+    })();
+  </script>
+</template>

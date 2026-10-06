@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 850" width="600" height="850">
+  <defs>
+    <filter id="soft-shadow" x="-5%" y="-5%" width="110%" height="110%">
+      <feDropShadow dx="0" dy="4" stdDeviation="6" flood-opacity="0.08" />
+    </filter>
+  </defs>
+
+  
+  <!-- Top Fold Flap Guide -->
+  <polygon points="30,80 30,10 570,10 570,80" fill="#2f6fed" opacity="0.85" />
+  <line x1="30" y1="80" x2="570" y2="80" stroke="#ffffff" stroke-width="2" stroke-dasharray="6,6" opacity="0.7" />
+  <!-- Punch Hole Guides -->
+  <circle cx="70" cy="45" r="12" fill="none" stroke="#ffffff" stroke-width="2" stroke-dasharray="3,3" />
+  <circle cx="530" cy="45" r="12" fill="none" stroke="#ffffff" stroke-width="2" stroke-dasharray="3,3" />
+  <text x="300" y="50" font-family="Arial, sans-serif" font-size="12" fill="#ffffff" text-anchor="middle" letter-spacing="1">FOLD FLAP OVER STRING</text>
+  
+
+  <!-- Triangle Pennant Body -->
+  <polygon points="30,80 570,80 300,820" fill="#2f6fed"  filter="url(#soft-shadow)" />
+
+  <!-- Accent top bar on flag -->
+  <line x1="50" y1="95" x2="550" y2="95" stroke="#ffffff" stroke-width="3" opacity="0.3" stroke-linecap="round" />
+
+  <!-- Flag Content -->
+  
+    <g transform="translate(120, 220) scale(0.85)">
+      <line x1="90" y1="80" x2="260" y2="60" stroke="#ffffff" stroke-opacity="0.4" stroke-width="2" />
+      <line x1="90" y1="80" x2="190" y2="190" stroke="#ffffff" stroke-opacity="0.4" stroke-width="2" />
+      <line x1="260" y1="60" x2="340" y2="170" stroke="#ffffff" stroke-opacity="0.4" stroke-width="2" />
+      <line x1="190" y1="190" x2="340" y2="170" stroke="#ffffff" stroke-opacity="0.4" stroke-width="2" />
+      <line x1="190" y1="190" x2="120" y2="280" stroke="#ffffff" stroke-opacity="0.4" stroke-width="2" />
+      <line x1="340" y1="170" x2="300" y2="300" stroke="#ffffff" stroke-opacity="0.4" stroke-width="2" />
+      <line x1="120" y1="280" x2="300" y2="300" stroke="#ffffff" stroke-opacity="0.4" stroke-width="2" />
+      <circle cx="90" cy="80" r="8" fill="#ffffff" />
+      <circle cx="260" cy="60" r="8" fill="#ffffff" />
+      <circle cx="190" cy="190" r="14" fill="#ffffff" fill-opacity="0.2" stroke="#ffffff" stroke-width="2" />
+      <circle cx="190" cy="190" r="8" fill="#ffffff" />
+      <circle cx="340" cy="170" r="8" fill="#ffffff" />
+      <circle cx="120" cy="280" r="8" fill="#ffffff" />
+      <circle cx="300" cy="300" r="8" fill="#ffffff" />
+    </g>
+</svg>

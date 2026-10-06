@@ -1,0 +1,155 @@
+<template>
+  <style>
+    #root {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      container-type: size;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+    }
+
+    .clip {
+      position: absolute;
+      inset: 0;
+    }
+
+    [class~="f02-pain-bg"] {
+      background: #FAFAFA;
+    }
+
+    [class~="f02-pain-stage"] {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    [class~="f02-pain-wrap"] {
+      position: relative;
+      width: 78cqw;
+      max-width: 78cqw;
+      min-height: 22cqh;
+      margin: 0 auto;
+    }
+
+    [class~="f02-pain-line-a"],
+    [class~="f02-pain-line-b"] {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      transform-origin: 50% 50%;
+    }
+
+    [class~="f02-pain-row"] {
+      display: block;
+    }
+
+    [class~="f02-pain-line-a"] [class~="f02-pain-row"] {
+      font-size: 4.6cqw;
+      font-weight: 500;
+      line-height: 1.3;
+      letter-spacing: -0.02em;
+      color: #18181B;
+    }
+
+    [class~="f02-pain-line-b"] {
+      font-size: 3.4cqw;
+      font-weight: 500;
+      line-height: 1.3;
+      color: #767676;
+    }
+
+    [class~="f02-pain-word-a"] {
+      display: inline-block;
+      opacity: 0;
+    }
+
+    [class~="f02-pain-word-b"] {
+      display: inline-block;
+      opacity: 1;
+    }
+  </style>
+
+  <div data-hf-id="hf-k5em" id="root" data-composition-id="02-pain" data-width="1920" data-height="1080" data-duration="6.4">
+    <div data-hf-id="hf-vovh" class="clip f02-pain-bg" data-start="0" data-duration="6.4" data-track-index="0"></div>
+
+    <div data-hf-id="hf-zz5f" class="clip f02-pain-stage" data-start="0" data-duration="6.4" data-track-index="1">
+      <div data-hf-id="hf-wozi" class="f02-pain-wrap">
+        <div data-hf-id="hf-x1fe" class="f02-pain-line-a">
+          <div data-hf-id="hf-3cdi" class="f02-pain-row"><span data-hf-id="hf-bxmc" class="f02-pain-word-a">If</span> <span data-hf-id="hf-tye2" class="f02-pain-word-a">nobody's</span> <span data-hf-id="hf-wzj6" class="f02-pain-word-a">watching—</span></div>
+        </div>
+        <div data-hf-id="hf-t3bd" class="f02-pain-line-b">
+          <div data-hf-id="hf-6nl6" class="f02-pain-row"><span data-hf-id="hf-pm7n" class="f02-pain-word-b">nobody</span> <span data-hf-id="hf-zdra" class="f02-pain-word-b">knows.</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    (function () {
+      var root = document.querySelector('[data-composition-id="02-pain"]');
+      var wordsA = root.querySelectorAll('[class~="f02-pain-word-a"]');
+      var lineA = root.querySelector('[class~="f02-pain-line-a"]');
+      var lineB = root.querySelector('[class~="f02-pain-line-b"]');
+
+      var tl = gsap.timeline({ paused: true });
+
+      // Scene 1 (0.0-2.5s) — Line A: per-word staggered reveal.
+      // dynamic-content-sequencing: timing is precomputed once from the word
+      // count, never recalculated per frame.
+      var A_START = 0.15;
+      var A_STAGGER = 0.25;
+      var A_DUR = 0.5;
+      wordsA.forEach(function (w, i) {
+        tl.fromTo(
+          w,
+          { opacity: 0, y: 16 },
+          { opacity: 1, y: 0, duration: A_DUR, ease: "power3.out" },
+          A_START + i * A_STAGGER
+        );
+      });
+      // Last word settles ~1.15s; Line A holds through the rest of Scene 1.
+
+      // Scene 2 (2.5-4.0s) — scale-swap-transition: Line A rushes away,
+      // Line B pops into its place (same wrap, same transform-origin).
+      var TRIGGER = 2.5;
+      var EXIT_DUR = 0.4;
+      var OVERLAP = 0.15;
+      var ENTER_DUR = 0.55;
+      var EXIT_SCALE = 0.7;
+      var BOUNCE_FACTOR = 1.6;
+
+      tl.fromTo(
+        lineA,
+        { scale: 1, opacity: 1 },
+        { scale: EXIT_SCALE, opacity: 0, duration: EXIT_DUR, ease: "power2.in" },
+        TRIGGER
+      );
+
+      var incomingStart = TRIGGER + EXIT_DUR - OVERLAP;
+      tl.fromTo(
+        lineB,
+        { scale: EXIT_SCALE, opacity: 0 },
+        { scale: 1, opacity: 1, duration: ENTER_DUR, ease: "back.out(" + BOUNCE_FACTOR + ")" },
+        incomingStart
+      );
+      // Line B's words are always-visible children of the lineB container —
+      // the container-level scale-swap fromTo above (scale+opacity) carries
+      // the whole entrance in one continuous move, overlapping Line A's exit
+      // with no gap in between (no separate per-word sub-reveal: that is the
+      // known v1 bug — a delayed word stagger starting after the container
+      // was already visible, leaving a blank hole on screen).
+      // Line B lands ~3.3s, inside the 2.5-4.0s Scene 2 window.
+
+      // Scene 3 (4.0-6.0s) — Line B settles and holds. Deliberate held /
+      // breather frame: no further motion authored past this point.
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines["02-pain"] = tl;
+    })();
+  </script>
+</template>

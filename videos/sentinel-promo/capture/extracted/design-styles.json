@@ -1,0 +1,88 @@
+{
+  "typography": [
+    {
+      "role": "display",
+      "fontFamily": "satoshi",
+      "fontSize": "24px",
+      "fontWeight": "700",
+      "lineHeight": "32px",
+      "letterSpacing": "-0.6px",
+      "color": "lab(8.30603 0.618212 -2.16573)",
+      "sampleText": "Welcome back"
+    },
+    {
+      "role": "body",
+      "fontFamily": "satoshi",
+      "fontSize": "14px",
+      "fontWeight": "400",
+      "lineHeight": "20px",
+      "letterSpacing": "normal",
+      "color": "lab(47.8878 1.65477 -5.77283)",
+      "sampleText": "Sign in to monitor your devices"
+    },
+    {
+      "role": "label",
+      "fontFamily": "satoshi",
+      "fontSize": "12px",
+      "fontWeight": "500",
+      "lineHeight": "16px",
+      "letterSpacing": "normal",
+      "color": "lab(35.1166 1.7821 -6.1173)",
+      "sampleText": "Email Address"
+    }
+  ],
+  "spacing": {
+    "observed": [
+      8,
+      12,
+      48
+    ],
+    "baseUnit": 8
+  },
+  "radius": [
+    "8px"
+  ],
+  "shadows": [],
+  "buttons": [
+    {
+      "label": "button",
+      "background": "transparent",
+      "backgroundImage": "",
+      "backdropFilter": "",
+      "color": "lab(65.6464 1.53494 -5.42429)",
+      "padding": "0px",
+      "borderRadius": "0px",
+      "border": "0px solid lab(65.6464 1.53494 -5.42429)",
+      "boxShadow": "none",
+      "fontSize": "16px",
+      "fontWeight": "400",
+      "height": "16px"
+    },
+    {
+      "label": "Sign In",
+      "background": "#2F6FED",
+      "backgroundImage": "",
+      "backdropFilter": "",
+      "color": "#FFFFFF",
+      "padding": "10px 16px",
+      "borderRadius": "8px",
+      "border": "0px solid rgb(255, 255, 255)",
+      "boxShadow": "none",
+      "fontSize": "16px",
+      "fontWeight": "500",
+      "height": "44px"
+    }
+  ],
+  "cards": [],
+  "nav": null,
+  "chips": [],
+  "statCells": [],
+  "tabs": [],
+  "backgrounds": [
+    {
+      "value": "linear-gradient(to right bottom, oklab(0.574086 -0.0280395 -0.199544 / 0.1) 0%, rgba(0, 0, 0, 0) 50%, rgba(0, 0, 0, 0) 100%)",
+      "area": 1036800
+    }
+  ],
+  "glass": []
+}

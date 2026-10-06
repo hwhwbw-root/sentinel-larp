@@ -1,0 +1,343 @@
+<template>
+  <style>
+    #root {
+      position: absolute;
+      inset: 0;
+      width: 1920px;
+      height: 1080px;
+      overflow: hidden;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+      --f06-fleet-bg: #FAFAFA;
+      --f06-fleet-primary: #2F6FED;
+      --f06-fleet-text: #18181B;
+      --f06-fleet-text-muted: #316CEB;
+      --f06-fleet-text-light: #767676;
+      --f06-fleet-border: rgba(47, 111, 237, 0.2);
+      --f06-fleet-positive: #059669;
+    }
+
+    .f06-fleet-bg {
+      position: absolute;
+      inset: 0;
+      background: var(--f06-fleet-bg);
+    }
+
+    .f06-fleet-content {
+      position: absolute;
+      inset: 0;
+    }
+
+    .f06-fleet-card {
+      position: absolute;
+      left: 120px;
+      top: 86px;
+      width: 1680px;
+      height: 794px;
+      background: #ffffff;
+      border: 1.5px solid var(--f06-fleet-border);
+      border-radius: 18px;
+      overflow: hidden;
+      will-change: transform, opacity;
+    }
+
+    .f06-fleet-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 44px 56px 32px;
+      border-bottom: 1px solid #eee;
+    }
+
+    .f06-fleet-header-left {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .f06-fleet-h2 {
+      font-size: 54px;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      line-height: 1.1;
+      color: var(--f06-fleet-text);
+      will-change: transform, opacity;
+    }
+
+    .f06-fleet-sub {
+      margin-top: 10px;
+      font-size: 22px;
+      font-weight: 500;
+      color: var(--f06-fleet-text-light);
+      will-change: transform, opacity;
+    }
+
+    .f06-fleet-pill {
+      background: var(--f06-fleet-primary);
+      color: #fff;
+      border-radius: 100px;
+      padding: 16px 32px;
+      font-size: 22px;
+      font-weight: 700;
+      white-space: nowrap;
+      will-change: transform, opacity;
+    }
+
+    .f06-fleet-table {
+      position: relative;
+      padding: 30px 56px 36px;
+    }
+
+    .f06-fleet-colhead,
+    .f06-fleet-row {
+      position: relative;
+      height: 34px;
+    }
+
+    .f06-fleet-row {
+      height: 64px;
+      margin-top: 24px;
+    }
+
+    .f06-fleet-row--ghost {
+      border-top: 1.5px dashed var(--f06-fleet-border);
+      border-radius: 10px;
+      opacity: 0;
+    }
+
+    .f06-fleet-cell {
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100%;
+      display: flex;
+      align-items: center;
+    }
+
+    .f06-fleet-colhead .f06-fleet-cell {
+      font-size: 18px;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--f06-fleet-text-light);
+    }
+
+    .f06-fleet-row .f06-fleet-cell {
+      font-size: 26px;
+      font-weight: 500;
+      color: var(--f06-fleet-text-muted);
+    }
+
+    .f06-fleet-cell--ghost-text {
+      color: var(--f06-fleet-text-light) !important;
+      font-weight: 500;
+    }
+
+    .f06-fleet-cell--status {
+      color: var(--f06-fleet-positive) !important;
+      font-weight: 600;
+    }
+
+    .f06-fleet-dotwrap {
+      width: 22px;
+      height: 22px;
+      margin-right: 10px;
+      flex: none;
+    }
+
+    .f06-fleet-dotwrap svg {
+      width: 100%;
+      height: 100%;
+      overflow: visible;
+    }
+
+    .f06-fleet-dot-ring {
+      fill: none;
+      stroke: var(--f06-fleet-positive);
+      stroke-width: 1.6;
+      transform-origin: 11px 11px;
+    }
+
+    .f06-fleet-dot-core {
+      fill: var(--f06-fleet-positive);
+      transform-origin: 11px 11px;
+    }
+
+    .f06-fleet-ghost-ring {
+      fill: none;
+      stroke: var(--f06-fleet-text-light);
+      stroke-width: 1.6;
+      stroke-dasharray: 2.5 3;
+    }
+  </style>
+
+  <div data-hf-id="hf-9bzy" id="root" data-composition-id="06-fleet" data-width="1920" data-height="1080" data-duration="7.5">
+    <div data-hf-id="hf-y629" class="f06-fleet-bg clip" data-start="0" data-duration="7.5" data-track-index="0"></div>
+
+    <div data-hf-id="hf-t0xu" class="f06-fleet-content clip" data-start="0" data-duration="7.5" data-track-index="1">
+      <div data-hf-id="hf-z6jm" class="f06-fleet-card" id="f06-fleet-card">
+        <div data-hf-id="hf-ei2j" class="f06-fleet-header">
+          <div data-hf-id="hf-10rz" class="f06-fleet-header-left">
+            <div data-hf-id="hf-o3fj" class="f06-fleet-h2" id="f06-fleet-h2">Device Management</div>
+            <div data-hf-id="hf-xd8u" class="f06-fleet-sub" id="f06-fleet-sub">2 device(s) registered</div>
+          </div>
+          <div data-hf-id="hf-qzhy" class="f06-fleet-pill" id="f06-fleet-pill">+ Add Device</div>
+        </div>
+
+        <div data-hf-id="hf-tx5k" class="f06-fleet-table">
+          <!-- column header row -->
+          <div data-hf-id="hf-hz92" class="f06-fleet-colhead" id="f06-fleet-colhead">
+            <div data-hf-id="hf-fe84" class="f06-fleet-cell" style="left:0px;width:320px;">Box ID</div>
+            <div data-hf-id="hf-kr4v" class="f06-fleet-cell" style="left:338px;width:200px;">Status</div>
+            <div data-hf-id="hf-1nvm" class="f06-fleet-cell" style="left:556px;width:180px;">Type</div>
+            <div data-hf-id="hf-q2pr" class="f06-fleet-cell" style="left:754px;width:220px;">Alias</div>
+            <div data-hf-id="hf-rw3m" class="f06-fleet-cell" style="left:992px;width:260px;">Alert Threshold</div>
+            <div data-hf-id="hf-ggw3" class="f06-fleet-cell" style="left:1270px;width:298px;">Dangerous Threshold</div>
+          </div>
+
+          <!-- row 1: mocksense-0 -->
+          <div data-hf-id="hf-epcf" class="f06-fleet-row" id="f06-fleet-row1">
+            <div data-hf-id="hf-89jk" class="f06-fleet-cell" data-c="0" style="left:0px;width:320px;">mocksense-0</div>
+            <div data-hf-id="hf-071z" class="f06-fleet-cell f06-fleet-cell--status" data-c="1" style="left:338px;width:200px;">
+              <span data-hf-id="hf-poby" class="f06-fleet-dotwrap">
+                <svg data-hf-id="hf-q5y9" viewBox="0 0 22 22">
+                  <circle data-hf-id="hf-9qkx" class="f06-fleet-dot-ring" id="f06-fleet-ring1" cx="11" cy="11" r="4.5" />
+                  <circle data-hf-id="hf-if0s" class="f06-fleet-dot-core" cx="11" cy="11" r="4" />
+                </svg>
+              </span>
+              Active
+            </div>
+            <div data-hf-id="hf-ps4j" class="f06-fleet-cell" data-c="2" style="left:556px;width:180px;">CO2</div>
+            <div data-hf-id="hf-f2lk" class="f06-fleet-cell" data-c="3" style="left:754px;width:220px;">No alias</div>
+            <div data-hf-id="hf-8c1g" class="f06-fleet-cell" data-c="4" style="left:992px;width:260px;">—</div>
+            <div data-hf-id="hf-u5zs" class="f06-fleet-cell" data-c="5" style="left:1270px;width:298px;">—</div>
+          </div>
+
+          <!-- row 2: mocksense-1 -->
+          <div data-hf-id="hf-3tus" class="f06-fleet-row" id="f06-fleet-row2">
+            <div data-hf-id="hf-7v8j" class="f06-fleet-cell" data-c="0" style="left:0px;width:320px;">mocksense-1</div>
+            <div data-hf-id="hf-1t4n" class="f06-fleet-cell f06-fleet-cell--status" data-c="1" style="left:338px;width:200px;">
+              <span data-hf-id="hf-848i" class="f06-fleet-dotwrap">
+                <svg data-hf-id="hf-tkfp" viewBox="0 0 22 22">
+                  <circle data-hf-id="hf-6azi" class="f06-fleet-dot-ring" id="f06-fleet-ring2" cx="11" cy="11" r="4.5" />
+                  <circle data-hf-id="hf-ksro" class="f06-fleet-dot-core" cx="11" cy="11" r="4" />
+                </svg>
+              </span>
+              Active
+            </div>
+            <div data-hf-id="hf-7177" class="f06-fleet-cell" data-c="2" style="left:556px;width:180px;">H2</div>
+            <div data-hf-id="hf-9334" class="f06-fleet-cell" data-c="3" style="left:754px;width:220px;">No alias</div>
+            <div data-hf-id="hf-gb2k" class="f06-fleet-cell" data-c="4" style="left:992px;width:260px;">—</div>
+            <div data-hf-id="hf-owts" class="f06-fleet-cell" data-c="5" style="left:1270px;width:298px;">—</div>
+          </div>
+
+          <!-- ghost row: not a real device, implies room to grow -->
+          <div data-hf-id="hf-a312" class="f06-fleet-row f06-fleet-row--ghost" id="f06-fleet-ghost">
+            <div data-hf-id="hf-7f8l" class="f06-fleet-cell f06-fleet-cell--ghost-text" style="left:0px;width:320px;">—</div>
+            <div data-hf-id="hf-c9o8" class="f06-fleet-cell f06-fleet-cell--ghost-text" style="left:338px;width:200px;">
+              <span data-hf-id="hf-8ijj" class="f06-fleet-dotwrap">
+                <svg data-hf-id="hf-urcs" viewBox="0 0 22 22">
+                  <circle data-hf-id="hf-xvkk" class="f06-fleet-ghost-ring" cx="11" cy="11" r="4.5" />
+                </svg>
+              </span>
+              —
+            </div>
+            <div data-hf-id="hf-qzp9" class="f06-fleet-cell f06-fleet-cell--ghost-text" style="left:556px;width:180px;">—</div>
+            <div data-hf-id="hf-tovc" class="f06-fleet-cell f06-fleet-cell--ghost-text" style="left:754px;width:220px;">—</div>
+            <div data-hf-id="hf-njr8" class="f06-fleet-cell f06-fleet-cell--ghost-text" style="left:992px;width:260px;">—</div>
+            <div data-hf-id="hf-fhtt" class="f06-fleet-cell f06-fleet-cell--ghost-text" style="left:1270px;width:298px;">—</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+  <script>
+    (function () {
+      window.__timelines = window.__timelines || {};
+
+      var tl = gsap.timeline({ paused: true });
+
+      // ---- Scene 1 (0.0-2.0s): cream ground; header + pill enter first, top band ----
+      tl.fromTo(
+        '[id="f06-fleet-card"]',
+        { opacity: 0, scale: 0.97 },
+        { opacity: 1, scale: 1, duration: 0.4, ease: "power3.out" },
+        0.0
+      );
+      tl.fromTo(
+        '[id="f06-fleet-h2"]',
+        { opacity: 0, y: 16 },
+        { opacity: 1, y: 0, duration: 0.35, ease: "power3.out" },
+        0.1
+      );
+      tl.fromTo(
+        '[id="f06-fleet-sub"]',
+        { opacity: 0, y: 12 },
+        { opacity: 1, y: 0, duration: 0.3, ease: "power3.out" },
+        0.25
+      );
+      tl.fromTo(
+        '[id="f06-fleet-pill"]',
+        { opacity: 0, scale: 0.9 },
+        { opacity: 1, scale: 1, duration: 0.3, ease: "back.out(1.4)" },
+        0.3
+      );
+
+      // ---- Scene 2 (2.0-5.0s): two real rows self-assemble, staggered cascade ~0.6s apart ----
+      var EXPAND_DUR = 0.55;
+      var STAGGER = 0.05;
+
+      // column header row: simple fade/slide in
+      var headCells = document.querySelectorAll("#f06-fleet-colhead .f06-fleet-cell");
+      tl.fromTo(
+        headCells,
+        { opacity: 0, y: 10 },
+        { opacity: 1, y: 0, duration: 0.35, ease: "power2.out", stagger: 0.03 },
+        2.0
+      );
+
+      function assembleRow(rowSel, startAt) {
+        var cells = document.querySelectorAll(rowSel + " .f06-fleet-cell");
+        var rowCenter = 784; // row-local horizontal center (content width 1568 / 2)
+        cells.forEach(function (cell, i) {
+          var colStart = parseFloat(cell.style.left) || 0;
+          var deltaX = rowCenter - colStart; // shared-origin offset -> final slot
+          tl.fromTo(
+            cell,
+            { x: deltaX, scale: 0.6, opacity: 0 },
+            { x: 0, scale: 1, opacity: 1, duration: EXPAND_DUR, ease: "power3.out" },
+            startAt + i * STAGGER
+          );
+        });
+      }
+
+      // row 1 "mocksense-0 - Active - CO2" then row 2 "mocksense-1 - Active - H2", ~0.6s apart
+      assembleRow('[id="f06-fleet-row1"]', 2.5);
+      assembleRow('[id="f06-fleet-row2"]', 3.1);
+
+      // status dot pulse: single expanding ring + fade, fires as each row lands
+      function pulseDot(ringSel, atTime) {
+        tl.set(ringSel, { transformOrigin: "50% 50%", scale: 1, opacity: 0.9 }, atTime);
+        tl.to(
+          ringSel,
+          { scale: 2.6, opacity: 0, duration: 0.5, ease: "power2.out", immediateRender: false },
+          atTime
+        );
+      }
+
+      pulseDot('[id="f06-fleet-ring1"]', 3.1);
+      pulseDot('[id="f06-fleet-ring2"]', 3.7);
+
+      // ---- Scene 3 (5.0-7.0s): hold on complete two-row table; ghost row fades in, then stills ----
+      tl.fromTo(
+        '[id="f06-fleet-ghost"]',
+        { opacity: 0, y: 10 },
+        { opacity: 0.35, y: 0, duration: 0.6, ease: "power2.out" },
+        5.4
+      );
+
+      window.__timelines["06-fleet"] = tl;
+      tl.seek(0);
+    })();
+  </script>
+</template>

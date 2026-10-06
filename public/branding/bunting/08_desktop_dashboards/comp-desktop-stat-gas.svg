@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 540 220" width="1080" height="440">
+    <defs>
+      <filter id="cardShadow" x="-10%" y="-10%" width="120%" height="130%">
+        <feDropShadow dx="0" dy="12" stdDeviation="15" flood-color="#0f172a" flood-opacity="0.08" />
+      </filter>
+    </defs>
+    <g transform="translate(20, 15)" filter="url(#cardShadow)">
+      <rect width="500" height="190" rx="16" fill="#ffffff" stroke="#c7d9fc" stroke-width="1.6" />
+      <path d="M16 0 H484 Q500 0 500 16 V28 H0 V16 Q0 0 16 0 Z" fill="#f0f5ff" />
+      <rect x="22" y="10" width="8" height="8" rx="4" fill="#2f6fed" />
+      <text x="38" y="18" font-family="Arial, Helvetica, 'Segoe UI', sans-serif" font-weight="700" font-size="11" fill="#2f6fed" letter-spacing="1">MQ-2 SENSOR &#8226; PRIMARY TELEMETRY</text>
+
+      <g transform="translate(30, 56)">
+        <text x="0" y="14" font-family="Arial, Helvetica, 'Segoe UI', sans-serif" font-weight="700" font-size="14" fill="#71717a">AIR &amp; GAS CONCENTRATION</text>
+        <text x="0" y="66" font-family="Arial, Helvetica, 'Segoe UI', sans-serif" font-weight="800" font-size="50" fill="#18181b">524 <tspan font-size="22" font-weight="600" fill="#71717a">ppm</tspan></text>
+
+        <g transform="translate(240, 24)">
+          <rect width="96" height="30" rx="15" fill="#dcfce7" />
+          <text x="48" y="20" font-family="Arial, Helvetica, 'Segoe UI', sans-serif" font-weight="800" font-size="12" fill="#16a34a" text-anchor="middle">✓ SAFE</text>
+        </g>
+
+        <g transform="translate(0, 102)">
+          <text x="0" y="0" font-family="Arial, Helvetica, 'Segoe UI', sans-serif" font-weight="600" font-size="12" fill="#71717a">Baseline: 400–600 ppm &#8226; Max Danger Threshold: 1000 ppm</text>
+          <rect x="0" y="8" width="440" height="7" rx="3.5" fill="#f1f5f9" />
+          <rect x="0" y="8" width="230" height="7" rx="3.5" fill="#2f6fed" />
+        </g>
+      </g>
+    </g>
+  </svg>

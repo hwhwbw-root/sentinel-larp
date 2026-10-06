@@ -1,0 +1,6 @@
+[h1] Welcome back
+[p] Sign in to monitor your devices
+[label] Email Address
+[label] Password
+[button] Sign In
+[p] Contact your administrator to request an account

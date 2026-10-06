@@ -1,0 +1,73 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 740 370" width="1480" height="740">
+    <defs>
+      <filter id="fleetShadow" x="-10%" y="-10%" width="120%" height="130%">
+        <feDropShadow dx="0" dy="16" stdDeviation="20" flood-color="#0f172a" flood-opacity="0.1" />
+      </filter>
+    </defs>
+    <g transform="translate(20, 20)" filter="url(#fleetShadow)">
+      <rect width="700" height="330" rx="16" fill="#ffffff" stroke="#e2e8f0" stroke-width="1.2" />
+
+      <!-- Header -->
+      <g transform="translate(24, 24)">
+        <text x="0" y="16" font-family="Arial, Helvetica, 'Segoe UI', sans-serif" font-weight="800" font-size="18" fill="#18181b">ESP32 Fleet Nodes</text>
+        <text x="180" y="15" font-family="Arial, Helvetica, 'Segoe UI', sans-serif" font-weight="600" font-size="12" fill="#71717a">3 active &#8226; AES-256 Mesh</text>
+      </g>
+
+      <!-- Row 1 -->
+      <g transform="translate(24, 60)">
+        <rect width="652" height="70" rx="10" fill="#f0f5ff" stroke="#c7d9fc" stroke-width="1" />
+        <circle cx="24" cy="35" r="10" fill="#2f6fed" />
+        <circle cx="24" cy="35" r="4" fill="#ffffff" />
+        <g transform="translate(46, 26)">
+          <text x="0" y="10" font-family="Arial, Helvetica, 'Segoe UI', sans-serif" font-weight="800" font-size="14" fill="#2f6fed">ESP32-Node 1A2B</text>
+          <text x="0" y="26" font-family="Arial, Helvetica, 'Segoe UI', sans-serif" font-weight="600" font-size="11" fill="#71717a">Zone 1 &#8226; Primary Lab &#8226; MQ-2 Gas</text>
+        </g>
+        <g transform="translate(420, 26)">
+          <text x="0" y="10" font-family="Arial, Helvetica, 'Segoe UI', sans-serif" font-weight="800" font-size="14" fill="#18181b">524 ppm</text>
+          <text x="0" y="26" font-family="Arial, Helvetica, 'Segoe UI', sans-serif" font-weight="600" font-size="11" fill="#71717a">24.4°C &#8226; -48 dBm</text>
+        </g>
+        <g transform="translate(552, 22)">
+          <rect width="78" height="26" rx="13" fill="#dcfce7" />
+          <text x="39" y="17" font-family="Arial, Helvetica, 'Segoe UI', sans-serif" font-weight="800" font-size="10" fill="#16a34a" text-anchor="middle">ONLINE</text>
+        </g>
+      </g>
+
+      <!-- Row 2 -->
+      <g transform="translate(24, 142)">
+        <rect width="652" height="70" rx="10" fill="#ffffff" stroke="#e2e8f0" stroke-width="1" />
+        <circle cx="24" cy="35" r="10" fill="#e2e8f0" />
+        <circle cx="24" cy="35" r="4" fill="#71717a" />
+        <g transform="translate(46, 26)">
+          <text x="0" y="10" font-family="Arial, Helvetica, 'Segoe UI', sans-serif" font-weight="800" font-size="14" fill="#18181b">ESP32-Node 3C4D</text>
+          <text x="0" y="26" font-family="Arial, Helvetica, 'Segoe UI', sans-serif" font-weight="600" font-size="11" fill="#71717a">Server Room B &#8226; Optical NDIR</text>
+        </g>
+        <g transform="translate(420, 26)">
+          <text x="0" y="10" font-family="Arial, Helvetica, 'Segoe UI', sans-serif" font-weight="800" font-size="14" fill="#18181b">412 ppm</text>
+          <text x="0" y="26" font-family="Arial, Helvetica, 'Segoe UI', sans-serif" font-weight="600" font-size="11" fill="#71717a">20.8°C &#8226; -52 dBm</text>
+        </g>
+        <g transform="translate(552, 22)">
+          <rect width="78" height="26" rx="13" fill="#dcfce7" />
+          <text x="39" y="17" font-family="Arial, Helvetica, 'Segoe UI', sans-serif" font-weight="800" font-size="10" fill="#16a34a" text-anchor="middle">ONLINE</text>
+        </g>
+      </g>
+
+      <!-- Row 3 -->
+      <g transform="translate(24, 224)">
+        <rect width="652" height="70" rx="10" fill="#ffffff" stroke="#e2e8f0" stroke-width="1" />
+        <circle cx="24" cy="35" r="10" fill="#e2e8f0" />
+        <circle cx="24" cy="35" r="4" fill="#71717a" />
+        <g transform="translate(46, 26)">
+          <text x="0" y="10" font-family="Arial, Helvetica, 'Segoe UI', sans-serif" font-weight="800" font-size="14" fill="#18181b">ESP32-Node 5E6F</text>
+          <text x="0" y="26" font-family="Arial, Helvetica, 'Segoe UI', sans-serif" font-weight="600" font-size="11" fill="#71717a">Chemical Storage &#8226; Electrochemical</text>
+        </g>
+        <g transform="translate(420, 26)">
+          <text x="0" y="10" font-family="Arial, Helvetica, 'Segoe UI', sans-serif" font-weight="800" font-size="14" fill="#18181b">389 ppm</text>
+          <text x="0" y="26" font-family="Arial, Helvetica, 'Segoe UI', sans-serif" font-weight="600" font-size="11" fill="#71717a">23.1°C &#8226; -61 dBm</text>
+        </g>
+        <g transform="translate(552, 22)">
+          <rect width="78" height="26" rx="13" fill="#dcfce7" />
+          <text x="39" y="17" font-family="Arial, Helvetica, 'Segoe UI', sans-serif" font-weight="800" font-size="10" fill="#16a34a" text-anchor="middle">ONLINE</text>
+        </g>
+      </g>
+    </g>
+  </svg>

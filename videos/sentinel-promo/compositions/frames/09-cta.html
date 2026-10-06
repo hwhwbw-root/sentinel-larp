@@ -1,0 +1,178 @@
+<template>
+<div data-hf-id="hf-kdk3" id="root" data-composition-id="09-cta" data-width="1920" data-height="1080">
+  <style>
+    #root {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      container-type: size;
+      --f09-cta-bg: #FAFAFA;
+      --f09-cta-primary: #2F6FED;
+      --f09-cta-text: #18181B;
+      --f09-cta-text-muted: #316CEB;
+      --f09-cta-text-light: #9A9A9A;
+      --f09-cta-border: rgba(47, 111, 237, 0.2);
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    }
+
+    #root .clip {
+      position: absolute;
+      inset: 0;
+    }
+
+    #root .f09-cta-bg {
+      background: var(--f09-cta-bg);
+    }
+
+    #root .f09-cta-rings {
+      position: absolute;
+      left: 0;
+      right: auto;
+      top: 40cqh;
+      bottom: auto;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      transform: translateY(-50%);
+    }
+
+    #root .f09-cta-ring {
+      position: absolute;
+      border: 1px solid var(--f09-cta-border);
+      border-radius: 50%;
+      opacity: 0;
+    }
+
+    #root .f09-cta-ring-1 {
+      width: 30cqw;
+      height: 30cqw;
+    }
+
+    #root .f09-cta-ring-2 {
+      width: 44cqw;
+      height: 44cqw;
+    }
+
+    #root .f09-cta-stage {
+      position: absolute;
+      left: 0;
+      right: auto;
+      top: 40cqh;
+      bottom: auto;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      transform: translateY(-50%);
+    }
+
+    #root .f09-cta-mark {
+      width: 11cqw;
+      height: 11cqw;
+      display: block;
+      transform-origin: 50% 50%;
+      opacity: 0;
+    }
+
+    #root .f09-cta-wordmark {
+      margin-top: 2.6cqw;
+      font-size: 3.4cqw;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--f09-cta-text);
+      opacity: 0;
+    }
+
+    #root .f09-cta-closing {
+      margin-top: 2cqw;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 0.4em;
+      max-width: 60cqw;
+      font-size: 2cqw;
+      font-weight: 500;
+      line-height: 1.5;
+      color: var(--f09-cta-text-light);
+    }
+
+    #root .f09-cta-word {
+      opacity: 0;
+      color: var(--f09-cta-text-light);
+    }
+  </style>
+
+  <div data-hf-id="hf-8omz" class="clip f09-cta-bg" data-start="0" data-duration="7" data-track-index="0"></div>
+
+  <div data-hf-id="hf-ii38" class="clip f09-cta-rings" data-start="0" data-duration="7" data-track-index="1">
+    <div data-hf-id="hf-qjv4" class="f09-cta-ring f09-cta-ring-1"></div>
+    <div data-hf-id="hf-1fcr" class="f09-cta-ring f09-cta-ring-2"></div>
+  </div>
+
+  <div data-hf-id="hf-0cvg" class="clip f09-cta-stage" data-start="0" data-duration="7" data-track-index="2">
+    <img data-hf-id="hf-jdoh" class="f09-cta-mark" src="assets/sentinel-logo.svg" alt="">
+    <div data-hf-id="hf-boj4" class="f09-cta-wordmark">SENTINEL</div>
+    <div data-hf-id="hf-1g4k" class="f09-cta-closing">
+      <span data-hf-id="hf-v8vw" class="f09-cta-word">Never</span>
+      <span data-hf-id="hf-t4wi" class="f09-cta-word">miss</span>
+      <span data-hf-id="hf-ty1d" class="f09-cta-word">a</span>
+      <span data-hf-id="hf-6e6a" class="f09-cta-word">dangerous</span>
+      <span data-hf-id="hf-od7k" class="f09-cta-word">reading.</span>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+  <script>
+    (function () {
+      var root = document.querySelector('[data-composition-id="09-cta"]');
+      if (!root) return;
+
+      var ring1 = root.querySelector(".f09-cta-ring-1");
+      var ring2 = root.querySelector(".f09-cta-ring-2");
+      var mark = root.querySelector(".f09-cta-mark");
+      var wordmark = root.querySelector(".f09-cta-wordmark");
+      var words = root.querySelectorAll(".f09-cta-word");
+
+      window.__timelines = window.__timelines || {};
+      var tl = gsap.timeline({ paused: true });
+      window.__timelines["09-cta"] = tl;
+
+      // Scene 1 (0.0-2.0s): cream ground, faint concentric rings fade in at very low opacity.
+      tl.fromTo(ring1, { opacity: 0 }, { opacity: 0.22, duration: 1.2, ease: "power2.out" }, 0.15);
+      tl.fromTo(ring2, { opacity: 0 }, { opacity: 0.14, duration: 1.4, ease: "power2.out" }, 0.3);
+
+      // Scene 2 (2.0-4.5s): real shield mark spring-pops in, then the wordmark
+      // locks in beneath it (spring-pop-entrance recipe, calm settle variant).
+      tl.fromTo(
+        mark,
+        { scale: 0, opacity: 0, y: 12 },
+        { scale: 1, opacity: 1, y: 0, duration: 0.6, ease: "power3.out" },
+        2.0,
+      );
+      tl.fromTo(
+        wordmark,
+        { opacity: 0, y: 16 },
+        { opacity: 1, y: 0, duration: 0.5, ease: "power3.out" },
+        2.6,
+      );
+
+      // Scene 3 (4.5-7.0s): closing line lands via a quiet per-word staggered
+      // fade-through-grey reveal, then the whole lockup holds completely still
+      // (no jitter) to the final frame.
+      var wordStart = 4.5;
+      var wordStagger = 0.12;
+      words.forEach(function (word, i) {
+        tl.fromTo(
+          word,
+          { opacity: 0, color: "#9A9A9A" },
+          { opacity: 1, color: "#316CEB", duration: 0.4, ease: "power2.out" },
+          wordStart + i * wordStagger,
+        );
+      });
+    })();
+  </script>
+</div>
+</template>

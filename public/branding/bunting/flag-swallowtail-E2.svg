@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 850" width="600" height="850">
+  
+  <!-- Top Fold Flap Guide -->
+  <polygon points="30,80 30,10 570,10 570,80" fill="#2f6fed" opacity="0.85" />
+  <line x1="30" y1="80" x2="570" y2="80" stroke="#ffffff" stroke-width="2" stroke-dasharray="6,6" opacity="0.7" />
+  <circle cx="70" cy="45" r="12" fill="none" stroke="#ffffff" stroke-width="2" stroke-dasharray="3,3" />
+  <circle cx="530" cy="45" r="12" fill="none" stroke="#ffffff" stroke-width="2" stroke-dasharray="3,3" />
+  <text x="300" y="50" font-family="Arial, sans-serif" font-size="12" fill="#ffffff" text-anchor="middle" letter-spacing="1">FOLD FLAP OVER STRING</text>
+  
+
+  <!-- Swallowtail Pennant Body -->
+  <polygon points="30,80 570,80 570,780 300,660 30,780" fill="#2f6fed"  />
+
+  <!-- Accent top bar on flag -->
+  <line x1="60" y1="100" x2="540" y2="100" stroke="#ffffff" stroke-width="3" opacity="0.3" stroke-linecap="round" />
+
+  <!-- Flag Content -->
+  
+    <g transform="translate(192.36, 250) scale(0.36)">
+      <path d="M541.1490478515625 740.0H78.9503173828125V4.500732421875H540.9990234375V138.59814453125H178.8475341796875L223.8475341796875 97.1982421875V305.0516357421875H506.299072265625V432.3492431640625H223.8475341796875V647.4525146484375L178.8475341796875 605.902587890625H541.1490478515625Z" fill="#ffffff" fill-rule="nonzero" />
+    </g>
+</svg>

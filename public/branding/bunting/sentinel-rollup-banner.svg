@@ -1,0 +1,430 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 2800" width="1200" height="2800">
+  <defs>
+    <!-- Heavy 3D Drop Shadow for Phones -->
+    <filter id="phoneShadow" x="-20%" y="-10%" width="150%" height="130%">
+      <feDropShadow dx="0" dy="30" stdDeviation="35" flood-color="#0f172a" flood-opacity="0.22" />
+      <feDropShadow dx="0" dy="12" stdDeviation="15" flood-color="#0f172a" flood-opacity="0.15" />
+    </filter>
+    <filter id="cardGlow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="8" stdDeviation="16" flood-color="#2f6fed" flood-opacity="0.12" />
+    </filter>
+    <!-- Background subtle gradient -->
+    <linearGradient id="bgGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#ffffff" />
+      <stop offset="40%" stop-color="#f8faff" />
+      <stop offset="70%" stop-color="#f0f4fd" />
+      <stop offset="100%" stop-color="#e8effc" />
+    </linearGradient>
+  </defs>
+
+  <!-- Banner Background -->
+  <rect width="1200" height="2800" fill="url(#bgGrad)" />
+
+  <!-- Subtle Studio Grid pattern at top -->
+  <g opacity="0.04" stroke="#18181b" stroke-width="1">
+    <line x1="0" y1="0" x2="0" y2="1000" /><line x1="60" y1="0" x2="60" y2="1000" /><line x1="120" y1="0" x2="120" y2="1000" /><line x1="180" y1="0" x2="180" y2="1000" /><line x1="240" y1="0" x2="240" y2="1000" /><line x1="300" y1="0" x2="300" y2="1000" /><line x1="360" y1="0" x2="360" y2="1000" /><line x1="420" y1="0" x2="420" y2="1000" /><line x1="480" y1="0" x2="480" y2="1000" /><line x1="540" y1="0" x2="540" y2="1000" /><line x1="600" y1="0" x2="600" y2="1000" /><line x1="660" y1="0" x2="660" y2="1000" /><line x1="720" y1="0" x2="720" y2="1000" /><line x1="780" y1="0" x2="780" y2="1000" /><line x1="840" y1="0" x2="840" y2="1000" /><line x1="900" y1="0" x2="900" y2="1000" /><line x1="960" y1="0" x2="960" y2="1000" /><line x1="1020" y1="0" x2="1020" y2="1000" /><line x1="1080" y1="0" x2="1080" y2="1000" /><line x1="1140" y1="0" x2="1140" y2="1000" />
+    <line x1="0" y1="0" x2="1200" y2="0" /><line x1="0" y1="60" x2="1200" y2="60" /><line x1="0" y1="120" x2="1200" y2="120" /><line x1="0" y1="180" x2="1200" y2="180" /><line x1="0" y1="240" x2="1200" y2="240" /><line x1="0" y1="300" x2="1200" y2="300" /><line x1="0" y1="360" x2="1200" y2="360" /><line x1="0" y1="420" x2="1200" y2="420" /><line x1="0" y1="480" x2="1200" y2="480" /><line x1="0" y1="540" x2="1200" y2="540" /><line x1="0" y1="600" x2="1200" y2="600" /><line x1="0" y1="660" x2="1200" y2="660" /><line x1="0" y1="720" x2="1200" y2="720" /><line x1="0" y1="780" x2="1200" y2="780" /><line x1="0" y1="840" x2="1200" y2="840" /><line x1="0" y1="900" x2="1200" y2="900" /><line x1="0" y1="960" x2="1200" y2="960" /><line x1="0" y1="1020" x2="1200" y2="1020" />
+  </g>
+
+  <!-- Sensor Mesh Ambient Graphic (Upper right background) -->
+  <g transform="translate(680, 80) scale(1.1)" opacity="0.45">
+    <line x1="90" y1="80" x2="260" y2="60" stroke="#2f6fed" stroke-width="2" />
+    <line x1="90" y1="80" x2="190" y2="190" stroke="#2f6fed" stroke-width="2" />
+    <line x1="260" y1="60" x2="340" y2="170" stroke="#2f6fed" stroke-width="2" />
+    <line x1="190" y1="190" x2="340" y2="170" stroke="#2f6fed" stroke-width="2" />
+    <line x1="190" y1="190" x2="120" y2="280" stroke="#2f6fed" stroke-width="2" />
+    <line x1="340" y1="170" x2="300" y2="300" stroke="#2f6fed" stroke-width="2" />
+    <line x1="120" y1="280" x2="300" y2="300" stroke="#2f6fed" stroke-width="2" />
+    <circle cx="90" cy="80" r="7" fill="#2f6fed" />
+    <circle cx="260" cy="60" r="7" fill="#2f6fed" />
+    <circle cx="190" cy="190" r="16" fill="none" stroke="#2f6fed" stroke-width="2" />
+    <circle cx="190" cy="190" r="8" fill="#2f6fed" />
+    <circle cx="340" cy="170" r="7" fill="#2f6fed" />
+    <circle cx="120" cy="280" r="7" fill="#2f6fed" />
+    <circle cx="300" cy="300" r="7" fill="#2f6fed" />
+  </g>
+
+  <!-- ================= TOP HERO: LOGO & BRAND ================= -->
+  <g transform="translate(600, 160)">
+    <!-- Shield Logo Emblem (Large, Centered) -->
+    <g transform="translate(-110, 0) scale(2.75)">
+      <path d="M40 4 L72 16 V38 C72 58 58 71 40 76 C22 71 8 58 8 38 V16 Z"
+            fill="none" stroke="#2f6fed" stroke-width="4" stroke-linejoin="round" />
+      <path d="M40 14 L64 23 V38 C64 53.5 53.5 63.5 40 67.5 C26.5 63.5 16 53.5 16 38 V23 Z"
+            fill="#f0f5ff" stroke="#2f6fed" stroke-width="2" />
+      <circle cx="40" cy="36" r="9" fill="none" stroke="#2f6fed" stroke-width="3.5" />
+      <circle cx="40" cy="36" r="2.6" fill="#2f6fed" />
+      <path d="M40 47 V56" stroke="#2f6fed" stroke-width="3.5" stroke-linecap="round" />
+    </g>
+
+    <!-- "SENTINEL" Wordmark in Satoshi Bold vector curves -->
+    <g transform="translate(-380, 270) scale(0.148)">
+      <path d="M37.500244140625 214.099853515625Q37.500244140625 148.4500732421875 71.52508544921875 98.22528076171875Q105.5499267578125 48.00048828125 165.62469482421875 19.400634765625Q225.699462890625 -9.19921875 303.3492431640625 -9.19921875Q380.498779296875 -9.19921875 436.77349853515625 17.82562255859375Q493.0482177734375 44.8504638671875 524.0231323242188 94.3502197265625Q554.998046875 143.8499755859375 556.0482177734375 211.899658203125H411.700927734375Q410.6507568359375 168.8489990234375 381.17535400390625 144.32366943359375Q351.699951171875 119.79833984375 301.6492919921875 119.79833984375Q247.698486328125 119.79833984375 215.0479736328125 143.6488037109375Q182.3974609375 167.499267578125 182.3974609375 209.0Q182.3974609375 245.5504150390625 202.27276611328125 265.87579345703125Q222.1480712890625 286.201171875 264.4486083984375 295.4013671875L377.698974609375 319.7515869140625Q473.8485107421875 339.7515869140625 520.9483642578125 388.87652587890625Q568.0482177734375 438.00146484375 568.0482177734375 523.0009765625Q568.0482177734375 592.20068359375 533.9483642578125 644.2754516601562Q499.8485107421875 696.3502197265625 437.998779296875 724.60009765625Q376.1490478515625 752.8499755859375 293.2493896484375 752.8499755859375Q213.6497802734375 752.8499755859375 153.72503662109375 725.7501220703125Q93.80029296875 698.6502685546875 60.82537841796875 648.800537109375Q27.8504638671875 598.9508056640625 26.9503173828125 532.0511474609375H171.4476318359375Q171.897705078125 575.20166015625 204.12322998046875 599.4520263671875Q236.3487548828125 623.702392578125 294.099365234375 623.702392578125Q353.60009765625 623.702392578125 388.37554931640625 600.201904296875Q423.1510009765625 576.701416015625 423.1510009765625 536.7506103515625Q423.1510009765625 502.4500732421875 405.32562255859375 482.82464599609375Q387.500244140625 463.19921875 346.599609375 454.8489990234375L232.099365234375 430.6488037109375Q135.9498291015625 410.6488037109375 86.72503662109375 356.22406005859375Q37.500244140625 301.79931640625 37.500244140625 214.099853515625Z M1191.1490478515625 740.0H728.9503173828125V4.500732421875H1190.9990234375V138.59814453125H828.8475341796875L873.8475341796875 97.1982421875V305.0516357421875H1156.299072265625V432.3492431640625H873.8475341796875V647.4525146484375L828.8475341796875 605.902587890625H1191.1490478515625Z M1520.1475830078125 740.0H1376.9503173828125V4.500732421875H1520.297607421875L1891.7491455078125 565.0531005859375H1847.900146484375V4.500732421875H1991.097412109375V740.0H1847.900146484375L1476.4486083984375 180.297607421875H1520.1475830078125Z M2495.3472900390625 73.79931640625V740.0H2350.4500732421875V73.79931640625ZM2138.499755859375 138.59814453125V4.500732421875H2707.297607421875V138.59814453125Z M2999.8475341796875 4.500732421875V740.0H2854.9503173828125V4.500732421875Z M3351.1475830078125 740.0H3207.9503173828125V4.500732421875H3351.297607421875L3722.7491455078125 565.0531005859375H3678.900146484375V4.500732421875H3822.097412109375V740.0H3678.900146484375L3307.4486083984375 180.297607421875H3351.1475830078125Z M4492.1490478515625 740.0H4029.9503173828125V4.500732421875H4491.9990234375V138.59814453125H4129.8475341796875L4174.8475341796875 97.1982421875V305.0516357421875H4457.299072265625V432.3492431640625H4174.8475341796875V647.4525146484375L4129.8475341796875 605.902587890625H4492.1490478515625Z M4822.8475341796875 4.500732421875V740.0H4677.9503173828125V4.500732421875ZM4703.6497802734375 740.0V605.902587890625H5121.7486572265625V740.0Z" fill="#18181b" />
+    </g>
+
+    <!-- Subtitle descriptor -->
+    <text x="0" y="440" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-weight="700" font-size="24" fill="#2f6fed" letter-spacing="4" text-anchor="middle">REAL-TIME ENVIRONMENTAL &amp; SAFETY MONITORING</text>
+  </g>
+
+  <!-- ================= MIDDLE HERO: OVERLAPPING SMARTPHONES ================= -->
+  <!-- Exactly matching the reference composition:
+       - Phone 2 (Fleet / Devices screen) in the background, shifted slightly to the right
+       - Phone 1 (Live telemetry dashboard) in the foreground, angled / shifted left
+  -->
+  <g transform="translate(100, 680)">
+    <!-- Background Phone: Fleet & Hardware Health -->
+    <g transform="translate(420, 100) scale(1.45)">
+      
+  <g filter="url(#phoneShadow)">
+    <!-- Outer Titanium Chassis -->
+    <rect width="385" height="820" rx="52" fill="#1e293b" stroke="#0f172a" stroke-width="3" />
+    <!-- Metallic Rim Highlight -->
+    <rect x="3" y="3" width="379" height="814" rx="49" fill="none" stroke="#475569" stroke-width="1.5" />
+    <!-- Screen Bezel -->
+    <rect x="7" y="7" width="371" height="806" rx="46" fill="#000000" />
+    
+    <!-- Screen Surface (White canvas) -->
+    <g transform="translate(10, 10)">
+      <clipPath id="screenClip">
+        <rect width="365" height="800" rx="42" />
+      </clipPath>
+      <g clip-path="url(#screenClip)">
+        <rect width="365" height="800" fill="#fafafa" />
+        
+  <!-- Status bar -->
+  <g transform="translate(24, 18)">
+    <text x="0" y="14" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-weight="600" font-size="14" fill="#000000">10:38</text>
+    <g transform="translate(285, 2)">
+      <path d="M0 12 A10 10 0 0 1 14 12 M2 9 A7 7 0 0 1 12 9 M5 6 A3 3 0 0 1 9 6 M7 3 A1 1 0 0 1 7 3.5" fill="none" stroke="#000000" stroke-width="1.6" stroke-linecap="round" />
+      <rect x="22" y="2" width="22" height="11" rx="3" fill="none" stroke="#000000" stroke-width="1.6" />
+      <rect x="24" y="4" width="15" height="7" rx="1.5" fill="#000000" />
+      <path d="M45 5.5 V9.5" stroke="#000000" stroke-width="1.6" stroke-linecap="round" />
+    </g>
+  </g>
+
+  <!-- App Header -->
+  <g transform="translate(24, 56)">
+    <text x="0" y="22" font-family="-apple-system, sans-serif" font-weight="800" font-size="24" fill="#18181b">Device Fleet</text>
+    <g transform="translate(255, 4)">
+      <rect width="62" height="24" rx="12" fill="#f0f5ff" />
+      <text x="31" y="16" font-family="Arial, sans-serif" font-weight="700" font-size="11" fill="#2f6fed" text-anchor="middle">3 ACTIVE</text>
+    </g>
+  </g>
+
+  <!-- Device 1 Card -->
+  <g transform="translate(24, 105)">
+    <rect width="317" height="100" rx="18" fill="#ffffff" stroke="#e4e4e7" stroke-width="1.2" />
+    <g transform="translate(16, 18)">
+      <circle cx="16" cy="16" r="16" fill="#f0f5ff" />
+      <g transform="translate(6, 6) scale(0.25)">
+        <path d="M40 4 L72 16 V38 C72 58 58 71 40 76 C22 71 8 58 8 38 V16 Z" fill="none" stroke="#2f6fed" stroke-width="4" />
+        <circle cx="40" cy="36" r="8" fill="#2f6fed" />
+      </g>
+      <text x="44" y="14" font-family="-apple-system, sans-serif" font-weight="700" font-size="14" fill="#18181b">Sentinel Node #1</text>
+      <text x="44" y="30" font-family="-apple-system, sans-serif" font-weight="500" font-size="12" fill="#71717a">ESP32 &#8226; Chemistry Laboratory</text>
+      
+      <g transform="translate(0, 52)">
+        <circle cx="6" cy="6" r="4" fill="#16a34a" />
+        <text x="16" y="10" font-family="-apple-system, sans-serif" font-weight="600" font-size="11" fill="#16a34a">Online &#8226; 98% WiFi &#8226; 0 Alerts</text>
+      </g>
+    </g>
+  </g>
+
+  <!-- Device 2 Card -->
+  <g transform="translate(24, 220)">
+    <rect width="317" height="100" rx="18" fill="#ffffff" stroke="#e4e4e7" stroke-width="1.2" />
+    <g transform="translate(16, 18)">
+      <circle cx="16" cy="16" r="16" fill="#f0f5ff" />
+      <g transform="translate(6, 6) scale(0.25)">
+        <path d="M40 4 L72 16 V38 C72 58 58 71 40 76 C22 71 8 58 8 38 V16 Z" fill="none" stroke="#2f6fed" stroke-width="4" />
+        <circle cx="40" cy="36" r="8" fill="#2f6fed" />
+      </g>
+      <text x="44" y="14" font-family="-apple-system, sans-serif" font-weight="700" font-size="14" fill="#18181b">Sentinel Node #2</text>
+      <text x="44" y="30" font-family="-apple-system, sans-serif" font-weight="500" font-size="12" fill="#71717a">ESP32 &#8226; Server Equipment Room</text>
+      
+      <g transform="translate(0, 52)">
+        <circle cx="6" cy="6" r="4" fill="#16a34a" />
+        <text x="16" y="10" font-family="-apple-system, sans-serif" font-weight="600" font-size="11" fill="#16a34a">Online &#8226; 100% WiFi &#8226; Normal</text>
+      </g>
+    </g>
+  </g>
+
+  <!-- Device 3 Card -->
+  <g transform="translate(24, 335)">
+    <rect width="317" height="100" rx="18" fill="#ffffff" stroke="#e4e4e7" stroke-width="1.2" />
+    <g transform="translate(16, 18)">
+      <circle cx="16" cy="16" r="16" fill="#f0f5ff" />
+      <g transform="translate(6, 6) scale(0.25)">
+        <path d="M40 4 L72 16 V38 C72 58 58 71 40 76 C22 71 8 58 8 38 V16 Z" fill="none" stroke="#2f6fed" stroke-width="4" />
+        <circle cx="40" cy="36" r="8" fill="#2f6fed" />
+      </g>
+      <text x="44" y="14" font-family="-apple-system, sans-serif" font-weight="700" font-size="14" fill="#18181b">Sentinel Node #3</text>
+      <text x="44" y="30" font-family="-apple-system, sans-serif" font-weight="500" font-size="12" fill="#71717a">ESP32 &#8226; Manufacturing Floor</text>
+      
+      <g transform="translate(0, 52)">
+        <circle cx="6" cy="6" r="4" fill="#16a34a" />
+        <text x="16" y="10" font-family="-apple-system, sans-serif" font-weight="600" font-size="11" fill="#16a34a">Online &#8226; 94% WiFi &#8226; Normal</text>
+      </g>
+    </g>
+  </g>
+
+  <!-- Security / Audit Banner -->
+  <g transform="translate(24, 455)">
+    <rect width="317" height="140" rx="18" fill="#0f172a" />
+    <g transform="translate(20, 24)">
+      <text x="0" y="14" font-family="-apple-system, sans-serif" font-weight="700" font-size="13" fill="#2f6fed">ENTERPRISE HARDWARE ENCRYPTION</text>
+      <text x="0" y="44" font-family="-apple-system, sans-serif" font-weight="800" font-size="16" fill="#ffffff">Automated Safety Cutoff &amp; Buzzer</text>
+      <text x="0" y="68" font-family="-apple-system, sans-serif" font-weight="400" font-size="12" fill="#94a3b8">Instant audio-visual alarms on threshold breach</text>
+      <g transform="translate(0, 84)">
+        <circle cx="6" cy="6" r="4" fill="#16a34a" />
+        <text x="16" y="10" font-family="-apple-system, sans-serif" font-weight="600" font-size="11" fill="#16a34a">All 3 Relays Armed &amp; Ready</text>
+      </g>
+    </g>
+  </g>
+
+  <!-- Bottom Nav -->
+  <g transform="translate(0, 716)">
+    <rect width="365" height="84" fill="#ffffff" stroke="#e4e4e7" stroke-width="1" />
+    <rect x="115.5" y="70" width="134" height="5" rx="2.5" fill="#000000" />
+  </g>
+  
+
+        <!-- Dynamic Island Pill -->
+        <rect x="127.5" y="11" width="110" height="30" rx="15" fill="#000000" />
+        <!-- Camera sensor dots -->
+        <circle cx="215.5" cy="26" r="4.5" fill="#111827" stroke="#1f2937" stroke-width="1" />
+        <circle cx="152.5" cy="26" r="3.5" fill="#0f172a" />
+      </g>
+    </g>
+  </g>
+    </g>
+
+    <!-- Foreground Phone: Live Real-time Dashboard -->
+    <g transform="translate(60, 220) scale(1.5)">
+      
+  <g filter="url(#phoneShadow)">
+    <!-- Outer Titanium Chassis -->
+    <rect width="385" height="820" rx="52" fill="#1e293b" stroke="#0f172a" stroke-width="3" />
+    <!-- Metallic Rim Highlight -->
+    <rect x="3" y="3" width="379" height="814" rx="49" fill="none" stroke="#475569" stroke-width="1.5" />
+    <!-- Screen Bezel -->
+    <rect x="7" y="7" width="371" height="806" rx="46" fill="#000000" />
+    
+    <!-- Screen Surface (White canvas) -->
+    <g transform="translate(10, 10)">
+      <clipPath id="screenClip">
+        <rect width="365" height="800" rx="42" />
+      </clipPath>
+      <g clip-path="url(#screenClip)">
+        <rect width="365" height="800" fill="#fafafa" />
+        
+  <!-- Status bar -->
+  <g transform="translate(24, 18)">
+    <text x="0" y="14" font-family="Arial, Helvetica, 'Segoe UI', sans-serif" font-weight="700" font-size="14" fill="#000000">10:38</text>
+    <!-- Battery & WiFi -->
+    <g transform="translate(285, 2)">
+      <!-- WiFi -->
+      <path d="M0 12 A10 10 0 0 1 14 12 M2 9 A7 7 0 0 1 12 9 M5 6 A3 3 0 0 1 9 6 M7 3 A1 1 0 0 1 7 3.5" fill="none" stroke="#000000" stroke-width="1.6" stroke-linecap="round" />
+      <!-- Battery -->
+      <rect x="22" y="2" width="22" height="11" rx="3" fill="none" stroke="#000000" stroke-width="1.6" />
+      <rect x="24" y="4" width="15" height="7" rx="1.5" fill="#000000" />
+      <path d="M45 5.5 V9.5" stroke="#000000" stroke-width="1.6" stroke-linecap="round" />
+    </g>
+  </g>
+
+  <!-- App Header -->
+  <g transform="translate(24, 56)">
+    <!-- Mini Logo -->
+    <g transform="translate(0, 0) scale(0.35)">
+      <path d="M40 4 L72 16 V38 C72 58 58 71 40 76 C22 71 8 58 8 38 V16 Z" fill="none" stroke="#2f6fed" stroke-width="4" />
+      <path d="M40 14 L64 23 V38 C64 53.5 53.5 63.5 40 67.5 C26.5 63.5 16 53.5 16 38 V23 Z" fill="#f0f5ff" stroke="#2f6fed" stroke-width="2" />
+      <circle cx="40" cy="36" r="9" fill="none" stroke="#2f6fed" stroke-width="3.5" />
+      <circle cx="40" cy="36" r="2.6" fill="#2f6fed" />
+    </g>
+    <g transform="translate(36, 6) scale(0.024)">
+      <path d="M37.500244140625 214.099853515625Q37.500244140625 148.4500732421875 71.52508544921875 98.22528076171875Q105.5499267578125 48.00048828125 165.62469482421875 19.400634765625Q225.699462890625 -9.19921875 303.3492431640625 -9.19921875Q380.498779296875 -9.19921875 436.77349853515625 17.82562255859375Q493.0482177734375 44.8504638671875 524.0231323242188 94.3502197265625Q554.998046875 143.8499755859375 556.0482177734375 211.899658203125H411.700927734375Q410.6507568359375 168.8489990234375 381.17535400390625 144.32366943359375Q351.699951171875 119.79833984375 301.6492919921875 119.79833984375Q247.698486328125 119.79833984375 215.0479736328125 143.6488037109375Q182.3974609375 167.499267578125 182.3974609375 209.0Q182.3974609375 245.5504150390625 202.27276611328125 265.87579345703125Q222.1480712890625 286.201171875 264.4486083984375 295.4013671875L377.698974609375 319.7515869140625Q473.8485107421875 339.7515869140625 520.9483642578125 388.87652587890625Q568.0482177734375 438.00146484375 568.0482177734375 523.0009765625Q568.0482177734375 592.20068359375 533.9483642578125 644.2754516601562Q499.8485107421875 696.3502197265625 437.998779296875 724.60009765625Q376.1490478515625 752.8499755859375 293.2493896484375 752.8499755859375Q213.6497802734375 752.8499755859375 153.72503662109375 725.7501220703125Q93.80029296875 698.6502685546875 60.82537841796875 648.800537109375Q27.8504638671875 598.9508056640625 26.9503173828125 532.0511474609375H171.4476318359375Q171.897705078125 575.20166015625 204.12322998046875 599.4520263671875Q236.3487548828125 623.702392578125 294.099365234375 623.702392578125Q353.60009765625 623.702392578125 388.37554931640625 600.201904296875Q423.1510009765625 576.701416015625 423.1510009765625 536.7506103515625Q423.1510009765625 502.4500732421875 405.32562255859375 482.82464599609375Q387.500244140625 463.19921875 346.599609375 454.8489990234375L232.099365234375 430.6488037109375Q135.9498291015625 410.6488037109375 86.72503662109375 356.22406005859375Q37.500244140625 301.79931640625 37.500244140625 214.099853515625Z M1191.1490478515625 740.0H728.9503173828125V4.500732421875H1190.9990234375V138.59814453125H828.8475341796875L873.8475341796875 97.1982421875V305.0516357421875H1156.299072265625V432.3492431640625H873.8475341796875V647.4525146484375L828.8475341796875 605.902587890625H1191.1490478515625Z M1520.1475830078125 740.0H1376.9503173828125V4.500732421875H1520.297607421875L1891.7491455078125 565.0531005859375H1847.900146484375V4.500732421875H1991.097412109375V740.0H1847.900146484375L1476.4486083984375 180.297607421875H1520.1475830078125Z M2495.3472900390625 73.79931640625V740.0H2350.4500732421875V73.79931640625ZM2138.499755859375 138.59814453125V4.500732421875H2707.297607421875V138.59814453125Z M2999.8475341796875 4.500732421875V740.0H2854.9503173828125V4.500732421875Z M3351.1475830078125 740.0H3207.9503173828125V4.500732421875H3351.297607421875L3722.7491455078125 565.0531005859375H3678.900146484375V4.500732421875H3822.097412109375V740.0H3678.900146484375L3307.4486083984375 180.297607421875H3351.1475830078125Z M4492.1490478515625 740.0H4029.9503173828125V4.500732421875H4491.9990234375V138.59814453125H4129.8475341796875L4174.8475341796875 97.1982421875V305.0516357421875H4457.299072265625V432.3492431640625H4174.8475341796875V647.4525146484375L4129.8475341796875 605.902587890625H4492.1490478515625Z M4822.8475341796875 4.500732421875V740.0H4677.9503173828125V4.500732421875ZM4703.6497802734375 740.0V605.902587890625H5121.7486572265625V740.0Z" fill="#18181b" />
+    </g>
+    <!-- Live Badge -->
+    <g transform="translate(255, 2)">
+      <rect width="62" height="24" rx="12" fill="#dcfce7" />
+      <circle cx="12" cy="12" r="4" fill="#16a34a" />
+      <text x="22" y="16" font-family="Arial, Helvetica, 'Segoe UI', sans-serif" font-weight="700" font-size="10" fill="#16a34a" letter-spacing="0.5">LIVE</text>
+    </g>
+  </g>
+
+  <!-- Title & Location -->
+  <g transform="translate(24, 110)">
+    <text x="0" y="0" font-family="Arial, Helvetica, 'Segoe UI', sans-serif" font-weight="800" font-size="20" fill="#18181b">Environmental Health</text>
+    <text x="0" y="18" font-family="Arial, Helvetica, 'Segoe UI', sans-serif" font-weight="600" font-size="12" fill="#71717a">ESP32-Node 1A2B &#8226; Primary Lab</text>
+  </g>
+
+  <!-- Primary Stat Card (Gas / Air Quality) -->
+  <g transform="translate(24, 150)">
+    <rect width="317" height="145" rx="18" fill="#f0f5ff" stroke="#c7d9fc" stroke-width="1" />
+    <g transform="translate(18, 18)">
+      <text x="0" y="12" font-family="Arial, Helvetica, 'Segoe UI', sans-serif" font-weight="700" font-size="11" fill="#2f6fed" letter-spacing="1">AIR / GAS METRICS</text>
+      <text x="0" y="52" font-family="Arial, Helvetica, 'Segoe UI', sans-serif" font-weight="800" font-size="40" fill="#18181b">524 <tspan font-size="18" font-weight="600" fill="#71717a">ppm</tspan></text>
+      
+      <!-- Safe pill -->
+      <g transform="translate(0, 68)">
+        <rect width="78" height="22" rx="11" fill="#dcfce7" />
+        <text x="10" y="15" font-family="Arial, Helvetica, 'Segoe UI', sans-serif" font-weight="700" font-size="11" fill="#16a34a">✓ NORMAL</text>
+      </g>
+      <text x="90" y="83" font-family="Arial, Helvetica, 'Segoe UI', sans-serif" font-weight="600" font-size="11" fill="#71717a">MQ-2 Sensor &#8226; Safe Atmosphere</text>
+    </g>
+  </g>
+
+  <!-- Two Column Stats (Temp & Humidity) -->
+  <g transform="translate(24, 310)">
+    <!-- Temp Card -->
+    <rect x="0" y="0" width="152.5" height="100" rx="16" fill="#ffffff" stroke="#e4e4e7" stroke-width="1.2" />
+    <g transform="translate(16, 18)">
+      <text x="0" y="10" font-family="Arial, Helvetica, 'Segoe UI', sans-serif" font-weight="700" font-size="10" fill="#71717a">TEMPERATURE</text>
+      <text x="0" y="42" font-family="Arial, Helvetica, 'Segoe UI', sans-serif" font-weight="800" font-size="26" fill="#18181b">24.4°C</text>
+      <text x="0" y="64" font-family="Arial, Helvetica, 'Segoe UI', sans-serif" font-weight="700" font-size="10" fill="#16a34a">Optimal Comfort</text>
+    </g>
+
+    <!-- Humidity Card -->
+    <rect x="164.5" y="0" width="152.5" height="100" rx="16" fill="#ffffff" stroke="#e4e4e7" stroke-width="1.2" />
+    <g transform="translate(180.5, 18)">
+      <text x="0" y="10" font-family="Arial, Helvetica, 'Segoe UI', sans-serif" font-weight="700" font-size="10" fill="#71717a">HUMIDITY</text>
+      <text x="0" y="42" font-family="Arial, Helvetica, 'Segoe UI', sans-serif" font-weight="800" font-size="26" fill="#18181b">48.1%</text>
+      <text x="0" y="64" font-family="Arial, Helvetica, 'Segoe UI', sans-serif" font-weight="700" font-size="10" fill="#2f6fed">Stable Baseline</text>
+    </g>
+  </g>
+
+  <!-- Telemetry Chart Card -->
+  <g transform="translate(24, 425)">
+    <rect width="317" height="195" rx="18" fill="#ffffff" stroke="#e4e4e7" stroke-width="1.2" />
+    <g transform="translate(18, 18)">
+      <text x="0" y="12" font-family="Arial, Helvetica, 'Segoe UI', sans-serif" font-weight="700" font-size="12" fill="#18181b">Real-Time Telemetry Stream</text>
+      <text x="0" y="28" font-family="Arial, Helvetica, 'Segoe UI', sans-serif" font-weight="500" font-size="11" fill="#71717a">10-minute live rolling window</text>
+
+      <!-- Chart Graph Area -->
+      <g transform="translate(0, 40)">
+        <defs>
+          <linearGradient id="chartGrad" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stop-color="#2f6fed" stop-opacity="0.3" />
+            <stop offset="100%" stop-color="#2f6fed" stop-opacity="0.0" />
+          </linearGradient>
+        </defs>
+        <!-- Horizontal gridlines -->
+        <line x1="0" y1="20" x2="281" y2="20" stroke="#f4f4f5" stroke-width="1" />
+        <line x1="0" y1="50" x2="281" y2="50" stroke="#f4f4f5" stroke-width="1" />
+        <line x1="0" y1="80" x2="281" y2="80" stroke="#f4f4f5" stroke-width="1" />
+
+        <!-- Shaded Area -->
+        <path d="M 0 65 Q 40 45 80 52 T 160 38 T 240 25 T 281 15 L 281 95 L 0 95 Z" fill="url(#chartGrad)" />
+        <!-- Trend Curve -->
+        <path d="M 0 65 Q 40 45 80 52 T 160 38 T 240 25 T 281 15" fill="none" stroke="#2f6fed" stroke-width="3" stroke-linecap="round" />
+
+        <!-- Current point pulse -->
+        <circle cx="281" cy="15" r="5" fill="#2f6fed" />
+        <circle cx="281" cy="15" r="9" fill="none" stroke="#2f6fed" stroke-width="1.5" opacity="0.5" />
+
+        <!-- X Axis labels -->
+        <text x="0" y="112" font-family="-apple-system, sans-serif" font-size="10" fill="#a1a1aa">10:28</text>
+        <text x="140.5" y="112" font-family="-apple-system, sans-serif" font-size="10" fill="#a1a1aa" text-anchor="middle">10:33</text>
+        <text x="281" y="112" font-family="-apple-system, sans-serif" font-size="10" fill="#2f6fed" font-weight="700" text-anchor="end">Now</text>
+      </g>
+    </g>
+  </g>
+
+  <!-- Bottom Navigation Bar -->
+  <g transform="translate(0, 716)">
+    <rect width="365" height="84" fill="#ffffff" stroke="#e4e4e7" stroke-width="1" />
+    <!-- 4 Nav Icons -->
+    <g transform="translate(40, 20)">
+      <circle cx="12" cy="12" r="10" fill="#f0f5ff" />
+      <circle cx="12" cy="12" r="4" fill="#2f6fed" />
+      <text x="12" y="32" font-family="Arial, sans-serif" font-size="10" font-weight="700" fill="#2f6fed" text-anchor="middle">Overview</text>
+    </g>
+    <g transform="translate(125, 20)">
+      <rect x="4" y="4" width="16" height="16" rx="4" fill="none" stroke="#71717a" stroke-width="2" />
+      <text x="12" y="32" font-family="Arial, sans-serif" font-size="10" font-weight="500" fill="#71717a" text-anchor="middle">Devices</text>
+    </g>
+    <g transform="translate(210, 20)">
+      <path d="M4 16 L10 8 L16 13 L22 4" fill="none" stroke="#71717a" stroke-width="2" stroke-linecap="round" />
+      <text x="12" y="32" font-family="Arial, sans-serif" font-size="10" font-weight="500" fill="#71717a" text-anchor="middle">History</text>
+    </g>
+    <g transform="translate(295, 20)">
+      <circle cx="12" cy="10" r="6" fill="none" stroke="#71717a" stroke-width="2" />
+      <path d="M4 22 C4 18 8 16 12 16 C16 16 20 18 20 22" fill="none" stroke="#71717a" stroke-width="2" />
+      <text x="12" y="32" font-family="Arial, sans-serif" font-size="10" font-weight="500" fill="#71717a" text-anchor="middle">Settings</text>
+    </g>
+    <!-- Home indicator line -->
+    <rect x="115.5" y="70" width="134" height="5" rx="2.5" fill="#000000" />
+  </g>
+  
+
+        <!-- Dynamic Island Pill -->
+        <rect x="127.5" y="11" width="110" height="30" rx="15" fill="#000000" />
+        <!-- Camera sensor dots -->
+        <circle cx="215.5" cy="26" r="4.5" fill="#111827" stroke="#1f2937" stroke-width="1" />
+        <circle cx="152.5" cy="26" r="3.5" fill="#0f172a" />
+      </g>
+    </g>
+  </g>
+    </g>
+  </g>
+
+  <!-- ================= LOWER SECTION: BOLD HEADLINE ================= -->
+  <!-- Exactly matching "Fishing For All" from the reference banner! -->
+  <g transform="translate(600, 2240)">
+    <text x="0" y="0" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-weight="900" font-size="78" fill="#18181b" letter-spacing="-1" text-anchor="middle">Monitoring For All</text>
+    <text x="0" y="52" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-weight="600" font-size="28" fill="#2f6fed" letter-spacing="0.5" text-anchor="middle">Smart Gas, Temperature &amp; Humidity Protection</text>
+  </g>
+
+  <!-- ================= FOOTER BAR: CONTACT & SOCIAL CHANNELS ================= -->
+  <!-- Solid deep brand background matching reference footer -->
+  <g transform="translate(0, 2380)">
+    <!-- Dark Slate Footer Base -->
+    <rect width="1200" height="420" fill="#0f172a" />
+    
+    <!-- Subtle top accent line -->
+    <line x1="0" y1="0" x2="1200" y2="0" stroke="#2f6fed" stroke-width="4" />
+
+    <!-- 4 Social & Web Handles (2x2 Grid exactly like reference) -->
+    <!-- Column 1: Website -->
+    <g transform="translate(140, 110)">
+      <!-- Globe Icon -->
+      <circle cx="36" cy="36" r="32" fill="rgba(47, 111, 237, 0.2)" stroke="#2f6fed" stroke-width="2" />
+      <g transform="translate(20, 20)">
+        <circle cx="16" cy="16" r="12" fill="none" stroke="#ffffff" stroke-width="2" />
+        <line x1="4" y1="16" x2="28" y2="16" stroke="#ffffff" stroke-width="2" />
+        <ellipse cx="16" cy="16" rx="6" ry="12" fill="none" stroke="#ffffff" stroke-width="2" />
+      </g>
+      <text x="88" y="46" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-weight="700" font-size="34" fill="#ffffff">sentinel-iot.com</text>
+    </g>
+
+    <!-- Column 2: TikTok / Video -->
+    <g transform="translate(680, 110)">
+      <circle cx="36" cy="36" r="32" fill="rgba(47, 111, 237, 0.2)" stroke="#2f6fed" stroke-width="2" />
+      <g transform="translate(20, 20)">
+        <path d="M18 6 V20 A6 6 0 1 1 12 14" fill="none" stroke="#ffffff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" />
+        <path d="M18 10 C21 13 25 13 25 13" fill="none" stroke="#ffffff" stroke-width="2.5" stroke-linecap="round" />
+      </g>
+      <text x="88" y="46" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-weight="700" font-size="34" fill="#ffffff">@sentinel_iot</text>
+    </g>
+
+    <!-- Column 1, Row 2: Threads / Social -->
+    <g transform="translate(140, 240)">
+      <circle cx="36" cy="36" r="32" fill="rgba(47, 111, 237, 0.2)" stroke="#2f6fed" stroke-width="2" />
+      <g transform="translate(20, 20)">
+        <path d="M16 8 C11 8 8 11 8 16 C8 21 11 24 16 24 C20 24 23 22 23 18 C23 15 20 13 16 13 C13 13 11 15 11 17 C11 19 13 20 16 20 C18 20 20 19 20 17" fill="none" stroke="#ffffff" stroke-width="2.2" stroke-linecap="round" />
+      </g>
+      <text x="88" y="46" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-weight="700" font-size="34" fill="#ffffff">@sentinel_iot</text>
+    </g>
+
+    <!-- Column 2, Row 2: Instagram / GitHub -->
+    <g transform="translate(680, 240)">
+      <circle cx="36" cy="36" r="32" fill="rgba(47, 111, 237, 0.2)" stroke="#2f6fed" stroke-width="2" />
+      <g transform="translate(20, 20)">
+        <rect x="6" y="6" width="20" height="20" rx="6" fill="none" stroke="#ffffff" stroke-width="2.2" />
+        <circle cx="16" cy="16" r="5" fill="none" stroke="#ffffff" stroke-width="2.2" />
+        <circle cx="21.5" cy="10.5" r="1.2" fill="#ffffff" />
+      </g>
+      <text x="88" y="46" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-weight="700" font-size="34" fill="#ffffff">@sentinel_iot</text>
+    </g>
+  </g>
+</svg>

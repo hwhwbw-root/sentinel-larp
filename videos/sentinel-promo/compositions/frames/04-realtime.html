@@ -1,0 +1,559 @@
+<template>
+  <style>
+    #root {
+      position: relative;
+      width: 1920px;
+      height: 1080px;
+      overflow: hidden;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+      color: #18181b;
+    }
+
+    .f04-realtime-bg {
+      position: absolute;
+      inset: 0;
+      background: #fafafa;
+    }
+
+    .f04-realtime-stage {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      flex-direction: row;
+    }
+
+    /* ---- sidebar ---- */
+    .f04-realtime-sidebar {
+      width: 300px;
+      min-width: 300px;
+      height: 1080px;
+      background: #ffffff;
+      border-right: 1px solid #ececec;
+      padding: 40px 24px 0;
+      box-sizing: border-box;
+    }
+    .f04-realtime-brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 56px;
+    }
+    .f04-realtime-shield {
+      width: 34px;
+      height: 34px;
+      display: block;
+    }
+    .f04-realtime-wordmark {
+      font-size: 18px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      color: #18181b;
+    }
+    .f04-realtime-nav-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 17px;
+      font-weight: 500;
+      color: #767676;
+      padding: 14px 12px;
+      border-radius: 10px;
+    }
+    .f04-realtime-nav-item .f04-realtime-nav-icon {
+      width: 18px;
+      height: 18px;
+      flex: none;
+    }
+    .f04-realtime-nav-item.is-active {
+      color: #2f6fed;
+      font-weight: 700;
+      background: rgba(47, 111, 237, 0.08);
+    }
+
+    /* ---- main content ---- */
+    .f04-realtime-main {
+      flex: 1;
+      height: 1080px;
+      box-sizing: border-box;
+      padding: 64px 70px 0;
+    }
+
+    .f04-realtime-header-row {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+    }
+    .f04-realtime-title {
+      font-size: 46px;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      line-height: 1.08;
+      color: #18181b;
+      margin: 0 0 10px;
+    }
+    .f04-realtime-subtitle {
+      font-size: 20px;
+      font-weight: 400;
+      color: #316ceb;
+      margin: 0;
+    }
+
+    .f04-realtime-controls {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding-top: 6px;
+    }
+    .f04-realtime-device-pill {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(47, 111, 237, 0.08);
+      border: 1px solid rgba(47, 111, 237, 0.2);
+      color: #2f6fed;
+      font-size: 15px;
+      font-weight: 600;
+      border-radius: 100px;
+      padding: 10px 18px;
+      white-space: nowrap;
+    }
+    .f04-realtime-range-toggle {
+      display: flex;
+      align-items: center;
+      background: rgba(47, 111, 237, 0.04);
+      border: 1px solid rgba(47, 111, 237, 0.2);
+      border-radius: 100px;
+      padding: 4px;
+      gap: 2px;
+    }
+    .f04-realtime-range-seg {
+      font-size: 14px;
+      font-weight: 600;
+      color: #767676;
+      padding: 7px 16px;
+      border-radius: 100px;
+    }
+    .f04-realtime-range-seg.is-active {
+      background: #2f6fed;
+      color: #fafafa;
+    }
+    .f04-realtime-live {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 15px;
+      font-weight: 700;
+      color: #2f6fed;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+    .f04-realtime-live-dot-svg {
+      width: 20px;
+      height: 20px;
+      display: block;
+      overflow: visible;
+    }
+
+    /* ---- metric cards ---- */
+    .f04-realtime-cards {
+      position: relative;
+      display: flex;
+      gap: 28px;
+      margin-top: 52px;
+      height: 188px;
+    }
+    .f04-realtime-card {
+      position: absolute;
+      top: 0;
+      width: 474px;
+      height: 188px;
+      box-sizing: border-box;
+      background: rgba(47, 111, 237, 0.04);
+      border: 1.5px solid rgba(47, 111, 237, 0.2);
+      border-radius: 14px;
+      padding: 26px 28px;
+      transform-origin: center center;
+    }
+    .f04-realtime-card-1 { left: 0px; }
+    .f04-realtime-card-2 { left: 502px; }
+    .f04-realtime-card-3 { left: 1004px; }
+
+    .f04-realtime-card-label {
+      font-size: 16px;
+      font-weight: 600;
+      color: #767676;
+      margin-bottom: 14px;
+    }
+    .f04-realtime-card-value-row {
+      display: flex;
+      align-items: baseline;
+      gap: 6px;
+    }
+    .f04-realtime-card-value {
+      font-size: 52px;
+      font-weight: 700;
+      color: #2f6fed;
+      line-height: 1;
+      letter-spacing: -0.02em;
+      font-variant-numeric: tabular-nums;
+    }
+    .f04-realtime-card-unit {
+      font-size: 22px;
+      font-weight: 600;
+      color: #2f6fed;
+      opacity: 0.7;
+    }
+    .f04-realtime-card-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      margin-top: 16px;
+      font-size: 15px;
+      font-weight: 700;
+      color: #04805a;
+    }
+    .f04-realtime-card-chip-desc {
+      font-size: 14px;
+      font-weight: 400;
+      color: #767676;
+      margin-left: 4px;
+    }
+
+    /* ---- chart panels ---- */
+    .f04-realtime-charts {
+      display: flex;
+      gap: 28px;
+      margin-top: 40px;
+      height: 372px;
+    }
+    .f04-realtime-chart-panel {
+      flex: 1;
+      box-sizing: border-box;
+      background: rgba(47, 111, 237, 0.04);
+      border: 1.5px solid rgba(47, 111, 237, 0.2);
+      border-radius: 14px;
+      padding: 26px 28px;
+      display: flex;
+      flex-direction: column;
+    }
+    .f04-realtime-chart-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 12px;
+    }
+    .f04-realtime-chart-title {
+      font-size: 20px;
+      font-weight: 700;
+      color: #18181b;
+    }
+    .f04-realtime-chart-legend {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+    .f04-realtime-legend-item {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 13px;
+      font-weight: 600;
+      color: #767676;
+    }
+    .f04-realtime-legend-swatch {
+      width: 18px;
+      height: 0;
+      border-top: 3px solid #2f6fed;
+    }
+    .f04-realtime-legend-swatch.is-dashed {
+      border-top-style: dashed;
+      opacity: 0.6;
+    }
+    .f04-realtime-chart-canvas {
+      flex: 1;
+      position: relative;
+    }
+    .f04-realtime-chart-canvas svg {
+      width: 100%;
+      height: 100%;
+      display: block;
+      overflow: visible;
+    }
+    .f04-realtime-chart-canvas polyline {
+      fill: none;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+  </style>
+
+  <div data-hf-id="hf-rxxy" id="root" data-composition-id="04-realtime" data-width="1920" data-height="1080" data-duration="6.5">
+    <div data-hf-id="hf-rknr" class="clip f04-realtime-bg" data-start="0" data-duration="6.5" data-track-index="0"></div>
+
+    <div data-hf-id="hf-o6zf" class="clip f04-realtime-stage" data-start="0" data-duration="6.5" data-track-index="1">
+      <!-- SIDEBAR -->
+      <div data-hf-id="hf-ejee" class="f04-realtime-sidebar" id="f04-realtime-sidebar">
+        <div data-hf-id="hf-w5vc" class="f04-realtime-brand">
+          <svg data-hf-id="hf-29l0" class="f04-realtime-shield" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+            <polygon data-hf-id="hf-f67b" points="50,4 92,22 92,52 50,96 8,52 8,22" fill="none" stroke="#2f6fed" stroke-width="7" stroke-linejoin="round" />
+            <circle data-hf-id="hf-ulgb" cx="50" cy="46" r="12" fill="none" stroke="#2f6fed" stroke-width="6" />
+          </svg>
+          <div data-hf-id="hf-64ra" class="f04-realtime-wordmark">SENTINEL</div>
+        </div>
+
+        <div data-hf-id="hf-qsaf" class="f04-realtime-nav-item is-active" id="f04-realtime-nav-1">
+          <svg data-hf-id="hf-ceys" class="f04-realtime-nav-icon" viewBox="0 0 24 24"><rect data-hf-id="hf-56rf" x="3" y="3" width="8" height="8" rx="2" fill="currentColor" /><rect data-hf-id="hf-5k8x" x="13" y="3" width="8" height="8" rx="2" fill="currentColor" opacity="0.5" /><rect data-hf-id="hf-ymgj" x="3" y="13" width="8" height="8" rx="2" fill="currentColor" opacity="0.5" /><rect data-hf-id="hf-k18k" x="13" y="13" width="8" height="8" rx="2" fill="currentColor" opacity="0.3" /></svg>
+          <span data-hf-id="hf-h76u">Overview</span>
+        </div>
+        <div data-hf-id="hf-rt7b" class="f04-realtime-nav-item" id="f04-realtime-nav-2">
+          <svg data-hf-id="hf-sdto" class="f04-realtime-nav-icon" viewBox="0 0 24 24"><circle data-hf-id="hf-836s" cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="2" /><path data-hf-id="hf-6ift" d="M12 7v5l3 3" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" /></svg>
+          <span data-hf-id="hf-rr8d">Data History</span>
+        </div>
+        <div data-hf-id="hf-lnhi" class="f04-realtime-nav-item" id="f04-realtime-nav-3">
+          <svg data-hf-id="hf-r6wl" class="f04-realtime-nav-icon" viewBox="0 0 24 24"><rect data-hf-id="hf-1tfk" x="3" y="5" width="18" height="14" rx="2" fill="none" stroke="currentColor" stroke-width="2" /><path data-hf-id="hf-ahzx" d="M3 10h18" stroke="currentColor" stroke-width="2" /></svg>
+          <span data-hf-id="hf-jyy6">Device Management</span>
+        </div>
+        <div data-hf-id="hf-wiz5" class="f04-realtime-nav-item" id="f04-realtime-nav-4">
+          <svg data-hf-id="hf-rl7m" class="f04-realtime-nav-icon" viewBox="0 0 24 24"><circle data-hf-id="hf-sdqc" cx="12" cy="8" r="4" fill="none" stroke="currentColor" stroke-width="2" /><path data-hf-id="hf-srnc" d="M4 21c0-4.4 3.6-7 8-7s8 2.6 8 7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" /></svg>
+          <span data-hf-id="hf-urm4">User Access</span>
+        </div>
+      </div>
+
+      <!-- MAIN -->
+      <div data-hf-id="hf-m2xm" class="f04-realtime-main">
+        <div data-hf-id="hf-szst" class="f04-realtime-header-row">
+          <div data-hf-id="hf-wuo0" id="f04-realtime-title-block">
+            <h2 data-hf-id="hf-g0fi" class="f04-realtime-title">Real-time Monitoring</h2>
+            <p data-hf-id="hf-w9ux" class="f04-realtime-subtitle">Overview of environmental metrics</p>
+          </div>
+
+          <div data-hf-id="hf-8nmw" class="f04-realtime-controls" id="f04-realtime-controls">
+            <div data-hf-id="hf-9vfi" class="f04-realtime-device-pill">
+              mocksense-0
+              <svg data-hf-id="hf-1nq2" width="10" height="6" viewBox="0 0 10 6"><path data-hf-id="hf-n9b4" d="M1 1l4 4 4-4" fill="none" stroke="#2f6fed" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" /></svg>
+            </div>
+            <div data-hf-id="hf-bo65" class="f04-realtime-range-toggle">
+              <div data-hf-id="hf-uzbh" class="f04-realtime-range-seg is-active">10m</div>
+              <div data-hf-id="hf-kh7m" class="f04-realtime-range-seg">30m</div>
+              <div data-hf-id="hf-07f5" class="f04-realtime-range-seg">1h</div>
+            </div>
+            <div data-hf-id="hf-f9st" class="f04-realtime-live">
+              <svg data-hf-id="hf-owzq" class="f04-realtime-live-dot-svg" viewBox="0 0 40 40">
+                <circle data-hf-id="hf-klmx" id="f04-realtime-live-ring" cx="20" cy="20" r="13" fill="none" stroke="#2f6fed" stroke-width="2" />
+                <circle data-hf-id="hf-ynb5" id="f04-realtime-live-dot" cx="20" cy="20" r="6" fill="#2f6fed" />
+              </svg>
+              Live
+            </div>
+          </div>
+        </div>
+
+        <div data-hf-id="hf-9gz6" class="f04-realtime-cards" id="f04-realtime-cards">
+          <div data-hf-id="hf-d429" class="f04-realtime-card f04-realtime-card-1" id="f04-realtime-card-1">
+            <div data-hf-id="hf-3e6g" class="f04-realtime-card-label">CO2 Level</div>
+            <div data-hf-id="hf-ghng" class="f04-realtime-card-value-row">
+              <span data-hf-id="hf-shco" class="f04-realtime-card-value" id="f04-realtime-counter-co2">400.00</span>
+              <span data-hf-id="hf-1hma" class="f04-realtime-card-unit">ppm</span>
+            </div>
+            <div data-hf-id="hf-cpra" class="f04-realtime-card-chip" id="f04-realtime-chip-1">▲ 61.1% <span data-hf-id="hf-01z0" class="f04-realtime-card-chip-desc">vs last reading</span></div>
+          </div>
+          <div data-hf-id="hf-bv63" class="f04-realtime-card f04-realtime-card-2" id="f04-realtime-card-2">
+            <div data-hf-id="hf-wbhg" class="f04-realtime-card-label">Temperature</div>
+            <div data-hf-id="hf-ar84" class="f04-realtime-card-value-row">
+              <span data-hf-id="hf-pax0" class="f04-realtime-card-value" id="f04-realtime-counter-temp">15.00</span>
+              <span data-hf-id="hf-a1fy" class="f04-realtime-card-unit">°C</span>
+            </div>
+            <div data-hf-id="hf-25j4" class="f04-realtime-card-chip" id="f04-realtime-chip-2">▲ 47.2% <span data-hf-id="hf-vv5g" class="f04-realtime-card-chip-desc">vs last reading</span></div>
+          </div>
+          <div data-hf-id="hf-92w9" class="f04-realtime-card f04-realtime-card-3" id="f04-realtime-card-3">
+            <div data-hf-id="hf-2z4b" class="f04-realtime-card-label">Humidity</div>
+            <div data-hf-id="hf-9kb1" class="f04-realtime-card-value-row">
+              <span data-hf-id="hf-46re" class="f04-realtime-card-value" id="f04-realtime-counter-humidity">25.00</span>
+              <span data-hf-id="hf-3vc2" class="f04-realtime-card-unit">%</span>
+            </div>
+            <div data-hf-id="hf-gmbg" class="f04-realtime-card-chip" id="f04-realtime-chip-3">▲ 51.0% <span data-hf-id="hf-uo8d" class="f04-realtime-card-chip-desc">vs last reading</span></div>
+          </div>
+        </div>
+
+        <div data-hf-id="hf-b30i" class="f04-realtime-charts">
+          <div data-hf-id="hf-9su8" class="f04-realtime-chart-panel" id="f04-realtime-chart-panel-1">
+            <div data-hf-id="hf-5o16" class="f04-realtime-chart-head">
+              <div data-hf-id="hf-9x4t" class="f04-realtime-chart-title">CO2 Trend</div>
+            </div>
+            <div data-hf-id="hf-5skg" class="f04-realtime-chart-canvas">
+              <svg data-hf-id="hf-cqot" viewBox="0 0 660 260" preserveAspectRatio="none">
+                <polyline data-hf-id="hf-d2av" id="f04-realtime-co2-line" points="0,190 66,175 132,200 198,140 264,165 330,95 396,130 462,70 528,105 594,55 660,80" stroke="#2f6fed" stroke-width="4" />
+              </svg>
+            </div>
+          </div>
+          <div data-hf-id="hf-igq3" class="f04-realtime-chart-panel" id="f04-realtime-chart-panel-2">
+            <div data-hf-id="hf-rp9q" class="f04-realtime-chart-head">
+              <div data-hf-id="hf-etgf" class="f04-realtime-chart-title">Temp &amp; Humidity</div>
+              <div data-hf-id="hf-t9fr" class="f04-realtime-chart-legend">
+                <div data-hf-id="hf-9aw4" class="f04-realtime-legend-item"><span data-hf-id="hf-tw9m" class="f04-realtime-legend-swatch"></span>Temp</div>
+                <div data-hf-id="hf-510j" class="f04-realtime-legend-item"><span data-hf-id="hf-d9sw" class="f04-realtime-legend-swatch is-dashed"></span>Humidity</div>
+              </div>
+            </div>
+            <div data-hf-id="hf-mbbs" class="f04-realtime-chart-canvas">
+              <svg data-hf-id="hf-s9ip" viewBox="0 0 660 260" preserveAspectRatio="none">
+                <polyline data-hf-id="hf-vem6" id="f04-realtime-temp-line" points="0,150 66,165 132,120 198,145 264,90 330,130 396,80 462,110 528,60 594,95 660,75" stroke="#2f6fed" stroke-width="4" />
+                <polyline data-hf-id="hf-x5rr" id="f04-realtime-humidity-line" points="0,220 66,200 132,210 198,175 264,195 330,150 396,180 462,140 528,165 594,125 660,145" stroke="#2f6fed" stroke-width="3" stroke-dasharray="10 8" opacity="0.6" />
+              </svg>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+  <script>
+    (function () {
+      window.__timelines = window.__timelines || {};
+      var tl = gsap.timeline({ paused: true });
+
+      /* ---------------- Scene 1 (0.0-1.3s): sidebar / header / controls — 3 depth layers, fast in ---------------- */
+      tl.fromTo(
+        '[id="f04-realtime-sidebar"]',
+        { x: -320, opacity: 0 },
+        { x: 0, opacity: 1, duration: 0.45, ease: "power2.out" },
+        0.02
+      );
+
+      var navItems = ['[id="f04-realtime-nav-1"]', '[id="f04-realtime-nav-2"]', '[id="f04-realtime-nav-3"]', '[id="f04-realtime-nav-4"]'];
+      navItems.forEach(function (sel, i) {
+        tl.fromTo(
+          sel,
+          { opacity: 0, x: -14 },
+          { opacity: 1, x: 0, duration: 0.3, ease: "power2.out" },
+          0.22 + i * 0.06
+        );
+      });
+
+      tl.fromTo(
+        '[id="f04-realtime-title-block"]',
+        { opacity: 0, y: 18 },
+        { opacity: 1, y: 0, duration: 0.4, ease: "power2.out" },
+        0.15
+      );
+
+      tl.fromTo(
+        '[id="f04-realtime-controls"]',
+        { opacity: 0, y: 14 },
+        { opacity: 1, y: 0, duration: 0.35, ease: "power2.out" },
+        0.55
+      );
+
+      /* ---------------- Scene 2 (1.3-3.5s): metric cards — cluster-outward expansion + value-scaled counters, staggered ~0.25s ---------------- */
+      var cardSpecs = [
+        { sel: '[id="f04-realtime-card-1"]', offset: -502, start: 1.3, counterSel: '[id="f04-realtime-counter-co2"]', from: 400, to: 656.04, decimals: 2, chip: '[id="f04-realtime-chip-1"]' },
+        { sel: '[id="f04-realtime-card-2"]', offset: 0, start: 1.55, counterSel: '[id="f04-realtime-counter-temp"]', from: 15, to: 20.21, decimals: 2, chip: '[id="f04-realtime-chip-2"]' },
+        { sel: '[id="f04-realtime-card-3"]', offset: 502, start: 1.80, counterSel: '[id="f04-realtime-counter-humidity"]', from: 25, to: 41.43, decimals: 2, chip: '[id="f04-realtime-chip-3"]' }
+      ];
+
+      var EXPAND_DUR = 0.55;
+      var EXPAND_EASE = "power3.out";
+
+      cardSpecs.forEach(function (spec) {
+        var el = document.querySelector(spec.sel);
+
+        tl.fromTo(
+          el,
+          { x: -spec.offset, scale: 0.6, opacity: 0 },
+          { x: 0, scale: 1, opacity: 1, duration: EXPAND_DUR, ease: EXPAND_EASE },
+          spec.start
+        );
+
+        var counterEl = document.querySelector(spec.counterSel);
+        var counterState = { value: spec.from };
+        tl.to(
+          counterState,
+          {
+            value: spec.to,
+            duration: EXPAND_DUR,
+            ease: EXPAND_EASE,
+            onUpdate: function () {
+              counterEl.textContent = counterState.value.toFixed(spec.decimals);
+            },
+          },
+          spec.start
+        );
+
+        tl.fromTo(
+          spec.chip,
+          { opacity: 0, y: 8 },
+          { opacity: 1, y: 0, duration: 0.3, ease: "back.out(1.4)" },
+          spec.start + EXPAND_DUR
+        );
+      });
+
+      /* ---------------- Scene 3 (3.5-6.0s): chart panels — svg self-draw, CO2 first, Temp & Humidity close behind; settle ---------------- */
+      tl.fromTo(
+        '[id="f04-realtime-chart-panel-1"]',
+        { opacity: 0, y: 16, scale: 0.97 },
+        { opacity: 1, y: 0, scale: 1, duration: 0.35, ease: "power2.out" },
+        3.5
+      );
+      tl.fromTo(
+        '[id="f04-realtime-chart-panel-2"]',
+        { opacity: 0, y: 16, scale: 0.97 },
+        { opacity: 1, y: 0, scale: 1, duration: 0.35, ease: "power2.out" },
+        3.6
+      );
+
+      function setupDraw(id) {
+        var path = document.getElementById(id);
+        var len = path.getTotalLength();
+        path.style.strokeDasharray = String(len);
+        path.style.strokeDashoffset = String(len);
+        return len;
+      }
+
+      ["f04-realtime-co2-line", "f04-realtime-temp-line", "f04-realtime-humidity-line"].forEach(setupDraw);
+
+      tl.to(
+        '[id="f04-realtime-co2-line"]',
+        { strokeDashoffset: 0, duration: 0.85, ease: "power2.out" },
+        3.75
+      );
+      tl.to(
+        '[id="f04-realtime-temp-line"]',
+        { strokeDashoffset: 0, duration: 0.75, ease: "power2.out" },
+        4.0
+      );
+      tl.to(
+        '[id="f04-realtime-humidity-line"]',
+        { strokeDashoffset: 0, duration: 0.75, ease: "power2.out" },
+        4.2
+      );
+
+      /* ---------------- settle (0.6-6.0s): live dot svg-icon-enrichment pulse — the only aliveness once charts land ---------------- */
+      var dot = document.getElementById("f04-realtime-live-dot");
+      var ring = document.getElementById("f04-realtime-live-ring");
+      var pulse = { p: 0 };
+      var PULSE_CYCLES = 5;
+      var PULSE_DOT_AMP = 0.12;
+      var PULSE_RING_AMP = 0.08;
+      var PULSE_RING_OPACITY_BASE = 0.5;
+      var PULSE_RING_OPACITY_AMP = 0.35;
+
+      tl.to(
+        pulse,
+        {
+          p: Math.PI * 2 * PULSE_CYCLES,
+          duration: 5.3,
+          ease: "none",
+          onUpdate: function () {
+            var sD = 1 + Math.sin(pulse.p) * PULSE_DOT_AMP;
+            var sR = 1 + Math.sin(pulse.p + Math.PI / 2) * PULSE_RING_AMP;
+            dot.setAttribute("transform", "translate(20 20) scale(" + sD + ") translate(-20 -20)");
+            ring.setAttribute("transform", "translate(20 20) scale(" + sR + ") translate(-20 -20)");
+            ring.style.opacity = String(PULSE_RING_OPACITY_BASE + Math.sin(pulse.p) * PULSE_RING_OPACITY_AMP);
+          },
+        },
+        0.6
+      );
+
+      window.__timelines["04-realtime"] = tl;
+    })();
+  </script>
+</template>

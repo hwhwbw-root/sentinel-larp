@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Sentinel — Never Miss a Dangerous Reading — Storyboard v1</title>
+<style>
+  :root{
+    --bg:#FAFAFA; --primary:#2F6FED; --text:#18181B; --text-muted:#316CEB;
+    --text-light:#9A9A9A; --accent-light:rgba(47,111,237,.08); --accent-medium:rgba(47,111,237,.15);
+    --border:rgba(47,111,237,.2); --card-bg:rgba(47,111,237,.04);
+    --positive:#059669; --negative:#dc2626;
+    --r-pill:100px; --r-lg:14px; --r-md:12px; --r-sm:10px;
+    font-family: "Satoshi","Inter",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+  }
+  *{box-sizing:border-box;}
+  body{margin:0;background:#F0F0F0;color:var(--text);padding:40px 32px 80px;}
+  header.page{max-width:1400px;margin:0 auto 36px;}
+  header.page h1{font-size:32px;font-weight:700;letter-spacing:-0.02em;margin:0 0 6px;}
+  header.page h1 .v{color:var(--primary);font-weight:700;font-size:18px;vertical-align:middle;margin-left:10px;}
+  header.page p.dek{font-size:15px;color:var(--text-muted);margin:0 0 14px;max-width:760px;line-height:1.5;}
+  header.page .tags{display:flex;gap:8px;flex-wrap:wrap;}
+  header.page .tag{background:var(--accent-light);color:var(--primary);border:1px solid var(--border);border-radius:var(--r-pill);padding:5px 14px;font-size:12px;font-weight:600;letter-spacing:.02em;}
+
+  .grid{max-width:1400px;margin:0 auto;display:grid;grid-template-columns:repeat(3,1fr);gap:22px;}
+
+  .cell{background:#fff;border:1px solid #E2E2E5;border-radius:16px;overflow:hidden;box-shadow:0 1px 3px rgba(0,0,0,.06);}
+  .frame{container-type:inline-size;aspect-ratio:16/9;background:var(--bg);position:relative;overflow:hidden;}
+  .frame.dark{background:#1a1a1a;}
+
+  .label-row{display:flex;justify-content:space-between;align-items:baseline;padding:10px 14px 4px;}
+  .label-row .name{font-size:13px;font-weight:700;color:var(--text);}
+  .label-row .meta{font-size:11px;color:var(--text-light);font-variant-numeric:tabular-nums;}
+  .note{padding:0 14px 12px;font-size:12px;line-height:1.45;color:var(--text-muted);}
+  .note b{color:var(--text);}
+  .chip{display:inline-block;margin:0 14px 14px;font-size:10.5px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;color:var(--primary);background:var(--accent-light);border:1px solid var(--border);border-radius:var(--r-pill);padding:4px 10px;}
+
+  /* --- generic frame furniture --- */
+  .pad{position:absolute;inset:0;padding:7cqw 6cqw;}
+  .eyebrow{font-size:1.5cqw;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--primary);}
+  .h1w{font-size:6cqw;font-weight:700;letter-spacing:-0.02em;line-height:1.08;color:var(--text);}
+  .h2w{font-size:4cqw;font-weight:700;letter-spacing:-0.02em;line-height:1.15;color:var(--text);}
+  .bodyw{font-size:2.2cqw;color:var(--text-muted);line-height:1.5;}
+  .centered{display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;height:100%;}
+
+  /* frame 1: hook */
+  .f1-num{font-size:15cqw;font-weight:700;color:#ff5a4e;line-height:1;letter-spacing:-0.02em;}
+  .f1-unit{font-size:3cqw;color:#ff9a90;letter-spacing:.08em;text-transform:uppercase;margin-top:.5cqw;}
+  .f1-pill{margin-top:4cqw;background:#3a1614;color:#ff5a4e;border:1px solid #ff5a4e;border-radius:var(--r-pill);padding:1.2cqw 3cqw;font-size:1.8cqw;font-weight:700;letter-spacing:.04em;}
+
+  /* frame 2: pain */
+  .f2-line{font-size:4.4cqw;font-weight:500;color:var(--text);line-height:1.3;max-width:78cqw;}
+  .f2-line.dim{color:var(--text-light);font-size:3.2cqw;margin-top:1.2cqw;}
+
+  /* frame 3: product intro */
+  .shield{width:16cqw;height:16cqw;border:0.55cqw solid var(--primary);border-radius:30% 30% 50% 50% / 20% 20% 60% 60%;clip-path:polygon(50% 0%,100% 20%,100% 55%,50% 100%,0% 55%,0% 20%);display:flex;align-items:center;justify-content:center;background:#fff;}
+  .shield .dot{width:3cqw;height:3cqw;border-radius:50%;border:0.4cqw solid var(--primary);}
+  .wordmark{margin-top:3cqw;font-size:4.5cqw;font-weight:700;letter-spacing:.12em;color:var(--text);}
+  .node-line{position:absolute;background:var(--primary);opacity:.18;height:1px;}
+  .node-dot{position:absolute;width:.8cqw;height:.8cqw;border-radius:50%;background:var(--primary);opacity:.5;}
+
+  /* frame 4: dashboard */
+  .dash{display:flex;height:100%;}
+  .dash .side{width:16cqw;background:#fff;border-right:1px solid #eee;padding:3cqw 1.5cqw;font-size:1.6cqw;color:var(--text-light);}
+  .dash .side .item{padding:1cqw 0;}
+  .dash .side .item.on{color:var(--primary);font-weight:700;}
+  .dash .main{flex:1;padding:3cqw 3.5cqw;}
+  .dash h2w{font-size:3cqw;}
+  .dash .sub{font-size:1.5cqw;color:var(--text-light);margin-bottom:2cqw;}
+  .cards{display:flex;gap:1.4cqw;margin:2cqw 0;}
+  .mcard{flex:1;background:var(--card-bg);border:1.5px solid var(--border);border-radius:var(--r-lg);padding:1.6cqw;}
+  .mcard .lbl{font-size:1.3cqw;color:var(--text-light);}
+  .mcard .val{font-size:3.4cqw;font-weight:700;color:var(--primary);}
+  .charts{display:flex;gap:1.4cqw;}
+  .chartbox{flex:1;background:var(--card-bg);border:1.5px solid var(--border);border-radius:var(--r-lg);height:9cqw;position:relative;}
+  .chartbox svg{width:100%;height:100%;}
+
+  /* frame 5: alerts */
+  .alertpanel{position:absolute;right:5cqw;top:8cqw;width:44cqw;background:#fff;border:1.5px solid var(--border);border-radius:var(--r-lg);padding:2cqw;}
+  .alertpanel .title{font-size:2cqw;font-weight:700;margin-bottom:1.5cqw;}
+  .alertrow{background:#fdecec;border-left:.35cqw solid var(--negative);border-radius:var(--r-sm);padding:1.4cqw 1.6cqw;}
+  .alertrow .badge{color:var(--negative);font-size:1.4cqw;font-weight:700;letter-spacing:.04em;}
+  .alertrow .txt{font-size:1.5cqw;color:var(--text);margin-top:.5cqw;}
+  .alertrow .meta{font-size:1.2cqw;color:var(--text-light);margin-top:.5cqw;}
+
+  /* frame 6/7: tables */
+  .tablewrap{position:absolute;inset:6cqw;background:#fff;border:1.5px solid var(--border);border-radius:var(--r-lg);overflow:hidden;}
+  .tablehead{display:flex;justify-content:space-between;align-items:center;padding:2cqw 2.5cqw;border-bottom:1px solid #eee;}
+  .tablehead h2w{font-size:2.6cqw;}
+  .btn-pill{background:var(--primary);color:#fff;border-radius:var(--r-pill);padding:1cqw 2.2cqw;font-size:1.4cqw;font-weight:700;}
+  .row{display:grid;grid-template-columns:2fr 1.2fr 1.2fr 1.2fr;gap:1cqw;padding:1.3cqw 2.5cqw;font-size:1.4cqw;color:var(--text-muted);border-bottom:1px solid #f2f2f2;}
+  .row.head{color:var(--text-light);font-size:1.1cqw;text-transform:uppercase;letter-spacing:.06em;}
+  .row .status{color:var(--positive);font-weight:600;}
+  .row.spike{color:var(--negative);font-weight:700;}
+
+  /* frame 8: benefits */
+  .f8-stack{display:flex;flex-direction:column;gap:1.6cqw;align-items:center;}
+  .f8-stack div{font-size:3.4cqw;font-weight:700;color:var(--text);opacity:1;}
+  .f8-stack div:nth-child(2){color:var(--primary);}
+
+  /* frame 9: cta */
+  .rings{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;}
+  .ring{position:absolute;border:1px solid var(--border);border-radius:50%;}
+
+  /* seam map + tokens cells */
+  .seamstrip{display:flex;height:100%;}
+  .seamstrip .seg{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;border-right:1px dashed #ddd;padding:0 .4cqw;text-align:center;}
+  .seamstrip .seg:last-child{border-right:none;}
+  .seamstrip .seg .n{font-size:1.6cqw;font-weight:700;color:var(--text);}
+  .seamstrip .seg .t{font-size:1.15cqw;color:var(--primary);margin-top:.6cqw;font-weight:600;text-transform:uppercase;letter-spacing:.03em;}
+
+  .tokenrow{display:flex;gap:1.2cqw;padding:2cqw 2.5cqw 0;}
+  .swatch{width:5cqw;height:5cqw;border-radius:var(--r-sm);border:1px solid #ddd;}
+  .tok-label{font-size:1.1cqw;color:var(--text-light);margin-top:.6cqw;text-align:center;}
+  .bans{padding:1.5cqw 2.5cqw;font-size:1.3cqw;color:var(--text-muted);line-height:1.6;}
+  .bans b{color:var(--text);}
+
+  footer.page{max-width:1400px;margin:40px auto 0;font-size:12px;color:#999;}
+</style>
+</head>
+<body>
+
+<header class="page">
+  <h1>Sentinel — Never Miss a Dangerous Reading <span class="v">v1</span></h1>
+  <p class="dek">A silent, kinetic-type promo for Sentinel's industrial gas/air-quality monitoring dashboard. PAS arc: a real danger alert cold-opens the video, the pain of missing it, then Sentinel proven through its own real-time monitor, alerts, fleet view and history — closing on the message.</p>
+  <div class="tags">
+    <span class="tag">1920×1080 · 16:9</span>
+    <span class="tag">~78s target</span>
+    <span class="tag">9 beats</span>
+    <span class="tag">silent — no VO, no music</span>
+    <span class="tag">blue-professional preset</span>
+  </div>
+</header>
+
+<div class="grid">
+
+  <!-- FRAME 1 — HOOK -->
+  <div class="cell">
+    <div class="frame dark" id="frame-01">
+      <div class="pad centered">
+        <div class="f1-num">1,686</div>
+        <div class="f1-unit">ppm CO2</div>
+        <div class="f1-pill">DANGEROUS</div>
+      </div>
+    </div>
+    <div class="label-row"><span class="name">01 · Hook</span><span class="meta">0:00–0:07</span></div>
+    <div class="note"><b>Counts up fast</b> — 627 → 900 → 1,686 — frame tint drifts dark→red as it climbs, lands on the real alert pill. First motion within 0.2s.</div>
+    <span class="chip">seam out: cut</span>
+  </div>
+
+  <!-- FRAME 2 — PAIN -->
+  <div class="cell">
+    <div class="frame" id="frame-02">
+      <div class="pad centered">
+        <div class="f2-line">A dangerous reading doesn't<br>wait for someone to check.</div>
+        <div class="f2-line dim">By the time you notice — it's already too late.</div>
+      </div>
+    </div>
+    <div class="label-row"><span class="name">02 · Pain</span><span class="meta">0:07–0:14</span></div>
+    <div class="note">Two lines, each alone on the canvas before the next replaces it. Plain cream ground — the <b>held breather</b> against Frame 1's heat.</div>
+    <span class="chip">seam out: crossfade</span>
+  </div>
+
+  <!-- FRAME 3 — PRODUCT INTRO -->
+  <div class="cell">
+    <div class="frame" id="frame-03">
+      <div class="node-line" style="top:22%;left:30%;width:22cqw;transform:rotate(18deg);"></div>
+      <div class="node-line" style="top:60%;left:28%;width:20cqw;transform:rotate(-14deg);"></div>
+      <div class="node-line" style="top:40%;left:55%;width:18cqw;transform:rotate(8deg);"></div>
+      <div class="node-dot" style="top:18%;left:28%;"></div>
+      <div class="node-dot" style="top:62%;left:26%;"></div>
+      <div class="node-dot" style="top:38%;left:70%;"></div>
+      <div class="pad centered">
+        <div class="shield"><div class="dot"></div></div>
+        <div class="wordmark">SENTINEL</div>
+      </div>
+    </div>
+    <div class="label-row"><span class="name">03 · Product intro</span><span class="meta">0:14–0:22</span></div>
+    <div class="note"><b>[LOGO: sentinel-logo.svg]</b> — the real brand mark assembles from scattered network nodes (stand-in for <code>svg-d9b653fc.svg</code>) and resolves into the lockup.</div>
+    <span class="chip">seam out: zoom-through</span>
+  </div>
+
+  <!-- FRAME 4 — REAL-TIME DASHBOARD -->
+  <div class="cell" style="grid-column: span 2;">
+    <div class="frame" id="frame-04" style="aspect-ratio:32/9;">
+      <div class="dash">
+        <div class="side">
+          <div class="item on">▦ Overview</div>
+          <div class="item">◴ Data History</div>
+          <div class="item">▭ Device Mgmt</div>
+          <div class="item">◎ User Access</div>
+        </div>
+        <div class="main">
+          <div class="h2w">Real-time Monitoring</div>
+          <div class="sub">Overview of environmental metrics · mocksense-0 · ● Live</div>
+          <div class="cards">
+            <div class="mcard"><div class="lbl">CO2 Level</div><div class="val">656.04 ppm</div></div>
+            <div class="mcard"><div class="lbl">Temperature</div><div class="val">20.21°C</div></div>
+            <div class="mcard"><div class="lbl">Humidity</div><div class="val">41.43%</div></div>
+          </div>
+          <div class="charts">
+            <div class="chartbox"><svg viewBox="0 0 200 60" preserveAspectRatio="none"><polyline points="0,40 30,30 60,42 90,20 120,35 150,10 180,25 200,15" fill="none" stroke="#2F6FED" stroke-width="2"/></svg></div>
+            <div class="chartbox"><svg viewBox="0 0 200 60" preserveAspectRatio="none"><polyline points="0,30 30,35 60,25 90,32 120,18 150,28 180,20 200,24" fill="none" stroke="#2F6FED" stroke-width="2"/></svg></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="label-row"><span class="name">04 · Real-time monitoring</span><span class="meta">0:22–0:33</span></div>
+    <div class="note">Rebuilt natively (no capture available — see BRIEF Notes). Real copy/values reproduced verbatim. Cards + charts animate in, numbers tick.</div>
+    <span class="chip">seam out: crossfade</span>
+  </div>
+
+  <!-- FRAME 5 — ALERTS -->
+  <div class="cell">
+    <div class="frame" id="frame-05">
+      <div class="alertpanel">
+        <div class="title">Recent Alerts</div>
+        <div class="alertrow">
+          <div class="badge">DANGEROUS</div>
+          <div class="txt">CO2 level at 1,686.82 ppm<br>exceeds danger threshold</div>
+          <div class="meta">mocksense-0 · just now</div>
+        </div>
+      </div>
+    </div>
+    <div class="label-row"><span class="name">05 · Instant alerts</span><span class="meta">0:33–0:42</span></div>
+    <div class="note">The card slides in the instant the threshold crosses — callback to Frame 1's number.</div>
+    <span class="chip">seam out: push-slide L</span>
+  </div>
+
+  <!-- FRAME 6 — FLEET -->
+  <div class="cell">
+    <div class="frame" id="frame-06">
+      <div class="tablewrap">
+        <div class="tablehead"><span class="h2w">Device Management</span><span class="btn-pill">+ Add Device</span></div>
+        <div class="row head"><span>Box ID</span><span>Status</span><span>Type</span><span>Alias</span></div>
+        <div class="row"><span>mocksense-0</span><span class="status">● Active</span><span>CO2</span><span>No alias</span></div>
+        <div class="row"><span>mocksense-1</span><span class="status">● Active</span><span>H2</span><span>No alias</span></div>
+      </div>
+    </div>
+    <div class="label-row"><span class="name">06 · Every device, one view</span><span class="meta">0:42–0:52</span></div>
+    <div class="note">Real rows only (2 devices) — Add Device affordance implies room to grow; no fabricated rows.</div>
+    <span class="chip">seam out: push-slide L</span>
+  </div>
+
+  <!-- FRAME 7 — HISTORY -->
+  <div class="cell">
+    <div class="frame" id="frame-07">
+      <div class="tablewrap">
+        <div class="tablehead"><span class="h2w">Data History</span><span class="btn-pill">Export CSV</span></div>
+        <div class="row head"><span>Timestamp</span><span>Gas (ppm)</span><span>Temp</span><span>Humidity</span></div>
+        <div class="row"><span>6:08:59 PM</span><span>547.47</span><span>21.05</span><span>47.05</span></div>
+        <div class="row spike"><span>6:10:01 PM</span><span>1,806.74</span><span>47.47</span><span>84.66</span></div>
+        <div class="row"><span>6:10:11 PM</span><span>691.46</span><span>23.37</span><span>52.53</span></div>
+      </div>
+    </div>
+    <div class="label-row"><span class="name">07 · Nothing gets lost</span><span class="meta">0:52–1:01</span></div>
+    <div class="note">Table traverses at read pace, one real spike row echoes the hook, pivots to Export CSV.</div>
+    <span class="chip">seam out: crossfade</span>
+  </div>
+
+  <!-- FRAME 8 — BENEFITS -->
+  <div class="cell">
+    <div class="frame" id="frame-08">
+      <div class="pad centered">
+        <div class="f8-stack">
+          <div>Live monitoring.</div>
+          <div>Instant alerts.</div>
+          <div>One dashboard, every device.</div>
+        </div>
+      </div>
+    </div>
+    <div class="label-row"><span class="name">08 · Benefits stack</span><span class="meta">1:01–1:09</span></div>
+    <div class="note">Rapid rule-of-three, each phrase echoing frames 4/5/6 in order. Section-boundary beat.</div>
+    <span class="chip">seam out: zoom-through</span>
+  </div>
+
+  <!-- FRAME 9 — CTA -->
+  <div class="cell">
+    <div class="frame" id="frame-09">
+      <div class="rings">
+        <div class="ring" style="width:30cqw;height:30cqw;"></div>
+        <div class="ring" style="width:44cqw;height:44cqw;"></div>
+      </div>
+      <div class="pad centered">
+        <div class="shield" style="width:11cqw;height:11cqw;"><div class="dot" style="width:2cqw;height:2cqw;"></div></div>
+        <div class="wordmark" style="font-size:3.4cqw;">SENTINEL</div>
+        <div class="bodyw" style="margin-top:2cqw;">Never miss a dangerous reading.</div>
+      </div>
+    </div>
+    <div class="label-row"><span class="name">09 · CTA / outro</span><span class="meta">1:09–1:18</span></div>
+    <div class="note">Held, calm — the real mark settles to the final frame. No fabricated URL/handle.</div>
+    <span class="chip">seam out: —</span>
+  </div>
+
+  <!-- SEAM MAP -->
+  <div class="cell" style="grid-column: span 2;">
+    <div class="frame" id="seam-map" style="aspect-ratio:32/9;background:#fff;">
+      <div class="seamstrip">
+        <div class="seg"><span class="n">01</span><span class="t">cut</span></div>
+        <div class="seg"><span class="n">02</span><span class="t">crossfade</span></div>
+        <div class="seg"><span class="n">03</span><span class="t">zoom-through</span></div>
+        <div class="seg"><span class="n">04</span><span class="t">crossfade</span></div>
+        <div class="seg"><span class="n">05</span><span class="t">push-slide L</span></div>
+        <div class="seg"><span class="n">06</span><span class="t">push-slide L</span></div>
+        <div class="seg"><span class="n">07</span><span class="t">crossfade</span></div>
+        <div class="seg"><span class="n">08</span><span class="t">zoom-through</span></div>
+        <div class="seg"><span class="n">09</span><span class="t">held</span></div>
+      </div>
+    </div>
+    <div class="label-row"><span class="name">Seam map</span><span class="meta">all 9 beats</span></div>
+    <div class="note">One direction (left) for every lateral seam; <code>zoom-through</code> only at the two section boundaries (pain→product, features→benefits).</div>
+  </div>
+
+  <!-- TOKENS -->
+  <div class="cell">
+    <div class="frame" id="tokens" style="background:#fff;">
+      <div class="tokenrow">
+        <div><div class="swatch" style="background:#FAFAFA;"></div><div class="tok-label">bg</div></div>
+        <div><div class="swatch" style="background:#2F6FED;"></div><div class="tok-label">primary</div></div>
+        <div><div class="swatch" style="background:#18181B;"></div><div class="tok-label">text</div></div>
+        <div><div class="swatch" style="background:#059669;"></div><div class="tok-label">positive</div></div>
+        <div><div class="swatch" style="background:#dc2626;"></div><div class="tok-label">negative</div></div>
+      </div>
+      <div class="bans">
+        <b>Type:</b> Satoshi display + body, near-black headlines, cobalt-blue numerals/eyebrows.<br>
+        <b>Bans:</b> no drop shadows on content · no second accent color · no square corners (except progress bar) · no fabricated device rows/URLs · no slideshow (every beat must develop, not just arrive) · no screensaver motion (nothing moves without meaning).<br>
+        <b>Held frame:</b> Frame 9 — nothing moves, the line lands and stays.
+      </div>
+    </div>
+    <div class="label-row"><span class="name">Tokens &amp; bans</span><span class="meta">blue-professional</span></div>
+  </div>
+
+</div>
+
+<footer class="page">Sketch fidelity only — plain shapes stand in for real charts/logo/screenshots. Real design + motion land in Step 5. Open from file://.</footer>
+
+</body>
+</html>

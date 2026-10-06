@@ -1,0 +1,402 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080" width="1920" height="1080">
+    
+  <!-- Desktop Background -->
+  <rect width="1920" height="1080" fill="#f8fafc" />
+
+  <!-- SIDEBAR NAVIGATION -->
+  <g transform="translate(0, 0)">
+    <!-- Sidebar Background -->
+    <rect width="260" height="1080" fill="#ffffff" stroke="#e2e8f0" stroke-width="1" />
+    
+    <!-- Sidebar Brand Lockup -->
+    <g transform="translate(24, 28)">
+      <g transform="scale(0.475)">
+    <path d="M40 4 L72 16 V38 C72 58 58 71 40 76 C22 71 8 58 8 38 V16 Z" fill="none" stroke="#2f6fed" stroke-width="4" stroke-linejoin="round" />
+    <path d="M40 14 L64 23 V38 C64 53.5 53.5 63.5 40 67.5 C26.5 63.5 16 53.5 16 38 V23 Z" fill="#f0f5ff" stroke="#2f6fed" stroke-width="2" />
+    <circle cx="40" cy="36" r="9" fill="none" stroke="#2f6fed" stroke-width="3.5" />
+    <circle cx="40" cy="36" r="2.6" fill="#2f6fed" />
+    <path d="M40 47 V56" stroke="#2f6fed" stroke-width="3.5" stroke-linecap="round" />
+  </g>
+      <g transform="translate(48, 4) scale(0.026)">
+        <path d="M37.500244140625 214.099853515625Q37.500244140625 148.4500732421875 71.52508544921875 98.22528076171875Q105.5499267578125 48.00048828125 165.62469482421875 19.400634765625Q225.699462890625 -9.19921875 303.3492431640625 -9.19921875Q380.498779296875 -9.19921875 436.77349853515625 17.82562255859375Q493.0482177734375 44.8504638671875 524.0231323242188 94.3502197265625Q554.998046875 143.8499755859375 556.0482177734375 211.899658203125H411.700927734375Q410.6507568359375 168.8489990234375 381.17535400390625 144.32366943359375Q351.699951171875 119.79833984375 301.6492919921875 119.79833984375Q247.698486328125 119.79833984375 215.0479736328125 143.6488037109375Q182.3974609375 167.499267578125 182.3974609375 209.0Q182.3974609375 245.5504150390625 202.27276611328125 265.87579345703125Q222.1480712890625 286.201171875 264.4486083984375 295.4013671875L377.698974609375 319.7515869140625Q473.8485107421875 339.7515869140625 520.9483642578125 388.87652587890625Q568.0482177734375 438.00146484375 568.0482177734375 523.0009765625Q568.0482177734375 592.20068359375 533.9483642578125 644.2754516601562Q499.8485107421875 696.3502197265625 437.998779296875 724.60009765625Q376.1490478515625 752.8499755859375 293.2493896484375 752.8499755859375Q213.6497802734375 752.8499755859375 153.72503662109375 725.7501220703125Q93.80029296875 698.6502685546875 60.82537841796875 648.800537109375Q27.8504638671875 598.9508056640625 26.9503173828125 532.0511474609375H171.4476318359375Q171.897705078125 575.20166015625 204.12322998046875 599.4520263671875Q236.3487548828125 623.702392578125 294.099365234375 623.702392578125Q353.60009765625 623.702392578125 388.37554931640625 600.201904296875Q423.1510009765625 576.701416015625 423.1510009765625 536.7506103515625Q423.1510009765625 502.4500732421875 405.32562255859375 482.82464599609375Q387.500244140625 463.19921875 346.599609375 454.8489990234375L232.099365234375 430.6488037109375Q135.9498291015625 410.6488037109375 86.72503662109375 356.22406005859375Q37.500244140625 301.79931640625 37.500244140625 214.099853515625Z M1191.1490478515625 740.0H728.9503173828125V4.500732421875H1190.9990234375V138.59814453125H828.8475341796875L873.8475341796875 97.1982421875V305.0516357421875H1156.299072265625V432.3492431640625H873.8475341796875V647.4525146484375L828.8475341796875 605.902587890625H1191.1490478515625Z M1520.1475830078125 740.0H1376.9503173828125V4.500732421875H1520.297607421875L1891.7491455078125 565.0531005859375H1847.900146484375V4.500732421875H1991.097412109375V740.0H1847.900146484375L1476.4486083984375 180.297607421875H1520.1475830078125Z M2495.3472900390625 73.79931640625V740.0H2350.4500732421875V73.79931640625ZM2138.499755859375 138.59814453125V4.500732421875H2707.297607421875V138.59814453125Z M2999.8475341796875 4.500732421875V740.0H2854.9503173828125V4.500732421875Z M3351.1475830078125 740.0H3207.9503173828125V4.500732421875H3351.297607421875L3722.7491455078125 565.0531005859375H3678.900146484375V4.500732421875H3822.097412109375V740.0H3678.900146484375L3307.4486083984375 180.297607421875H3351.1475830078125Z M4492.1490478515625 740.0H4029.9503173828125V4.500732421875H4491.9990234375V138.59814453125H4129.8475341796875L4174.8475341796875 97.1982421875V305.0516357421875H4457.299072265625V432.3492431640625H4174.8475341796875V647.4525146484375L4129.8475341796875 605.902587890625H4492.1490478515625Z M4822.8475341796875 4.500732421875V740.0H4677.9503173828125V4.500732421875ZM4703.6497802734375 740.0V605.902587890625H5121.7486572265625V740.0Z" fill="#18181b" />
+      </g>
+    </g>
+
+    <!-- Project Scope Badge -->
+    <g transform="translate(24, 88)">
+      <rect width="212" height="28" rx="6" fill="#f0f5ff" />
+      <circle cx="14" cy="14" r="4" fill="#2f6fed" />
+      <text x="26" y="18" font-family="Arial, Helvetica, 'Segoe UI', sans-serif" font-weight="700" font-size="11" fill="#2f6fed" letter-spacing="0.5">INDUSTRIAL IOT CLOUD</text>
+    </g>
+
+    <!-- Nav Items -->
+    <g transform="translate(16, 140)">
+      <!-- Item 1: Overview (Active) -->
+      <rect width="228" height="42" rx="8" fill="#f0f5ff" />
+      <g transform="translate(14, 12)"><g transform="scale(0.75)">
+    <rect x="3" y="3" width="7" height="7" rx="1.5" fill="none" stroke="#2f6fed" stroke-width="2" />
+    <rect x="14" y="3" width="7" height="7" rx="1.5" fill="none" stroke="#2f6fed" stroke-width="2" />
+    <rect x="3" y="14" width="7" height="7" rx="1.5" fill="none" stroke="#2f6fed" stroke-width="2" />
+    <rect x="14" y="14" width="7" height="7" rx="1.5" fill="none" stroke="#2f6fed" stroke-width="2" />
+  </g></g>
+      <text x="44" y="26" font-family="Arial, Helvetica, 'Segoe UI', sans-serif" font-weight="700" font-size="14" fill="#2f6fed">Overview</text>
+      <rect x="222" y="10" width="3" height="22" rx="1.5" fill="#2f6fed" />
+
+      <!-- Item 2: Data History -->
+      <g transform="translate(0, 52)">
+        <rect width="228" height="42" rx="8" fill="transparent" />
+        <g transform="translate(14, 12)"><g transform="scale(0.75)">
+    <path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8" fill="none" stroke="#71717a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+    <path d="M3 3v5h5" fill="none" stroke="#71717a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+    <path d="M12 7v5l4 2" fill="none" stroke="#71717a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+  </g></g>
+        <text x="44" y="26" font-family="Arial, Helvetica, 'Segoe UI', sans-serif" font-weight="600" font-size="14" fill="#18181b">Data History</text>
+      </g>
+
+      <!-- Item 3: Device Fleet -->
+      <g transform="translate(0, 104)">
+        <rect width="228" height="42" rx="8" fill="transparent" />
+        <g transform="translate(14, 12)"><g transform="scale(0.75)">
+    <rect x="4" y="4" width="16" height="16" rx="2" fill="none" stroke="#71717a" stroke-width="2" />
+    <path d="M4 14h16" stroke="#71717a" stroke-width="2" />
+    <circle cx="8" cy="18" r="1" fill="#71717a" />
+    <circle cx="12" cy="18" r="1" fill="#71717a" />
+  </g></g>
+        <text x="44" y="26" font-family="Arial, Helvetica, 'Segoe UI', sans-serif" font-weight="600" font-size="14" fill="#18181b">Device Fleet</text>
+        <rect x="180" y="12" width="34" height="20" rx="10" fill="#e2e8f0" />
+        <text x="197" y="26" font-family="Arial, Helvetica, 'Segoe UI', sans-serif" font-weight="700" font-size="11" fill="#71717a" text-anchor="middle">3</text>
+      </g>
+
+      <!-- Item 4: User Management -->
+      <g transform="translate(0, 156)">
+        <rect width="228" height="42" rx="8" fill="transparent" />
+        <g transform="translate(14, 12)"><g transform="scale(0.75)">
+    <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" fill="none" stroke="#71717a" stroke-width="2" />
+    <circle cx="9" cy="7" r="4" fill="none" stroke="#71717a" stroke-width="2" />
+    <path d="M22 21v-2a4 4 0 0 0-3-3.87" fill="none" stroke="#71717a" stroke-width="2" />
+    <path d="M16 3.13a4 4 0 0 1 0 7.75" fill="none" stroke="#71717a" stroke-width="2" />
+  </g></g>
+        <text x="44" y="26" font-family="Arial, Helvetica, 'Segoe UI', sans-serif" font-weight="600" font-size="14" fill="#18181b">Team &amp; Access</text>
+      </g>
+    </g>
+
+    <!-- Node System Health Box -->
+    <g transform="translate(18, 890)">
+      <rect width="224" height="96" rx="12" fill="#f8fafc" stroke="#e2e8f0" stroke-width="1" />
+      <g transform="translate(16, 18)">
+        <circle cx="6" cy="6" r="4" fill="#16a34a" />
+        <text x="18" y="10" font-family="Arial, Helvetica, 'Segoe UI', sans-serif" font-weight="700" font-size="12" fill="#18181b">Mesh Gateway</text>
+        <text x="0" y="32" font-family="Arial, Helvetica, 'Segoe UI', sans-serif" font-weight="600" font-size="11" fill="#71717a">WebSocket &#8226; Polling 2.0s</text>
+        <text x="0" y="48" font-family="Arial, Helvetica, 'Segoe UI', sans-serif" font-weight="600" font-size="11" fill="#16a34a">0 Drops &#8226; Latency 24ms</text>
+      </g>
+    </g>
+
+    <!-- User Profile Footer -->
+    <g transform="translate(18, 1004)">
+      <circle cx="20" cy="20" r="18" fill="#f0f5ff" stroke="#2f6fed" stroke-width="1.5" />
+      <text x="20" y="25" font-family="Arial, Helvetica, 'Segoe UI', sans-serif" font-weight="700" font-size="13" fill="#2f6fed" text-anchor="middle">AD</text>
+      <text x="50" y="18" font-family="Arial, Helvetica, 'Segoe UI', sans-serif" font-weight="700" font-size="13" fill="#18181b">Admin Console</text>
+      <text x="50" y="32" font-family="Arial, Helvetica, 'Segoe UI', sans-serif" font-weight="600" font-size="11" fill="#71717a">admin@sentinel.io</text>
+    </g>
+  </g>
+
+  <!-- MAIN DASHBOARD CONTENT AREA -->
+  <g transform="translate(260, 0)">
+    <!-- Top Header Bar -->
+    <g transform="translate(0, 0)">
+      <rect width="1660" height="80" fill="#ffffff" stroke="#e2e8f0" stroke-width="1" />
+      
+      <!-- Page Title & Breadcrumb -->
+      <g transform="translate(36, 26)">
+        <text x="0" y="22" font-family="Arial, Helvetica, 'Segoe UI', sans-serif" font-weight="800" font-size="22" fill="#18181b">Environmental Overview</text>
+        <text x="260" y="20" font-family="Arial, Helvetica, 'Segoe UI', sans-serif" font-weight="600" font-size="13" fill="#71717a">Facility Zone 01 &#8226; Main Laboratory</text>
+      </g>
+
+      <!-- Right Header Actions -->
+      <g transform="translate(1080, 22)">
+        <!-- Node Selector Dropdown -->
+        <rect width="210" height="38" rx="8" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1" />
+        <circle cx="20" cy="19" r="4" fill="#16a34a" />
+        <text x="32" y="24" font-family="Arial, Helvetica, 'Segoe UI', sans-serif" font-weight="700" font-size="12" fill="#18181b">ESP32-Node 1A2B</text>
+        <path d="M185 17 L190 22 L195 17" fill="none" stroke="#71717a" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
+
+        <!-- Time Range Selector -->
+        <g transform="translate(225, 0)">
+          <rect width="180" height="38" rx="8" fill="#f1f5f9" />
+          <rect x="3" y="3" width="56" height="32" rx="6" fill="#ffffff" stroke="#cbd5e1" stroke-width="0.8" />
+          <text x="31" y="23" font-family="Arial, Helvetica, 'Segoe UI', sans-serif" font-weight="700" font-size="12" fill="#2f6fed" text-anchor="middle">10m</text>
+          <text x="90" y="23" font-family="Arial, Helvetica, 'Segoe UI', sans-serif" font-weight="600" font-size="12" fill="#71717a" text-anchor="middle">30m</text>
+          <text x="150" y="23" font-family="Arial, Helvetica, 'Segoe UI', sans-serif" font-weight="600" font-size="12" fill="#71717a" text-anchor="middle">1h</text>
+        </g>
+
+        <!-- Live Badge -->
+        <g transform="translate(420, 4)">
+          <rect width="90" height="30" rx="15" fill="#dcfce7" />
+          <circle cx="16" cy="15" r="4.5" fill="#16a34a">
+            <animate attributeName="opacity" values="1;0.4;1" dur="2s" repeatCount="indefinite"/>
+          </circle>
+          <text x="28" y="20" font-family="Arial, Helvetica, 'Segoe UI', sans-serif" font-weight="800" font-size="11" fill="#16a34a" letter-spacing="0.5">POLLING</text>
+        </g>
+      </g>
+    </g>
+
+    <!-- System Nominal Alert Banner -->
+    <g transform="translate(36, 104)">
+      <rect width="1588" height="48" rx="10" fill="#f0fdf4" stroke="#bbf7d0" stroke-width="1.2" />
+      <g transform="translate(20, 15)">
+        <!-- Green Shield Check -->
+        <circle cx="10" cy="10" r="9" fill="#16a34a" />
+        <path d="M6 10 L9 13 L14 7" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+        <text x="30" y="14" font-family="Arial, Helvetica, 'Segoe UI', sans-serif" font-weight="700" font-size="13" fill="#15803d">ALL SENSORS NOMINAL:</text>
+        <text x="195" y="14" font-family="Arial, Helvetica, 'Segoe UI', sans-serif" font-weight="500" font-size="13" fill="#166534">3 nodes reporting live environmental telemetry with zero threshold violations in the past 24 hours.</text>
+      </g>
+      <g transform="translate(1420, 12)">
+        <rect width="144" height="26" rx="6" fill="#dcfce7" />
+        <text x="72" y="17" font-family="Arial, Helvetica, 'Segoe UI', sans-serif" font-weight="700" font-size="11" fill="#15803d" text-anchor="middle">HARDWARE ENCRYPTED</text>
+      </g>
+    </g>
+
+    <!-- 3 HERO METRIC CARDS (Bento Grid) -->
+    <g transform="translate(36, 172)">
+      <!-- Card 1: Gas / Air Quality (Hero Focus) -->
+      <g transform="translate(0, 0)">
+        <rect width="490" height="175" rx="16" fill="#ffffff" stroke="#c7d9fc" stroke-width="1.5" />
+        <!-- Top Accent Bar -->
+        <path d="M16 0 H474 Q490 0 490 16 V24 H0 V16 Q0 0 16 0 Z" fill="#f0f5ff" />
+        <rect x="20" y="8" width="8" height="8" rx="4" fill="#2f6fed" />
+        <text x="36" y="16" font-family="Arial, Helvetica, 'Segoe UI', sans-serif" font-weight="700" font-size="11" fill="#2f6fed" letter-spacing="1">MQ-2 SENSOR METRIC</text>
+        
+        <g transform="translate(28, 50)">
+          <text x="0" y="14" font-family="Arial, Helvetica, 'Segoe UI', sans-serif" font-weight="700" font-size="13" fill="#71717a">GAS CONCENTRATION</text>
+          <text x="0" y="62" font-family="Arial, Helvetica, 'Segoe UI', sans-serif" font-weight="800" font-size="46" fill="#18181b">524 <tspan font-size="20" font-weight="600" fill="#71717a">ppm</tspan></text>
+          
+          <g transform="translate(230, 22)">
+            <rect width="90" height="28" rx="14" fill="#dcfce7" />
+            <text x="45" y="19" font-family="Arial, Helvetica, 'Segoe UI', sans-serif" font-weight="700" font-size="12" fill="#16a34a" text-anchor="middle">✓ SAFE</text>
+          </g>
+
+          <g transform="translate(0, 94)">
+            <text x="0" y="0" font-family="Arial, Helvetica, 'Segoe UI', sans-serif" font-weight="600" font-size="12" fill="#71717a">Baseline: 400–600 ppm &#8226; Danger Limit: 1000 ppm</text>
+            <!-- Progress / Level meter bar -->
+            <rect x="0" y="8" width="434" height="6" rx="3" fill="#f1f5f9" />
+            <rect x="0" y="8" width="227" height="6" rx="3" fill="#2f6fed" />
+          </g>
+        </g>
+      </g>
+
+      <!-- Card 2: Temperature -->
+      <g transform="translate(515, 0)">
+        <rect width="490" height="175" rx="16" fill="#ffffff" stroke="#e2e8f0" stroke-width="1.2" />
+        <path d="M16 0 H474 Q490 0 490 16 V24 H0 V16 Q0 0 16 0 Z" fill="#f8fafc" />
+        <text x="24" y="16" font-family="Arial, Helvetica, 'Segoe UI', sans-serif" font-weight="700" font-size="11" fill="#71717a" letter-spacing="1">THERMAL SENSOR</text>
+
+        <g transform="translate(28, 50)">
+          <text x="0" y="14" font-family="Arial, Helvetica, 'Segoe UI', sans-serif" font-weight="700" font-size="13" fill="#71717a">AMBIENT TEMPERATURE</text>
+          <text x="0" y="62" font-family="Arial, Helvetica, 'Segoe UI', sans-serif" font-weight="800" font-size="46" fill="#18181b">24.4 <tspan font-size="20" font-weight="600" fill="#71717a">°C</tspan></text>
+
+          <g transform="translate(230, 22)">
+            <rect width="110" height="28" rx="14" fill="#eff6ff" />
+            <text x="55" y="19" font-family="Arial, Helvetica, 'Segoe UI', sans-serif" font-weight="700" font-size="12" fill="#2f6fed" text-anchor="middle">OPTIMAL</text>
+          </g>
+
+          <g transform="translate(0, 94)">
+            <text x="0" y="0" font-family="Arial, Helvetica, 'Segoe UI', sans-serif" font-weight="600" font-size="12" fill="#71717a">Calibration: &#177;0.2°C &#8226; Target: 22°C–25°C</text>
+            <rect x="0" y="8" width="434" height="6" rx="3" fill="#f1f5f9" />
+            <rect x="0" y="8" width="280" height="6" rx="3" fill="#3b82f6" />
+          </g>
+        </g>
+      </g>
+
+      <!-- Card 3: Relative Humidity -->
+      <g transform="translate(1030, 0)">
+        <rect width="530" height="175" rx="16" fill="#ffffff" stroke="#e2e8f0" stroke-width="1.2" />
+        <path d="M16 0 H514 Q530 0 530 16 V24 H0 V16 Q0 0 16 0 Z" fill="#f8fafc" />
+        <text x="24" y="16" font-family="Arial, Helvetica, 'Segoe UI', sans-serif" font-weight="700" font-size="11" fill="#71717a" letter-spacing="1">HYGROMETER</text>
+
+        <g transform="translate(28, 50)">
+          <text x="0" y="14" font-family="Arial, Helvetica, 'Segoe UI', sans-serif" font-weight="700" font-size="13" fill="#71717a">RELATIVE HUMIDITY</text>
+          <text x="0" y="62" font-family="Arial, Helvetica, 'Segoe UI', sans-serif" font-weight="800" font-size="46" fill="#18181b">48.1 <tspan font-size="20" font-weight="600" fill="#71717a">%</tspan></text>
+
+          <g transform="translate(230, 22)">
+            <rect width="105" height="28" rx="14" fill="#dcfce7" />
+            <text x="52" y="19" font-family="Arial, Helvetica, 'Segoe UI', sans-serif" font-weight="700" font-size="12" fill="#16a34a" text-anchor="middle">COMFORT</text>
+          </g>
+
+          <g transform="translate(0, 94)">
+            <text x="0" y="0" font-family="Arial, Helvetica, 'Segoe UI', sans-serif" font-weight="600" font-size="12" fill="#71717a">Safe Range: 40%–60% &#8226; Moisture normal</text>
+            <rect x="0" y="8" width="474" height="6" rx="3" fill="#f1f5f9" />
+            <rect x="0" y="8" width="230" height="6" rx="3" fill="#06b6d4" />
+          </g>
+        </g>
+      </g>
+    </g>
+
+    <!-- MIDDLE SECTION: REAL-TIME TELEMETRY CHART (Interactive Area Chart) -->
+    <g transform="translate(36, 372)">
+      <rect width="1588" height="350" rx="16" fill="#ffffff" stroke="#e2e8f0" stroke-width="1.2" />
+      
+      <!-- Chart Card Header -->
+      <g transform="translate(28, 28)">
+        <text x="0" y="16" font-family="Arial, Helvetica, 'Segoe UI', sans-serif" font-weight="800" font-size="18" fill="#18181b">Real-Time Telemetry Stream</text>
+        <text x="0" y="36" font-family="Arial, Helvetica, 'Segoe UI', sans-serif" font-weight="500" font-size="13" fill="#71717a">Atmospheric Gas &amp; Sensor Dynamics (Last 10 minutes, 2-second resolution)</text>
+      </g>
+
+      <!-- Chart Legend & Indicators -->
+      <g transform="translate(1200, 28)">
+        <circle cx="10" cy="14" r="5" fill="#2f6fed" />
+        <text x="22" y="18" font-family="Arial, Helvetica, 'Segoe UI', sans-serif" font-weight="700" font-size="12" fill="#18181b">Gas (ppm)</text>
+        
+        <circle cx="110" cy="14" r="5" fill="#f59e0b" />
+        <text x="122" y="18" font-family="Arial, Helvetica, 'Segoe UI', sans-serif" font-weight="700" font-size="12" fill="#18181b">Alert Line (800)</text>
+
+        <rect x="230" y="4" width="130" height="24" rx="12" fill="#f0f5ff" />
+        <text x="295" y="20" font-family="Arial, Helvetica, 'Segoe UI', sans-serif" font-weight="700" font-size="11" fill="#2f6fed" text-anchor="middle">LIVE STREAMING</text>
+      </g>
+
+      <!-- Chart Graphics Area -->
+      <g transform="translate(60, 90)">
+        <!-- Gridlines -->
+        <line x1="0" y1="0" x2="1500" y2="0" stroke="#f1f5f9" stroke-width="1" />
+        <text x="-12" y="4" font-family="Arial, Helvetica, 'Segoe UI', sans-serif" font-weight="600" font-size="11" fill="#71717a" text-anchor="end">1000</text>
+
+        <line x1="0" y1="50" x2="1500" y2="50" stroke="#fee2e2" stroke-width="1.5" stroke-dasharray="6 4" />
+        <text x="-12" y="54" font-family="Arial, Helvetica, 'Segoe UI', sans-serif" font-weight="700" font-size="11" fill="#ef4444" text-anchor="end">800 (Alert)</text>
+
+        <line x1="0" y1="100" x2="1500" y2="100" stroke="#f1f5f9" stroke-width="1" />
+        <text x="-12" y="104" font-family="Arial, Helvetica, 'Segoe UI', sans-serif" font-weight="600" font-size="11" fill="#71717a" text-anchor="end">600</text>
+
+        <line x1="0" y1="150" x2="1500" y2="150" stroke="#f1f5f9" stroke-width="1" />
+        <text x="-12" y="154" font-family="Arial, Helvetica, 'Segoe UI', sans-serif" font-weight="600" font-size="11" fill="#71717a" text-anchor="end">400</text>
+
+        <line x1="0" y1="200" x2="1500" y2="200" stroke="#e2e8f0" stroke-width="1.5" />
+        <text x="-12" y="204" font-family="Arial, Helvetica, 'Segoe UI', sans-serif" font-weight="600" font-size="11" fill="#71717a" text-anchor="end">200</text>
+
+        <!-- Shaded Area Gradient Definition -->
+        <defs>
+          <linearGradient id="desktopChartGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+            <stop offset="0%" stop-color="#2f6fed" stop-opacity="0.35" />
+            <stop offset="100%" stop-color="#2f6fed" stop-opacity="0.0" />
+          </linearGradient>
+        </defs>
+
+        <!-- Area Curve -->
+        <path d="M0 120 Q120 135 240 110 T480 125 T720 95 T960 115 T1200 85 T1380 98 L1380 200 L0 200 Z" fill="url(#desktopChartGrad)" />
+        <path d="M0 120 Q120 135 240 110 T480 125 T720 95 T960 115 T1200 85 T1380 98" fill="none" stroke="#2f6fed" stroke-width="3.5" stroke-linecap="round" />
+
+        <!-- Data Points -->
+        <circle cx="240" cy="110" r="4.5" fill="#ffffff" stroke="#2f6fed" stroke-width="2.5" />
+        <circle cx="720" cy="95" r="4.5" fill="#ffffff" stroke="#2f6fed" stroke-width="2.5" />
+        <circle cx="1200" cy="85" r="4.5" fill="#ffffff" stroke="#2f6fed" stroke-width="2.5" />
+        
+        <!-- Live End Pulse Point -->
+        <circle cx="1380" cy="98" r="8" fill="#2f6fed" opacity="0.25">
+          <animate attributeName="r" values="6;12;6" dur="2s" repeatCount="indefinite"/>
+        </circle>
+        <circle cx="1380" cy="98" r="5" fill="#2f6fed" stroke="#ffffff" stroke-width="2" />
+
+        <!-- Interactive Tooltip Overlay on point 1200 -->
+        <g transform="translate(1120, 10)">
+          <rect width="160" height="60" rx="8" fill="#18181b" />
+          <text x="14" y="20" font-family="Arial, Helvetica, 'Segoe UI', sans-serif" font-weight="700" font-size="11" fill="#94a3b8">10:38:12 &#8226; Lab A</text>
+          <text x="14" y="44" font-family="Arial, Helvetica, 'Segoe UI', sans-serif" font-weight="800" font-size="16" fill="#ffffff">524 ppm <tspan font-size="11" font-weight="600" fill="#4ade80">Safe</tspan></text>
+          <!-- Tooltip pin line -->
+          <line x1="80" y1="60" x2="80" y2="75" stroke="#18181b" stroke-width="1.5" stroke-dasharray="2 2" />
+        </g>
+
+        <!-- Time Ticks on X-Axis -->
+        <g transform="translate(0, 220)">
+          <text x="0" y="0" font-family="Arial, Helvetica, 'Segoe UI', sans-serif" font-weight="600" font-size="11" fill="#71717a">10:30:00</text>
+          <text x="240" y="0" font-family="Arial, Helvetica, 'Segoe UI', sans-serif" font-weight="600" font-size="11" fill="#71717a">10:32:00</text>
+          <text x="480" y="0" font-family="Arial, Helvetica, 'Segoe UI', sans-serif" font-weight="600" font-size="11" fill="#71717a">10:34:00</text>
+          <text x="720" y="0" font-family="Arial, Helvetica, 'Segoe UI', sans-serif" font-weight="600" font-size="11" fill="#71717a">10:36:00</text>
+          <text x="960" y="0" font-family="Arial, Helvetica, 'Segoe UI', sans-serif" font-weight="600" font-size="11" fill="#71717a">10:38:00</text>
+          <text x="1200" y="0" font-family="Arial, Helvetica, 'Segoe UI', sans-serif" font-weight="600" font-size="11" fill="#71717a">10:40:00</text>
+          <text x="1380" y="0" font-family="Arial, Helvetica, 'Segoe UI', sans-serif" font-weight="700" font-size="11" fill="#2f6fed" text-anchor="end">Now (Live)</text>
+        </g>
+      </g>
+    </g>
+
+    <!-- LOWER SECTION: HARDWARE FLEET TABLE (3 Nodes) -->
+    <g transform="translate(36, 746)">
+      <rect width="1588" height="300" rx="16" fill="#ffffff" stroke="#e2e8f0" stroke-width="1.2" />
+      
+      <!-- Table Header Title -->
+      <g transform="translate(28, 24)">
+        <text x="0" y="16" font-family="Arial, Helvetica, 'Segoe UI', sans-serif" font-weight="800" font-size="18" fill="#18181b">Active Hardware Fleet (ESP32 Nodes)</text>
+        <text x="360" y="15" font-family="Arial, Helvetica, 'Segoe UI', sans-serif" font-weight="600" font-size="12" fill="#71717a">3 nodes connected &#8226; End-to-end encrypted mesh</text>
+      </g>
+
+      <!-- Table Column Headers -->
+      <g transform="translate(28, 64)">
+        <rect width="1532" height="34" rx="6" fill="#f8fafc" />
+        <text x="16" y="22" font-family="Arial, Helvetica, 'Segoe UI', sans-serif" font-weight="700" font-size="11" fill="#71717a">BOX ID / NODE</text>
+        <text x="240" y="22" font-family="Arial, Helvetica, 'Segoe UI', sans-serif" font-weight="700" font-size="11" fill="#71717a">LOCATION</text>
+        <text x="460" y="22" font-family="Arial, Helvetica, 'Segoe UI', sans-serif" font-weight="700" font-size="11" fill="#71717a">SENSOR TYPE</text>
+        <text x="680" y="22" font-family="Arial, Helvetica, 'Segoe UI', sans-serif" font-weight="700" font-size="11" fill="#71717a">CURRENT READING</text>
+        <text x="920" y="22" font-family="Arial, Helvetica, 'Segoe UI', sans-serif" font-weight="700" font-size="11" fill="#71717a">SIGNAL / BATTERY</text>
+        <text x="1180" y="22" font-family="Arial, Helvetica, 'Segoe UI', sans-serif" font-weight="700" font-size="11" fill="#71717a">STATUS</text>
+      </g>
+
+      <!-- Row 1: Node 1A2B -->
+      <g transform="translate(28, 108)">
+        <rect width="1532" height="56" rx="8" fill="#f0f5ff" stroke="#c7d9fc" stroke-width="1" />
+        <g transform="translate(16, 18)">
+          <text x="0" y="16" font-family="Arial, Helvetica, 'Segoe UI', sans-serif" font-weight="800" font-size="14" fill="#2f6fed">ESP32-Node 1A2B</text>
+          <text x="0" y="30" font-family="Arial, Helvetica, 'Segoe UI', sans-serif" font-weight="600" font-size="11" fill="#71717a">Firmware v2.4.1</text>
+        </g>
+        <text x="256" y="34" font-family="Arial, Helvetica, 'Segoe UI', sans-serif" font-weight="600" font-size="13" fill="#18181b">Primary Lab (Zone 1)</text>
+        <text x="476" y="34" font-family="Arial, Helvetica, 'Segoe UI', sans-serif" font-weight="600" font-size="13" fill="#18181b">MQ-2 Gas + DHT22</text>
+        <g transform="translate(696, 18)">
+          <text x="0" y="16" font-family="Arial, Helvetica, 'Segoe UI', sans-serif" font-weight="800" font-size="15" fill="#18181b">524 ppm</text>
+          <text x="0" y="30" font-family="Arial, Helvetica, 'Segoe UI', sans-serif" font-weight="600" font-size="11" fill="#71717a">24.4°C &#8226; 48% RH</text>
+        </g>
+        <text x="936" y="34" font-family="Arial, Helvetica, 'Segoe UI', sans-serif" font-weight="600" font-size="13" fill="#18181b">-48 dBm &#8226; 98% (Solar)</text>
+        <g transform="translate(1196, 14)">
+          <rect width="84" height="28" rx="14" fill="#dcfce7" />
+          <text x="42" y="19" font-family="Arial, Helvetica, 'Segoe UI', sans-serif" font-weight="800" font-size="11" fill="#16a34a" text-anchor="middle">ONLINE</text>
+        </g>
+      </g>
+
+      <!-- Row 2: Node 3C4D -->
+      <g transform="translate(28, 172)">
+        <rect width="1532" height="56" rx="8" fill="#ffffff" stroke="#e2e8f0" stroke-width="0.8" />
+        <g transform="translate(16, 18)">
+          <text x="0" y="16" font-family="Arial, Helvetica, 'Segoe UI', sans-serif" font-weight="700" font-size="14" fill="#18181b">ESP32-Node 3C4D</text>
+          <text x="0" y="30" font-family="Arial, Helvetica, 'Segoe UI', sans-serif" font-weight="600" font-size="11" fill="#71717a">Firmware v2.4.1</text>
+        </g>
+        <text x="256" y="34" font-family="Arial, Helvetica, 'Segoe UI', sans-serif" font-weight="600" font-size="13" fill="#18181b">Server Room B</text>
+        <text x="476" y="34" font-family="Arial, Helvetica, 'Segoe UI', sans-serif" font-weight="600" font-size="13" fill="#18181b">CO2 Optical NDIR</text>
+        <g transform="translate(696, 18)">
+          <text x="0" y="16" font-family="Arial, Helvetica, 'Segoe UI', sans-serif" font-weight="800" font-size="15" fill="#18181b">412 ppm</text>
+          <text x="0" y="30" font-family="Arial, Helvetica, 'Segoe UI', sans-serif" font-weight="600" font-size="11" fill="#71717a">20.8°C &#8226; 42% RH</text>
+        </g>
+        <text x="936" y="34" font-family="Arial, Helvetica, 'Segoe UI', sans-serif" font-weight="600" font-size="13" fill="#18181b">-52 dBm &#8226; 94% (Mains)</text>
+        <g transform="translate(1196, 14)">
+          <rect width="84" height="28" rx="14" fill="#dcfce7" />
+          <text x="42" y="19" font-family="Arial, Helvetica, 'Segoe UI', sans-serif" font-weight="800" font-size="11" fill="#16a34a" text-anchor="middle">ONLINE</text>
+        </g>
+      </g>
+
+      <!-- Row 3: Node 5E6F -->
+      <g transform="translate(28, 236)">
+        <rect width="1532" height="56" rx="8" fill="#ffffff" stroke="#e2e8f0" stroke-width="0.8" />
+        <g transform="translate(16, 18)">
+          <text x="0" y="16" font-family="Arial, Helvetica, 'Segoe UI', sans-serif" font-weight="700" font-size="14" fill="#18181b">ESP32-Node 5E6F</text>
+          <text x="0" y="30" font-family="Arial, Helvetica, 'Segoe UI', sans-serif" font-weight="600" font-size="11" fill="#71717a">Firmware v2.3.9</text>
+        </g>
+        <text x="256" y="34" font-family="Arial, Helvetica, 'Segoe UI', sans-serif" font-weight="600" font-size="13" fill="#18181b">Chemical Storage Area</text>
+        <text x="476" y="34" font-family="Arial, Helvetica, 'Segoe UI', sans-serif" font-weight="600" font-size="13" fill="#18181b">Multi-Gas Electrochemical</text>
+        <g transform="translate(696, 18)">
+          <text x="0" y="16" font-family="Arial, Helvetica, 'Segoe UI', sans-serif" font-weight="800" font-size="15" fill="#18181b">389 ppm</text>
+          <text x="0" y="30" font-family="Arial, Helvetica, 'Segoe UI', sans-serif" font-weight="600" font-size="11" fill="#71717a">23.1°C &#8226; 45% RH</text>
+        </g>
+        <text x="936" y="34" font-family="Arial, Helvetica, 'Segoe UI', sans-serif" font-weight="600" font-size="13" fill="#18181b">-61 dBm &#8226; 89% (Battery)</text>
+        <g transform="translate(1196, 14)">
+          <rect width="84" height="28" rx="14" fill="#dcfce7" />
+          <text x="42" y="19" font-family="Arial, Helvetica, 'Segoe UI', sans-serif" font-weight="800" font-size="11" fill="#16a34a" text-anchor="middle">ONLINE</text>
+        </g>
+      </g>
+    </g>
+  </g>
+  
+  </svg>
